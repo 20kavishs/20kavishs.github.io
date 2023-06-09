@@ -99,7 +99,6 @@ input, select, textarea {
 	}
 
 	body {
-		background-color: #935d8c;
 		background-image: url("images/overlay.png"), -moz-linear-gradient(45deg, rgba(10, 62, 250, 0.216), 15%, rgba(54, 115, 196, 0.405) 85%);
 		background-image: url("images/overlay.png"), -webkit-linear-gradient(45deg, rgba(10, 62, 250, 0.216), 15%, rgba(54, 115, 196, 0.405) 85%);
 		background-image: url("images/overlay.png"), -ms-linear-gradient(45deg, rgba(10, 62, 250, 0.216), 15%, rgba(54, 115, 196, 0.405) 85%);
@@ -120,8 +119,7 @@ input, select, textarea {
 /* Type */
 
 	body {
-		background-color: #170014;
-		color: rgba(255, 255, 255, 0.65);
+		background-color: #09112b;
 	}
 
 	body, input, select, textarea {
@@ -181,7 +179,7 @@ input, select, textarea {
 	  }
 	  .child {
 		display: inline-block;
-		padding: 1rem 1rem;
+		padding: 0.5rem 0.5rem;
 		vertical-align: middle;
 		max-width: 500px;
 		margin-left: -30px;
@@ -214,6 +212,7 @@ input, select, textarea {
 
 	p {
 		margin: 0 0 2em 0;
+
 	}
 
 		p.content {
@@ -3107,16 +3106,18 @@ input, select, textarea {
 /* Header */
 
 	#header {
-		padding: 5em 5em 1em 5em ;
+		padding: 0em 0em 0em 0em ;
+		margin: 0em 0em 0em 0em ;
+
 		text-align: center;
 	}
 
 	#hoa {
-		padding: 3em 0em 0em 0em ;
+		padding: 0em 0em 0em 0em ;
 	}
 
 		#header h1 {
-			margin: 0 0 0.25em 0;
+			margin: 0 0 0 0;
 			color: black;
 
 		}
@@ -3126,12 +3127,16 @@ input, select, textarea {
 			letter-spacing: -0.025em;
 		}
 
+		.af {
+			opacity: 0.3;
+		}
+
 		#header.alt {
-			padding: 5em 0em 2em 0em ;
-			background-image: url("images/ye7.jpeg");
-			color: black;
-			background-color: rgba(255, 255, 255);
-			opacity: 0.8;
+			padding: 0em 0em 0em 0em ;
+			/* background-image: url("images/ye7.jpeg"); */
+			background-color: #b0c4e4;
+			border: 1px solid black;
+			opacity: 1;
 
 
 		}
@@ -3418,7 +3423,6 @@ input, select, textarea {
 
 	#main {
 		background-color: #ffffff;
-		color: #636363;
 		border-radius: 0.25em;
 	}
 
@@ -3431,7 +3435,7 @@ input, select, textarea {
 		}
 
 		#main strong, #main b {
-			color: #636363;
+			color: #083fb5;
 		}
 
 		#main h1, #main h2, #main h3, #main h4, #main h5, #main h6 {
@@ -3628,7 +3632,6 @@ input, select, textarea {
 		}
 
 		#main header.major h2:after {
-			background-color: #dddddd;
 			background-image: -moz-linear-gradient(90deg, #efa8b0, #a89cc8, #8cc9f0);
 			background-image: -webkit-linear-gradient(90deg, #efa8b0, #a89cc8, #8cc9f0);
 			background-image: -ms-linear-gradient(90deg, #efa8b0, #a89cc8, #8cc9f0);
@@ -3773,9 +3776,9 @@ input, select, textarea {
 		-webkit-flex-wrap: wrap;
 		-ms-flex-wrap: wrap;
 		flex-wrap: wrap;
-		padding: 5em 5em 3em 5em ;
-		width: calc(100% + 2em);
-		margin: 0 0 3em -2em;
+		padding: 5em 5em 3em 3em ;
+		width: calc(100%);
+		margin: 0em 0 3em 0em;
 	}
 
 		#footer > * {

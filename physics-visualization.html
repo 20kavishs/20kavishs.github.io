@@ -1,0 +1,434 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Double Pendulum Chaos - AI Experiments</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<style>
+			body {
+				background-color: #1a1a2e;
+				margin: 0;
+				padding: 0;
+				font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+				color: white;
+				overflow-x: hidden;
+			}
+			
+			.back-link {
+				position: absolute;
+				top: 30px;
+				left: 30px;
+				text-decoration: none;
+				color: white;
+				font-size: 16px;
+				transition: opacity 0.3s ease;
+				z-index: 10;
+			}
+			
+			.back-link:hover {
+				opacity: 0.8;
+			}
+			
+			.back-link::before {
+				content: "← ";
+				margin-right: 5px;
+			}
+			
+			.container {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 80px 20px 40px;
+			}
+			
+			h1 {
+				font-weight: 300;
+				font-size: 42px;
+				margin: 0 0 20px 0;
+				text-align: center;
+				background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+			}
+			
+			.subtitle {
+				text-align: center;
+				color: #888;
+				margin-bottom: 40px;
+				font-size: 18px;
+			}
+			
+			.visualization-container {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 40px;
+				margin-bottom: 40px;
+			}
+			
+			.canvas-wrapper {
+				background: #0f0f23;
+				border-radius: 12px;
+				padding: 20px;
+				box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+			}
+			
+			canvas {
+				display: block;
+				margin: 0 auto;
+				border: 1px solid #333;
+				border-radius: 8px;
+			}
+			
+			.equations {
+				background: #0f0f23;
+				border-radius: 12px;
+				padding: 30px;
+				box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+			}
+			
+			.equations h2 {
+				color: #667eea;
+				font-size: 24px;
+				margin-bottom: 20px;
+			}
+			
+			.equation {
+				background: rgba(102, 126, 234, 0.1);
+				border-left: 3px solid #667eea;
+				padding: 15px 20px;
+				margin-bottom: 15px;
+				border-radius: 0 8px 8px 0;
+				font-family: 'Courier New', monospace;
+				overflow-x: auto;
+			}
+			
+			.controls {
+				background: #0f0f23;
+				border-radius: 12px;
+				padding: 20px;
+				margin-bottom: 40px;
+				box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+			}
+			
+			.control-group {
+				display: flex;
+				align-items: center;
+				gap: 20px;
+				margin-bottom: 15px;
+			}
+			
+			.control-group label {
+				min-width: 150px;
+				color: #aaa;
+			}
+			
+			.control-group input[type="range"] {
+				flex: 1;
+				height: 6px;
+				background: #333;
+				outline: none;
+				border-radius: 3px;
+				-webkit-appearance: none;
+			}
+			
+			.control-group input[type="range"]::-webkit-slider-thumb {
+				-webkit-appearance: none;
+				width: 18px;
+				height: 18px;
+				background: #667eea;
+				border-radius: 50%;
+				cursor: pointer;
+			}
+			
+			.control-group span {
+				min-width: 60px;
+				text-align: right;
+				color: #667eea;
+				font-weight: bold;
+			}
+			
+			.button-group {
+				display: flex;
+				gap: 15px;
+				margin-top: 20px;
+			}
+			
+			.btn {
+				background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+				border: none;
+				color: white;
+				padding: 10px 25px;
+				border-radius: 25px;
+				font-size: 16px;
+				cursor: pointer;
+				transition: all 0.3s ease;
+			}
+			
+			.btn:hover {
+				transform: translateY(-2px);
+				box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+			}
+			
+			.explanation {
+				background: #0f0f23;
+				border-radius: 12px;
+				padding: 30px;
+				margin-bottom: 40px;
+				box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+				line-height: 1.8;
+			}
+			
+			.explanation h3 {
+				color: #667eea;
+				margin-bottom: 15px;
+			}
+			
+			.explanation p {
+				color: #ccc;
+				margin-bottom: 15px;
+			}
+			
+			.highlight {
+				color: #764ba2;
+				font-weight: bold;
+			}
+			
+			@media (max-width: 768px) {
+				.visualization-container {
+					grid-template-columns: 1fr;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<a href="ai-experiments.html" class="back-link">Back to AI Experiments</a>
+		
+		<div class="container">
+			<h1>Double Pendulum Chaos Theory</h1>
+			<p class="subtitle">A mesmerizing demonstration of chaotic motion in physics</p>
+			
+			<div class="visualization-container">
+				<div class="canvas-wrapper">
+					<canvas id="pendulumCanvas" width="400" height="400"></canvas>
+				</div>
+				
+				<div class="equations">
+					<h2>Lagrangian Equations of Motion</h2>
+					<div class="equation">
+						L = T - V
+					</div>
+					<div class="equation">
+						T = ½m₁(ẋ₁² + ẏ₁²) + ½m₂(ẋ₂² + ẏ₂²)
+					</div>
+					<div class="equation">
+						V = -m₁g·y₁ - m₂g·y₂
+					</div>
+					<div class="equation">
+						θ̈₁ = [−g(2m₁+m₂)sinθ₁ − m₂g·sin(θ₁−2θ₂) − 2sinθ₁·m₂(θ̇₂²L₂ + θ̇₁²L₁cos(θ₁−θ₂))] / [L₁(2m₁+m₂−m₂cos(2θ₁−2θ₂))]
+					</div>
+				</div>
+			</div>
+			
+			<div class="controls">
+				<h3 style="color: #667eea; margin-bottom: 20px;">Interactive Controls</h3>
+				<div class="control-group">
+					<label>Length 1 (L₁):</label>
+					<input type="range" id="length1" min="50" max="150" value="100">
+					<span id="length1Value">100</span>
+				</div>
+				<div class="control-group">
+					<label>Length 2 (L₂):</label>
+					<input type="range" id="length2" min="50" max="150" value="100">
+					<span id="length2Value">100</span>
+				</div>
+				<div class="control-group">
+					<label>Mass 1 (m₁):</label>
+					<input type="range" id="mass1" min="5" max="30" value="10">
+					<span id="mass1Value">10</span>
+				</div>
+				<div class="control-group">
+					<label>Mass 2 (m₂):</label>
+					<input type="range" id="mass2" min="5" max="30" value="10">
+					<span id="mass2Value">10</span>
+				</div>
+				<div class="control-group">
+					<label>Gravity (g):</label>
+					<input type="range" id="gravity" min="1" max="20" value="10" step="0.1">
+					<span id="gravityValue">10.0</span>
+				</div>
+				<div class="button-group">
+					<button class="btn" id="resetBtn">Reset</button>
+					<button class="btn" id="traceBtn">Toggle Trace</button>
+					<button class="btn" id="randomBtn">Random Start</button>
+				</div>
+			</div>
+			
+			<div class="explanation">
+				<h3>Understanding Chaos Theory</h3>
+				<p>The double pendulum is a classic example of <span class="highlight">chaotic motion</span> in physics. Despite being governed by deterministic equations, tiny changes in initial conditions lead to dramatically different outcomes.</p>
+				
+				<h3>Key Concepts:</h3>
+				<p><strong>Sensitive Dependence:</strong> A hallmark of chaos - small differences in initial conditions grow exponentially over time.</p>
+				<p><strong>Phase Space:</strong> The pendulum traces complex, non-repeating paths through its configuration space.</p>
+				<p><strong>Energy Conservation:</strong> Total energy (kinetic + potential) remains constant in this idealized system without friction.</p>
+				
+				<h3>Mathematical Beauty:</h3>
+				<p>The equations of motion are derived using the <span class="highlight">Lagrangian formalism</span>, where L = T - V (kinetic minus potential energy). The resulting coupled differential equations exhibit rich, unpredictable behavior that has fascinated physicists and mathematicians for centuries.</p>
+			</div>
+		</div>
+		
+		<script>
+			const canvas = document.getElementById('pendulumCanvas');
+			const ctx = canvas.getContext('2d');
+			
+			// Pendulum parameters
+			let L1 = 100, L2 = 100;
+			let m1 = 10, m2 = 10;
+			let g = 10;
+			let theta1 = Math.PI / 2;
+			let theta2 = Math.PI / 2;
+			let omega1 = 0, omega2 = 0;
+			let trace = [];
+			let showTrace = true;
+			
+			// Canvas center
+			const cx = canvas.width / 2;
+			const cy = 100;
+			
+			// Update parameter displays
+			document.getElementById('length1').addEventListener('input', (e) => {
+				L1 = parseInt(e.target.value);
+				document.getElementById('length1Value').textContent = L1;
+			});
+			
+			document.getElementById('length2').addEventListener('input', (e) => {
+				L2 = parseInt(e.target.value);
+				document.getElementById('length2Value').textContent = L2;
+			});
+			
+			document.getElementById('mass1').addEventListener('input', (e) => {
+				m1 = parseInt(e.target.value);
+				document.getElementById('mass1Value').textContent = m1;
+			});
+			
+			document.getElementById('mass2').addEventListener('input', (e) => {
+				m2 = parseInt(e.target.value);
+				document.getElementById('mass2Value').textContent = m2;
+			});
+			
+			document.getElementById('gravity').addEventListener('input', (e) => {
+				g = parseFloat(e.target.value);
+				document.getElementById('gravityValue').textContent = g.toFixed(1);
+			});
+			
+			// Button controls
+			document.getElementById('resetBtn').addEventListener('click', () => {
+				theta1 = Math.PI / 2;
+				theta2 = Math.PI / 2;
+				omega1 = 0;
+				omega2 = 0;
+				trace = [];
+			});
+			
+			document.getElementById('traceBtn').addEventListener('click', () => {
+				showTrace = !showTrace;
+				if (!showTrace) trace = [];
+			});
+			
+			document.getElementById('randomBtn').addEventListener('click', () => {
+				theta1 = (Math.random() - 0.5) * Math.PI;
+				theta2 = (Math.random() - 0.5) * Math.PI;
+				omega1 = 0;
+				omega2 = 0;
+				trace = [];
+			});
+			
+			function update(dt) {
+				// Double pendulum equations of motion
+				const sin1 = Math.sin(theta1);
+				const sin2 = Math.sin(theta2);
+				const cos12 = Math.cos(theta1 - theta2);
+				const sin12 = Math.sin(theta1 - theta2);
+				
+				const denom = L1 * (2 * m1 + m2 - m2 * Math.cos(2 * theta1 - 2 * theta2));
+				
+				const alpha1 = (-g * (2 * m1 + m2) * sin1 - m2 * g * Math.sin(theta1 - 2 * theta2) - 
+							   2 * sin12 * m2 * (omega2 * omega2 * L2 + omega1 * omega1 * L1 * cos12)) / denom;
+				
+				const alpha2 = (2 * sin12 * (omega1 * omega1 * L1 * (m1 + m2) + g * (m1 + m2) * Math.cos(theta1) + 
+							   omega2 * omega2 * L2 * m2 * cos12)) / (L2 * denom);
+				
+				omega1 += alpha1 * dt;
+				omega2 += alpha2 * dt;
+				theta1 += omega1 * dt;
+				theta2 += omega2 * dt;
+				
+				// Add damping for stability
+				omega1 *= 0.999;
+				omega2 *= 0.999;
+			}
+			
+			function draw() {
+				ctx.fillStyle = 'rgba(15, 15, 35, 0.1)';
+				ctx.fillRect(0, 0, canvas.width, canvas.height);
+				
+				// Calculate positions
+				const x1 = cx + L1 * Math.sin(theta1);
+				const y1 = cy + L1 * Math.cos(theta1);
+				const x2 = x1 + L2 * Math.sin(theta2);
+				const y2 = y1 + L2 * Math.cos(theta2);
+				
+				// Draw trace
+				if (showTrace) {
+					trace.push({x: x2, y: y2});
+					if (trace.length > 500) trace.shift();
+					
+					ctx.strokeStyle = 'rgba(118, 75, 162, 0.5)';
+					ctx.lineWidth = 2;
+					ctx.beginPath();
+					trace.forEach((point, i) => {
+						if (i === 0) ctx.moveTo(point.x, point.y);
+						else ctx.lineTo(point.x, point.y);
+					});
+					ctx.stroke();
+				}
+				
+				// Draw pendulum
+				ctx.strokeStyle = '#667eea';
+				ctx.lineWidth = 3;
+				ctx.beginPath();
+				ctx.moveTo(cx, cy);
+				ctx.lineTo(x1, y1);
+				ctx.lineTo(x2, y2);
+				ctx.stroke();
+				
+				// Draw masses
+				ctx.fillStyle = '#667eea';
+				ctx.beginPath();
+				ctx.arc(x1, y1, m1 / 2, 0, 2 * Math.PI);
+				ctx.fill();
+				
+				ctx.fillStyle = '#764ba2';
+				ctx.beginPath();
+				ctx.arc(x2, y2, m2 / 2, 0, 2 * Math.PI);
+				ctx.fill();
+				
+				// Draw pivot
+				ctx.fillStyle = '#fff';
+				ctx.beginPath();
+				ctx.arc(cx, cy, 5, 0, 2 * Math.PI);
+				ctx.fill();
+			}
+			
+			function animate() {
+				const dt = 0.01;
+				for (let i = 0; i < 5; i++) {
+					update(dt);
+				}
+				draw();
+				requestAnimationFrame(animate);
+			}
+			
+			animate();
+		</script>
+	</body>
+</html>

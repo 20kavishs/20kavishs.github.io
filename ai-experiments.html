@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>AI Experiments</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<style>
+			body {
+				background-color: #ffffff;
+				margin: 0;
+				padding: 0;
+				font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+			}
+			
+			.container {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 40px 20px;
+			}
+			
+			h1 {
+				font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+				font-weight: 300;
+				font-size: 48px;
+				color: #333;
+				margin: 0 0 40px 0;
+				letter-spacing: -1px;
+			}
+			
+			.back-link {
+				display: inline-block;
+				text-decoration: none;
+				color: #0066cc;
+				font-size: 16px;
+				margin-bottom: 30px;
+				transition: color 0.3s ease;
+			}
+			
+			.back-link:hover {
+				color: #0052a3;
+				text-decoration: underline;
+			}
+			
+			.back-link::before {
+				content: "← ";
+				margin-right: 5px;
+			}
+			
+			.experiments-list {
+				margin-top: 60px;
+			}
+			
+			.experiment-item {
+				background: #f8f8f8;
+				padding: 30px;
+				margin-bottom: 20px;
+				border-radius: 8px;
+				transition: transform 0.3s ease, box-shadow 0.3s ease;
+				cursor: pointer;
+				text-decoration: none;
+				display: block;
+				color: inherit;
+			}
+			
+			.experiment-item:hover {
+				transform: translateY(-3px);
+				box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+			}
+			
+			.experiment-number {
+				color: #0066cc;
+				font-size: 14px;
+				font-weight: 500;
+				margin-bottom: 10px;
+			}
+			
+			.experiment-title {
+				font-size: 24px;
+				font-weight: 400;
+				color: #333;
+				margin-bottom: 10px;
+			}
+			
+			.experiment-description {
+				color: #666;
+				font-size: 16px;
+				line-height: 1.6;
+			}
+			
+			.coming-soon {
+				opacity: 0.5;
+				cursor: default;
+			}
+			
+			.coming-soon:hover {
+				transform: none;
+				box-shadow: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<a href="index.html" class="back-link">Back to Home</a>
+			<h1>AI Experiments</h1>
+			<p style="text-align: center; color: #666; margin-bottom: 40px; font-style: italic;">
+				Experiments below were vibe-coded
+			</p>
+			
+			<div class="experiments-list">
+				<a href="seattle-food-map.html" class="experiment-item">
+					<div class="experiment-number">EXPERIMENT 001</div>
+					<div class="experiment-title">Seattle Food Map</div>
+					<div class="experiment-description">
+						An interactive map visualization of my favorite Seattle restaurants. Features custom markers, 
+						animations, and detailed information about each spot. All restaurants meet the 5-star criteria.
+					</div>
+				</a>
+				
+				<a href="kavish-animation.html" class="experiment-item">
+					<div class="experiment-number">EXPERIMENT 002</div>
+					<div class="experiment-title">Kavish Animation</div>
+					<div class="experiment-description">
+						An animated character that jumps, does a flip, and says "I'm Kavish!" 
+						Features CSS animations, twinkling stars, and a purple gradient background.
+					</div>
+				</a>
+				
+				<a href="wave-interference.html" class="experiment-item">
+					<div class="experiment-number">EXPERIMENT 003</div>
+					<div class="experiment-title">Wave Interference Patterns</div>
+					<div class="experiment-description">
+						A smooth, mesmerizing visualization of two-source wave interference.
+						Features real-time wave equations, adjustable parameters, and beautiful color gradients.
+					</div>
+				</a>
+			</div>
+		</div>
+	</body>
+</html>

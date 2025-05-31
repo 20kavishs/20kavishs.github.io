@@ -1,0 +1,325 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Wave Interference Patterns - AI Experiments</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<style>
+			body {
+				background-color: #0a0a0a;
+				margin: 0;
+				padding: 0;
+				font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+				color: white;
+				overflow: hidden;
+			}
+			
+			.back-link {
+				position: absolute;
+				top: 30px;
+				left: 30px;
+				text-decoration: none;
+				color: white;
+				font-size: 16px;
+				transition: opacity 0.3s ease;
+				z-index: 10;
+			}
+			
+			.back-link:hover {
+				opacity: 0.8;
+			}
+			
+			.back-link::before {
+				content: "← ";
+				margin-right: 5px;
+			}
+			
+			.container {
+				height: 100vh;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+			}
+			
+			h1 {
+				font-weight: 300;
+				font-size: 36px;
+				margin: 0 0 20px 0;
+				text-align: center;
+				background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+			}
+			
+			.subtitle {
+				text-align: center;
+				color: #888;
+				margin-bottom: 30px;
+				font-size: 16px;
+			}
+			
+			canvas {
+				border: 1px solid #333;
+				border-radius: 12px;
+				box-shadow: 0 8px 32px rgba(102, 126, 234, 0.3);
+			}
+			
+			.controls {
+				position: absolute;
+				bottom: 40px;
+				left: 50%;
+				transform: translateX(-50%);
+				display: flex;
+				gap: 20px;
+				background: rgba(0, 0, 0, 0.8);
+				padding: 20px;
+				border-radius: 12px;
+				backdrop-filter: blur(10px);
+			}
+			
+			.control-group {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				gap: 8px;
+			}
+			
+			.control-group label {
+				color: #aaa;
+				font-size: 12px;
+				text-transform: uppercase;
+				letter-spacing: 1px;
+			}
+			
+			.control-group input[type="range"] {
+				width: 100px;
+				height: 4px;
+				background: #333;
+				outline: none;
+				border-radius: 2px;
+				-webkit-appearance: none;
+			}
+			
+			.control-group input[type="range"]::-webkit-slider-thumb {
+				-webkit-appearance: none;
+				width: 16px;
+				height: 16px;
+				background: #667eea;
+				border-radius: 50%;
+				cursor: pointer;
+			}
+			
+			.control-group span {
+				color: #667eea;
+				font-weight: bold;
+				font-size: 14px;
+			}
+			
+			.equation-box {
+				position: absolute;
+				top: 100px;
+				right: 30px;
+				background: rgba(0, 0, 0, 0.8);
+				padding: 20px;
+				border-radius: 12px;
+				backdrop-filter: blur(10px);
+				border: 1px solid #333;
+				max-width: 300px;
+			}
+			
+			.equation-box h3 {
+				color: #667eea;
+				margin: 0 0 15px 0;
+				font-size: 18px;
+			}
+			
+			.equation {
+				background: rgba(102, 126, 234, 0.1);
+				padding: 10px;
+				margin-bottom: 10px;
+				border-radius: 6px;
+				font-family: 'Courier New', monospace;
+				font-size: 14px;
+				color: #ddd;
+			}
+			
+			@media (max-width: 768px) {
+				.equation-box {
+					display: none;
+				}
+				
+				.controls {
+					flex-direction: column;
+					gap: 15px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<a href="ai-experiments.html" class="back-link">Back to AI Experiments</a>
+		
+		<div class="container">
+			<h1>Wave Interference Patterns</h1>
+			<p class="subtitle">Two-source wave interference visualization</p>
+			
+			<canvas id="waveCanvas" width="600" height="400"></canvas>
+		</div>
+		
+		<div class="controls">
+			<div class="control-group">
+				<label>Frequency</label>
+				<input type="range" id="frequency" min="0.5" max="3" value="1.5" step="0.1">
+				<span id="frequencyValue">1.5</span>
+			</div>
+			<div class="control-group">
+				<label>Amplitude</label>
+				<input type="range" id="amplitude" min="10" max="50" value="30" step="5">
+				<span id="amplitudeValue">30</span>
+			</div>
+			<div class="control-group">
+				<label>Distance</label>
+				<input type="range" id="distance" min="100" max="300" value="200" step="10">
+				<span id="distanceValue">200</span>
+			</div>
+			<div class="control-group">
+				<label>Speed</label>
+				<input type="range" id="speed" min="0.5" max="3" value="1" step="0.1">
+				<span id="speedValue">1.0</span>
+			</div>
+		</div>
+		
+		<div class="equation-box">
+			<h3>Wave Equation</h3>
+			<div class="equation">
+				ψ(x,y,t) = A·sin(kr - ωt + φ)
+			</div>
+			<div class="equation">
+				I = |ψ₁ + ψ₂|²
+			</div>
+			<p style="color: #888; font-size: 12px; margin-top: 15px;">
+				Where k is the wave number, r is distance from source, ω is angular frequency, and φ is phase.
+			</p>
+		</div>
+		
+		<script>
+			const canvas = document.getElementById('waveCanvas');
+			const ctx = canvas.getContext('2d');
+			
+			let frequency = 1.5;
+			let amplitude = 30;
+			let distance = 200;
+			let speed = 1;
+			let time = 0;
+			
+			// Source positions
+			let source1 = { x: canvas.width / 2 - 100, y: canvas.height / 2 };
+			let source2 = { x: canvas.width / 2 + 100, y: canvas.height / 2 };
+			
+			// Update controls
+			document.getElementById('frequency').addEventListener('input', (e) => {
+				frequency = parseFloat(e.target.value);
+				document.getElementById('frequencyValue').textContent = frequency.toFixed(1);
+			});
+			
+			document.getElementById('amplitude').addEventListener('input', (e) => {
+				amplitude = parseInt(e.target.value);
+				document.getElementById('amplitudeValue').textContent = amplitude;
+			});
+			
+			document.getElementById('distance').addEventListener('input', (e) => {
+				distance = parseInt(e.target.value);
+				source1.x = canvas.width / 2 - distance / 2;
+				source2.x = canvas.width / 2 + distance / 2;
+				document.getElementById('distanceValue').textContent = distance;
+			});
+			
+			document.getElementById('speed').addEventListener('input', (e) => {
+				speed = parseFloat(e.target.value);
+				document.getElementById('speedValue').textContent = speed.toFixed(1);
+			});
+			
+			function calculateWave(x, y, sourceX, sourceY, t) {
+				const dx = x - sourceX;
+				const dy = y - sourceY;
+				const r = Math.sqrt(dx * dx + dy * dy);
+				const k = 0.1 * frequency;
+				const omega = 0.05 * frequency * speed;
+				return amplitude * Math.sin(k * r - omega * t);
+			}
+			
+			function draw() {
+				const imageData = ctx.createImageData(canvas.width, canvas.height);
+				const data = imageData.data;
+				
+				for (let x = 0; x < canvas.width; x += 2) {
+					for (let y = 0; y < canvas.height; y += 2) {
+						// Calculate wave amplitude from both sources
+						const wave1 = calculateWave(x, y, source1.x, source1.y, time);
+						const wave2 = calculateWave(x, y, source2.x, source2.y, time);
+						const total = wave1 + wave2;
+						
+						// Map amplitude to color
+						const intensity = Math.abs(total) / (2 * amplitude);
+						const hue = 250 - intensity * 60; // Purple to blue gradient
+						const lightness = 20 + intensity * 60;
+						
+						// Convert HSL to RGB
+						const h = hue / 360;
+						const s = 0.8;
+						const l = lightness / 100;
+						
+						const c = (1 - Math.abs(2 * l - 1)) * s;
+						const x1 = c * (1 - Math.abs((h * 6) % 2 - 1));
+						const m = l - c / 2;
+						
+						let r, g, b;
+						if (h < 1/6) { r = c; g = x1; b = 0; }
+						else if (h < 2/6) { r = x1; g = c; b = 0; }
+						else if (h < 3/6) { r = 0; g = c; b = x1; }
+						else if (h < 4/6) { r = 0; g = x1; b = c; }
+						else if (h < 5/6) { r = x1; g = 0; b = c; }
+						else { r = c; g = 0; b = x1; }
+						
+						r = Math.floor((r + m) * 255);
+						g = Math.floor((g + m) * 255);
+						b = Math.floor((b + m) * 255);
+						
+						// Set pixel color (2x2 block for performance)
+						for (let dx = 0; dx < 2; dx++) {
+							for (let dy = 0; dy < 2; dy++) {
+								const px = x + dx;
+								const py = y + dy;
+								if (px < canvas.width && py < canvas.height) {
+									const index = (py * canvas.width + px) * 4;
+									data[index] = r;
+									data[index + 1] = g;
+									data[index + 2] = b;
+									data[index + 3] = 255;
+								}
+							}
+						}
+					}
+				}
+				
+				ctx.putImageData(imageData, 0, 0);
+				
+				// Draw sources
+				ctx.fillStyle = '#fff';
+				ctx.beginPath();
+				ctx.arc(source1.x, source1.y, 5, 0, 2 * Math.PI);
+				ctx.arc(source2.x, source2.y, 5, 0, 2 * Math.PI);
+				ctx.fill();
+				
+				time += 1;
+			}
+			
+			function animate() {
+				draw();
+				requestAnimationFrame(animate);
+			}
+			
+			animate();
+		</script>
+	</body>
+</html>

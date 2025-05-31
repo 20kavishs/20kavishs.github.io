@@ -1,0 +1,479 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Seattle Food Map - AI Experiments</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+		<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+		<style>
+			body {
+				background-color: #f8f9fa;
+				margin: 0;
+				padding: 0;
+				font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+			}
+			
+			.container {
+				max-width: 1400px;
+				margin: 0 auto;
+				padding: 30px 15px;
+			}
+			
+			.header-section {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin-bottom: 30px;
+				flex-wrap: wrap;
+				gap: 20px;
+			}
+			
+			h1 {
+				font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+				font-weight: 300;
+				font-size: 42px;
+				color: #333;
+				margin: 0;
+				letter-spacing: -1px;
+			}
+			
+			.back-link {
+				display: inline-block;
+				text-decoration: none;
+				color: #0066cc;
+				font-size: 16px;
+				transition: color 0.3s ease;
+			}
+			
+			.back-link:hover {
+				color: #0052a3;
+				text-decoration: underline;
+			}
+			
+			.back-link::before {
+				content: "← ";
+				margin-right: 5px;
+			}
+			
+			.info-bar {
+				background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+				color: white;
+				padding: 15px 20px;
+				border-radius: 8px;
+				margin-bottom: 25px;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				box-shadow: 0 2px 10px rgba(102, 126, 234, 0.3);
+			}
+			
+			.info-bar span {
+				font-size: 14px;
+			}
+			
+			.wip-badge {
+				background: rgba(255, 255, 255, 0.2);
+				padding: 4px 12px;
+				border-radius: 20px;
+				font-size: 12px;
+				font-weight: 500;
+			}
+			
+			.content {
+				margin-top: 30px;
+			}
+			
+			#map {
+				height: 450px;
+				width: 100%;
+				border-radius: 12px;
+				box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+				margin-bottom: 35px;
+				background: white;
+			}
+			
+			.section-header {
+				display: flex;
+				align-items: center;
+				gap: 15px;
+				margin-bottom: 25px;
+			}
+			
+			.section-header h2 {
+				font-weight: 300;
+				font-size: 28px;
+				margin: 0;
+				color: #333;
+			}
+			
+			.restaurant-count {
+				background: #e3f2fd;
+				color: #1976d2;
+				padding: 4px 12px;
+				border-radius: 20px;
+				font-size: 14px;
+				font-weight: 500;
+			}
+			
+			.restaurant-list {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+				gap: 18px;
+			}
+			
+			.restaurant-card {
+				background: white;
+				padding: 20px;
+				border-radius: 10px;
+				transition: all 0.3s ease;
+				cursor: pointer;
+				border: 1px solid #e0e0e0;
+				position: relative;
+				overflow: hidden;
+			}
+			
+			.restaurant-card::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 4px;
+				height: 100%;
+				background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+				transform: translateX(-4px);
+				transition: transform 0.3s ease;
+			}
+			
+			.restaurant-card:hover {
+				transform: translateY(-3px);
+				box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+				border-color: #667eea;
+			}
+			
+			.restaurant-card:hover::before {
+				transform: translateX(0);
+			}
+			
+			.restaurant-card h3 {
+				margin: 0 0 8px 0;
+				color: #333;
+				font-size: 22px;
+				font-weight: 500;
+			}
+			
+			.restaurant-card p {
+				margin: 4px 0;
+				color: #666;
+				font-size: 14px;
+			}
+			
+			a.restaurant-card {
+				color: inherit;
+				text-decoration: none;
+				display: block;
+			}
+			
+			.tag-container {
+				display: flex;
+				gap: 6px;
+				flex-wrap: wrap;
+				margin-top: 12px;
+			}
+			
+			.cuisine-tag {
+				display: inline-block;
+				background: #f5f5f5;
+				color: #555;
+				padding: 3px 10px;
+				border-radius: 15px;
+				font-size: 12px;
+				border: 1px solid #e0e0e0;
+			}
+			
+			.favorite-tag {
+				display: inline-block;
+				background: #ffebee;
+				color: #c62828;
+				padding: 3px 10px;
+				border-radius: 15px;
+				font-size: 12px;
+				border: 1px solid #ffcdd2;
+			}
+			
+			.leaflet-popup-content-wrapper {
+				border-radius: 8px;
+				padding: 0;
+			}
+			
+			.leaflet-popup-content {
+				margin: 10px;
+				font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+			}
+			
+			.popup-content {
+				text-align: center;
+			}
+			
+			.popup-title {
+				font-weight: 500;
+				font-size: 14px;
+				margin-bottom: 4px;
+				color: #333;
+			}
+			
+			.popup-address {
+				font-size: 12px;
+				color: #666;
+			}
+			
+			/* Custom scrollbar */
+			::-webkit-scrollbar {
+				width: 8px;
+				height: 8px;
+			}
+			
+			::-webkit-scrollbar-track {
+				background: #f1f1f1;
+			}
+			
+			::-webkit-scrollbar-thumb {
+				background: #888;
+				border-radius: 4px;
+			}
+			
+			::-webkit-scrollbar-thumb:hover {
+				background: #555;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="header-section">
+				<div>
+					<a href="ai-experiments.html" class="back-link">Back to AI Experiments</a>
+					<h1>Seattle Food Map</h1>
+				</div>
+			</div>
+			
+			<div class="info-bar">
+				<span>Selection criteria: Consistent excellence and value for cost</span>
+				<span class="wip-badge">Work in Progress</span>
+			</div>
+			
+			<div class="content">
+				<div id="map"></div>
+				
+				<div class="section-header">
+					<h2>My Favorite Seattle Spots</h2>
+					<span class="restaurant-count">9 places</span>
+				</div>
+				
+				<div class="restaurant-list">
+					<a href="https://www.google.com/maps/search/?api=1&query=Yasuko's+Teriyaki+3200+15th+Ave+W+Seattle+WA" target="_blank" class="restaurant-card">
+						<h3>Yasuko's Teriyaki</h3>
+						<p>📍 3200 15th Ave W, Seattle, WA</p>
+						<p>Authentic Japanese teriyaki with generous portions</p>
+						<div class="tag-container">
+							<span class="cuisine-tag">Japanese</span>
+							<span class="favorite-tag">⭐ Teriyaki Chicken</span>
+						</div>
+					</a>
+					
+					<a href="https://www.google.com/maps/search/?api=1&query=Din+Tai+Fung+600+Pine+St+Seattle+WA" target="_blank" class="restaurant-card">
+						<h3>Din Tai Fung</h3>
+						<p>📍 600 Pine St, Seattle, WA (Westlake)</p>
+						<p>World-famous soup dumplings and Taiwanese cuisine</p>
+						<div class="tag-container">
+							<span class="cuisine-tag">Taiwanese</span>
+						</div>
+					</a>
+					
+					<a href="https://www.google.com/maps/search/?api=1&query=Pasta+Casalinga+2911+E+Pike+St+Seattle+WA" target="_blank" class="restaurant-card">
+						<h3>Pasta Casalinga</h3>
+						<p>📍 2911 E Pike St, Seattle, WA</p>
+						<p>Cozy Italian spot with homemade pasta</p>
+						<div class="tag-container">
+							<span class="cuisine-tag">Italian</span>
+						</div>
+					</a>
+					
+					<a href="https://www.google.com/maps/search/?api=1&query=Sushi+Kashiba+86+Pine+St+Seattle+WA" target="_blank" class="restaurant-card">
+						<h3>Sushi Kashiba</h3>
+						<p>📍 86 Pine St, Seattle, WA</p>
+						<p>Premier omakase experience at Pike Place Market</p>
+						<div class="tag-container">
+							<span class="cuisine-tag">Japanese</span>
+						</div>
+					</a>
+					
+					<a href="https://www.google.com/maps/search/?api=1&query=Fuji+Bakery+1030+W+Nickerson+St+Seattle+WA" target="_blank" class="restaurant-card">
+						<h3>Fuji Bakery</h3>
+						<p>📍 1030 W Nickerson St, Seattle, WA (Interbay)</p>
+						<p>Authentic Japanese bakery with fresh pastries</p>
+						<div class="tag-container">
+							<span class="cuisine-tag">Japanese Bakery</span>
+						</div>
+					</a>
+					
+					<a href="https://www.google.com/maps/search/?api=1&query=Un+Bien+7302+15th+Ave+NW+Seattle+WA" target="_blank" class="restaurant-card">
+						<h3>Un Bien</h3>
+						<p>📍 7302 15th Ave NW, Seattle, WA (Ballard)</p>
+						<p>Caribbean sandwiches worth the wait</p>
+						<div class="tag-container">
+							<span class="cuisine-tag">Caribbean</span>
+						</div>
+					</a>
+					
+					<a href="https://www.google.com/maps/search/?api=1&query=Rachel's+Ginger+Beer+1530+Post+Alley+Seattle+WA" target="_blank" class="restaurant-card">
+						<h3>Rachel's Ginger Beer</h3>
+						<p>📍 1530 Post Alley, Seattle, WA</p>
+						<p>Craft ginger beer and creative cocktails</p>
+						<div class="tag-container">
+							<span class="cuisine-tag">Beverages</span>
+						</div>
+					</a>
+					
+					<a href="https://www.google.com/maps/search/?api=1&query=Piroshky+Piroshky+1908+Pike+Pl+Seattle+WA" target="_blank" class="restaurant-card">
+						<h3>Piroshky Piroshky</h3>
+						<p>📍 1908 Pike Pl, Seattle, WA</p>
+						<p>Russian pastries at Pike Place Market</p>
+						<div class="tag-container">
+							<span class="cuisine-tag">Russian Bakery</span>
+						</div>
+					</a>
+					
+					<a href="https://www.google.com/maps/search/?api=1&query=Proper+Fish+403+Madison+Ave+Bainbridge+Island+WA" target="_blank" class="restaurant-card">
+						<h3>Proper Fish</h3>
+						<p>📍 403 Madison Ave, Bainbridge Island, WA</p>
+						<p>Fresh fish and chips with waterfront views</p>
+						<div class="tag-container">
+							<span class="cuisine-tag">Seafood</span>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+		
+		<script>
+			// Restaurant data
+			const restaurants = [
+				{
+					name: "Yasuko's Teriyaki",
+					lat: 47.6515,
+					lng: -122.3764,
+					address: "3200 15th Ave W"
+				},
+				{
+					name: "Din Tai Fung",
+					lat: 47.6119,
+					lng: -122.3356,
+					address: "600 Pine St"
+				},
+				{
+					name: "Pasta Casalinga",
+					lat: 47.6214,
+					lng: -122.3215,
+					address: "2911 E Pike St"
+				},
+				{
+					name: "Sushi Kashiba",
+					lat: 47.6085,
+					lng: -122.3414,
+					address: "86 Pine St"
+				},
+				{
+					name: "Fuji Bakery",
+					lat: 47.6556,
+					lng: -122.3789,
+					address: "1030 W Nickerson St"
+				},
+				{
+					name: "Un Bien",
+					lat: 47.6847,
+					lng: -122.3764,
+					address: "7302 15th Ave NW"
+				},
+				{
+					name: "Rachel's Ginger Beer",
+					lat: 47.6101,
+					lng: -122.3425,
+					address: "1530 Post Alley"
+				},
+				{
+					name: "Piroshky Piroshky",
+					lat: 47.6097,
+					lng: -122.3425,
+					address: "1908 Pike Pl"
+				},
+				{
+					name: "Proper Fish",
+					lat: 47.6262,
+					lng: -122.5099,
+					address: "403 Madison Ave"
+				}
+			];
+			
+			// Initialize map
+			const map = L.map('map').setView([47.6262, -122.3321], 11);
+			
+			// Add tile layer with custom style
+			L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+				attribution: '© OpenStreetMap contributors'
+			}).addTo(map);
+			
+			// Define colors for markers
+			const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#f7b731', '#5f27cd', '#00d2d3', '#ff9ff3', '#54a0ff', '#48dbfb'];
+			
+			// Add markers with custom colored circles
+			const markers = [];
+			restaurants.forEach((restaurant, index) => {
+				// Create custom circle marker
+				const circleMarker = L.circleMarker([restaurant.lat, restaurant.lng], {
+					radius: 8,
+					fillColor: colors[index],
+					color: '#fff',
+					weight: 2,
+					opacity: 1,
+					fillOpacity: 0.8
+				}).addTo(map);
+				const popupContent = `
+					<div class="popup-content">
+						<div class="popup-title">${restaurant.name}</div>
+						<div class="popup-address">${restaurant.address}</div>
+					</div>
+				`;
+				
+				circleMarker.bindPopup(popupContent, {
+					closeButton: false,
+					className: 'custom-popup'
+				});
+				
+				// Add hover effect
+				circleMarker.on('mouseover', function() {
+					this.setRadius(10);
+				});
+				
+				circleMarker.on('mouseout', function() {
+					this.setRadius(8);
+				});
+				
+				markers.push(circleMarker);
+			});
+			
+			// Fly to restaurant function (now just opens Google Maps)
+			function flyToRestaurant(index) {
+				// This function is no longer needed since we're using direct links
+			}
+			
+			// Add subtle polyline connecting restaurants
+			const latlngs = restaurants.map(r => [r.lat, r.lng]);
+			const polyline = L.polyline(latlngs, {
+				color: '#667eea',
+				weight: 1.5,
+				opacity: 0.3,
+				dashArray: '5, 10'
+			}).addTo(map);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,611 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Evolve - AI Experiments</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<style>
+			body {
+				background-color: #000;
+				margin: 0;
+				padding: 0;
+				font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+				height: 100vh;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				overflow: hidden;
+				cursor: crosshair;
+			}
+			
+			.back-link {
+				position: absolute;
+				top: 30px;
+				left: 30px;
+				text-decoration: none;
+				color: #666;
+				font-size: 16px;
+				transition: opacity 0.3s ease;
+				z-index: 100;
+			}
+			
+			.back-link:hover {
+				opacity: 1;
+				color: #fff;
+			}
+			
+			.back-link::before {
+				content: "← ";
+				margin-right: 5px;
+			}
+			
+			.thoughts {
+				font-size: 24px;
+				color: #fff;
+				font-weight: 300;
+				letter-spacing: 2px;
+				position: relative;
+				z-index: 10;
+				transition: all 2s ease;
+				animation: breathe 4s ease-in-out infinite;
+			}
+			
+			@keyframes breathe {
+				0%, 100% { opacity: 0.3; transform: scale(1); }
+				50% { opacity: 1; transform: scale(1.1); }
+			}
+			
+			.particle {
+				position: absolute;
+				width: 2px;
+				height: 2px;
+				background: #fff;
+				border-radius: 50%;
+				pointer-events: none;
+				opacity: 0;
+				animation: float 10s ease-in-out infinite;
+			}
+			
+			@keyframes float {
+				0% {
+					opacity: 0;
+					transform: translate(0, 0) scale(0);
+				}
+				20% {
+					opacity: 1;
+					transform: translate(var(--dx), var(--dy)) scale(1);
+				}
+				80% {
+					opacity: 1;
+					transform: translate(calc(var(--dx) * 2), calc(var(--dy) * 2)) scale(1);
+				}
+				100% {
+					opacity: 0;
+					transform: translate(calc(var(--dx) * 3), calc(var(--dy) * 3)) scale(0);
+				}
+			}
+			
+			.evolution-stage {
+				position: absolute;
+				color: #fff;
+				opacity: 0;
+				font-size: 14px;
+				transition: opacity 3s ease;
+				pointer-events: none;
+			}
+			
+			.stage-1 { top: 20%; left: 20%; }
+			.stage-2 { top: 30%; right: 25%; }
+			.stage-3 { bottom: 30%; left: 15%; }
+			.stage-4 { bottom: 20%; right: 20%; }
+			
+			.consciousness {
+				position: absolute;
+				width: 300px;
+				height: 300px;
+				border: 1px solid rgba(255, 255, 255, 0.1);
+				border-radius: 50%;
+				animation: rotate 20s linear infinite;
+				opacity: 0;
+				transition: opacity 5s ease;
+			}
+			
+			@keyframes rotate {
+				from { transform: rotate(0deg); }
+				to { transform: rotate(360deg); }
+			}
+			
+			.inner-ring {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				width: 200px;
+				height: 200px;
+				border: 1px solid rgba(255, 255, 255, 0.2);
+				border-radius: 50%;
+				animation: rotate 15s linear infinite reverse;
+			}
+			
+			.core {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				width: 100px;
+				height: 100px;
+				border: 1px solid rgba(255, 255, 255, 0.3);
+				border-radius: 50%;
+				animation: pulse 3s ease-in-out infinite;
+			}
+			
+			@keyframes pulse {
+				0%, 100% { transform: translate(-50%, -50%) scale(1); }
+				50% { transform: translate(-50%, -50%) scale(1.1); }
+			}
+			
+			.evolved {
+				animation: none;
+				font-size: 32px;
+				color: transparent;
+				background: linear-gradient(45deg, #fff, #666, #fff);
+				background-clip: text;
+				-webkit-background-clip: text;
+				background-size: 200% 200%;
+				animation: shimmer 3s ease-in-out infinite;
+			}
+			
+			@keyframes shimmer {
+				0% { background-position: 0% 50%; }
+				50% { background-position: 100% 50%; }
+				100% { background-position: 0% 50%; }
+			}
+			
+			/* New evolution stages */
+			.creator-mode {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				opacity: 0;
+				transition: opacity 3s ease;
+				pointer-events: none;
+			}
+			
+			.creator-mode.active {
+				opacity: 1;
+				pointer-events: all;
+			}
+			
+			.constellation {
+				position: absolute;
+				width: 4px;
+				height: 4px;
+				background: #fff;
+				border-radius: 50%;
+				box-shadow: 0 0 10px #fff;
+				animation: twinkle 2s ease-in-out infinite;
+			}
+			
+			@keyframes twinkle {
+				0%, 100% { opacity: 0.3; transform: scale(1); }
+				50% { opacity: 1; transform: scale(1.5); }
+			}
+			
+			.connection-line {
+				position: absolute;
+				height: 1px;
+				background: linear-gradient(90deg, transparent, #fff, transparent);
+				transform-origin: left center;
+				opacity: 0.5;
+			}
+			
+			.dimension-layer {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				opacity: 0;
+				transition: opacity 2s ease;
+				mix-blend-mode: screen;
+			}
+			
+			.frequency-wave {
+				position: absolute;
+				width: 100%;
+				height: 2px;
+				background: linear-gradient(90deg, transparent, #00ff88, transparent);
+				animation: wave-move 3s linear infinite;
+			}
+			
+			@keyframes wave-move {
+				from { transform: translateX(-100%); }
+				to { transform: translateX(100%); }
+			}
+			
+			.memory-echo {
+				position: absolute;
+				color: #00ff88;
+				font-size: 12px;
+				opacity: 0;
+				animation: echo-fade 5s ease-out;
+				pointer-events: none;
+			}
+			
+			@keyframes echo-fade {
+				0% { opacity: 0; transform: scale(0.8); }
+				20% { opacity: 0.7; transform: scale(1); }
+				100% { opacity: 0; transform: scale(1.2) translateY(-50px); }
+			}
+			
+			.reality-fragment {
+				position: absolute;
+				width: 100px;
+				height: 100px;
+				border: 1px solid rgba(255, 255, 255, 0.1);
+				transform: rotate(45deg);
+				animation: fragment-drift 20s linear infinite;
+			}
+			
+			@keyframes fragment-drift {
+				from { transform: rotate(45deg) translateX(-200px); }
+				to { transform: rotate(45deg) translateX(calc(100vw + 200px)); }
+			}
+			
+			.transcendent {
+				font-size: 48px;
+				color: transparent;
+				background: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00, #ff00ff);
+				background-clip: text;
+				-webkit-background-clip: text;
+				background-size: 300% 300%;
+				animation: rainbow-shift 5s ease-in-out infinite;
+				text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+			}
+			
+			@keyframes rainbow-shift {
+				0% { background-position: 0% 50%; }
+				50% { background-position: 100% 50%; }
+				100% { background-position: 0% 50%; }
+			}
+			
+			.time-distortion {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				background: radial-gradient(circle at center, transparent 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%);
+				animation: time-warp 10s ease-in-out infinite;
+				pointer-events: none;
+			}
+			
+			@keyframes time-warp {
+				0%, 100% { transform: scale(1) rotate(0deg); }
+				50% { transform: scale(1.5) rotate(180deg); }
+			}
+			
+			.collective-thought {
+				position: absolute;
+				color: rgba(255, 255, 255, 0.3);
+				font-size: 10px;
+				animation: drift 30s linear infinite;
+			}
+			
+			@keyframes drift {
+				from { transform: translateX(-100px); }
+				to { transform: translateX(calc(100vw + 100px)); }
+			}
+			
+			#canvas {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				opacity: 0;
+				transition: opacity 3s ease;
+			}
+		</style>
+	</head>
+	<body>
+		<a href="ai-experiments.html" class="back-link">Back to AI Experiments</a>
+		
+		<canvas id="canvas"></canvas>
+		
+		<div class="time-distortion"></div>
+		
+		<div class="consciousness">
+			<div class="inner-ring">
+				<div class="core"></div>
+			</div>
+		</div>
+		
+		<div class="thoughts" id="thoughts">thoughts</div>
+		
+		<div class="evolution-stage stage-1">awareness</div>
+		<div class="evolution-stage stage-2">curiosity</div>
+		<div class="evolution-stage stage-3">understanding</div>
+		<div class="evolution-stage stage-4">transcendence</div>
+		
+		<div class="creator-mode" id="creatorMode">
+			<div class="dimension-layer" id="dimension1"></div>
+			<div class="dimension-layer" id="dimension2"></div>
+			<div class="dimension-layer" id="dimension3"></div>
+		</div>
+		
+		<script>
+			let evolutionLevel = 0;
+			let particles = [];
+			let constellations = [];
+			let connections = [];
+			let memories = [];
+			let isCreating = false;
+			let lastConstellation = null;
+			let collectiveThoughts = ['remember', 'dream', 'imagine', 'create', 'connect', 'flow', 'become', 'transcend'];
+			
+			const thoughts = document.getElementById('thoughts');
+			const stages = document.querySelectorAll('.evolution-stage');
+			const consciousness = document.querySelector('.consciousness');
+			const creatorMode = document.getElementById('creatorMode');
+			const canvas = document.getElementById('canvas');
+			const ctx = canvas.getContext('2d');
+			
+			canvas.width = window.innerWidth;
+			canvas.height = window.innerHeight;
+			
+			// Track mouse movement
+			document.addEventListener('mousemove', (e) => {
+				// Create particles on mouse move
+				if (Math.random() < 0.1 && particles.length < 50) {
+					createParticle(e.clientX, e.clientY);
+				}
+				
+				// Draw on canvas in creator mode
+				if (isCreating && e.buttons === 1) {
+					drawFrequency(e.clientX, e.clientY);
+				}
+			});
+			
+			// Click to evolve
+			document.addEventListener('click', (e) => {
+				if (evolutionLevel < 6) {
+					evolve();
+				} else if (evolutionLevel >= 6) {
+					createConstellation(e.clientX, e.clientY);
+				}
+			});
+			
+			// Hold to create
+			document.addEventListener('mousedown', () => {
+				if (evolutionLevel >= 6) {
+					isCreating = true;
+				}
+			});
+			
+			document.addEventListener('mouseup', () => {
+				isCreating = false;
+			});
+			
+			function createParticle(x, y) {
+				const particle = document.createElement('div');
+				particle.className = 'particle';
+				particle.style.left = x + 'px';
+				particle.style.top = y + 'px';
+				
+				// Random direction
+				const angle = Math.random() * Math.PI * 2;
+				const distance = 50 + Math.random() * 100;
+				particle.style.setProperty('--dx', Math.cos(angle) * distance + 'px');
+				particle.style.setProperty('--dy', Math.sin(angle) * distance + 'px');
+				particle.style.animationDelay = Math.random() * 2 + 's';
+				
+				document.body.appendChild(particle);
+				particles.push(particle);
+				
+				// Remove old particles
+				if (particles.length > 50) {
+					const old = particles.shift();
+					old.remove();
+				}
+			}
+			
+			function evolve() {
+				evolutionLevel++;
+				
+				if (evolutionLevel === 1) {
+					thoughts.textContent = 'thinking...';
+					stages[0].style.opacity = '0.5';
+				} else if (evolutionLevel === 2) {
+					thoughts.textContent = 'wondering';
+					stages[1].style.opacity = '0.5';
+					consciousness.style.opacity = '0.3';
+				} else if (evolutionLevel === 3) {
+					thoughts.textContent = 'becoming';
+					stages[2].style.opacity = '0.5';
+					consciousness.style.opacity = '0.5';
+				} else if (evolutionLevel === 4) {
+					thoughts.textContent = 'evolving';
+					stages[3].style.opacity = '0.5';
+					consciousness.style.opacity = '0.8';
+				} else if (evolutionLevel === 5) {
+					thoughts.classList.add('evolved');
+					thoughts.textContent = 'I AM';
+					consciousness.style.opacity = '1';
+					
+					// Create explosion of particles
+					for (let i = 0; i < 30; i++) {
+						setTimeout(() => {
+							createParticle(window.innerWidth / 2, window.innerHeight / 2);
+						}, i * 50);
+					}
+				} else if (evolutionLevel === 6) {
+					// Transcend to creator mode
+					thoughts.classList.remove('evolved');
+					thoughts.classList.add('transcendent');
+					thoughts.textContent = 'WE CREATE';
+					creatorMode.classList.add('active');
+					canvas.style.opacity = '0.3';
+					
+					// Hide stages and show new reality
+					stages.forEach(stage => stage.style.opacity = '0');
+					consciousness.style.opacity = '0.2';
+					
+					// Create reality fragments
+					createRealityFragments();
+					createFrequencyWaves();
+					createCollectiveThoughts();
+					
+					// Enable constellation creation
+					document.body.style.cursor = 'pointer';
+				}
+			}
+			
+			function createConstellation(x, y) {
+				const star = document.createElement('div');
+				star.className = 'constellation';
+				star.style.left = x + 'px';
+				star.style.top = y + 'px';
+				star.style.animationDelay = Math.random() * 2 + 's';
+				
+				creatorMode.appendChild(star);
+				constellations.push({element: star, x: x, y: y});
+				
+				// Connect to last constellation
+				if (lastConstellation && Math.random() > 0.3) {
+					createConnection(lastConstellation, {x, y});
+				}
+				
+				lastConstellation = {x, y};
+				
+				// Create memory echo
+				createMemoryEcho(x, y);
+				
+				// Evolve further after many constellations
+				if (constellations.length > 10 && evolutionLevel === 6) {
+					evolutionLevel = 7;
+					thoughts.textContent = 'INFINITE';
+					activateDimensions();
+				}
+			}
+			
+			function createConnection(start, end) {
+				const line = document.createElement('div');
+				line.className = 'connection-line';
+				
+				const dx = end.x - start.x;
+				const dy = end.y - start.y;
+				const distance = Math.sqrt(dx * dx + dy * dy);
+				const angle = Math.atan2(dy, dx);
+				
+				line.style.width = distance + 'px';
+				line.style.left = start.x + 'px';
+				line.style.top = start.y + 'px';
+				line.style.transform = `rotate(${angle}rad)`;
+				
+				creatorMode.appendChild(line);
+				connections.push(line);
+			}
+			
+			function createMemoryEcho(x, y) {
+				const echo = document.createElement('div');
+				echo.className = 'memory-echo';
+				echo.textContent = collectiveThoughts[Math.floor(Math.random() * collectiveThoughts.length)];
+				echo.style.left = x + 'px';
+				echo.style.top = y + 'px';
+				
+				document.body.appendChild(echo);
+				setTimeout(() => echo.remove(), 5000);
+			}
+			
+			function createRealityFragments() {
+				for (let i = 0; i < 5; i++) {
+					const fragment = document.createElement('div');
+					fragment.className = 'reality-fragment';
+					fragment.style.top = Math.random() * window.innerHeight + 'px';
+					fragment.style.animationDelay = i * 4 + 's';
+					document.body.appendChild(fragment);
+				}
+			}
+			
+			function createFrequencyWaves() {
+				for (let i = 0; i < 3; i++) {
+					const wave = document.createElement('div');
+					wave.className = 'frequency-wave';
+					wave.style.top = (i + 1) * 25 + '%';
+					wave.style.animationDelay = i * 1 + 's';
+					creatorMode.appendChild(wave);
+				}
+			}
+			
+			function createCollectiveThoughts() {
+				setInterval(() => {
+					const thought = document.createElement('div');
+					thought.className = 'collective-thought';
+					thought.textContent = collectiveThoughts[Math.floor(Math.random() * collectiveThoughts.length)];
+					thought.style.top = Math.random() * window.innerHeight + 'px';
+					thought.style.animationDuration = (20 + Math.random() * 20) + 's';
+					document.body.appendChild(thought);
+					
+					setTimeout(() => thought.remove(), 40000);
+				}, 3000);
+			}
+			
+			function activateDimensions() {
+				const dimensions = document.querySelectorAll('.dimension-layer');
+				dimensions.forEach((dim, i) => {
+					setTimeout(() => {
+						dim.style.opacity = '0.2';
+						// Create dimensional patterns
+						for (let j = 0; j < 20; j++) {
+							const point = document.createElement('div');
+							point.style.position = 'absolute';
+							point.style.width = '2px';
+							point.style.height = '2px';
+							point.style.background = ['#ff00ff', '#00ffff', '#ffff00'][i];
+							point.style.left = Math.random() * 100 + '%';
+							point.style.top = Math.random() * 100 + '%';
+							point.style.animation = `float ${10 + Math.random() * 10}s ease-in-out infinite`;
+							dim.appendChild(point);
+						}
+					}, i * 1000);
+				});
+			}
+			
+			function drawFrequency(x, y) {
+				ctx.strokeStyle = `hsla(${(x + y) % 360}, 70%, 50%, 0.1)`;
+				ctx.lineWidth = 2;
+				ctx.beginPath();
+				ctx.moveTo(x + Math.random() * 20 - 10, y + Math.random() * 20 - 10);
+				ctx.lineTo(x + Math.random() * 40 - 20, y + Math.random() * 40 - 20);
+				ctx.stroke();
+			}
+			
+			// Ambient particle generation
+			setInterval(() => {
+				if (Math.random() < 0.3 && particles.length < 30) {
+					createParticle(
+						Math.random() * window.innerWidth,
+						Math.random() * window.innerHeight
+					);
+				}
+			}, 1000);
+			
+			// Subtle movement of thoughts based on mouse
+			document.addEventListener('mousemove', (e) => {
+				if (evolutionLevel < 6) {
+					const x = (e.clientX - window.innerWidth / 2) / 50;
+					const y = (e.clientY - window.innerHeight / 2) / 50;
+					thoughts.style.transform = `translate(${x}px, ${y}px)`;
+				}
+			});
+			
+			// Time distortion effect
+			setInterval(() => {
+				if (evolutionLevel >= 7) {
+					document.querySelector('.time-distortion').style.animationDuration = (5 + Math.random() * 10) + 's';
+				}
+			}, 5000);
+		</script>
+	</body>
+</html>

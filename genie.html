@@ -7,17 +7,29 @@
     <style>
         :root { --accent: #2a5bd7; }
         body, html { margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif; background: linear-gradient(180deg, #ffffff, #f0f7ff); color: #333; }
-        header { display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; }
+        header { display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; position: sticky; top: 0; backdrop-filter: blur(12px); background: rgba(255, 255, 255, 0.85); border-bottom: 1px solid rgba(42, 91, 215, 0.08); z-index: 10; }
         nav a { margin-left: 20px; text-decoration: none; color: #555; font-size: 14px; }
         nav a:hover { color: var(--accent); }
-        .hero { padding: 80px 20px; text-align: center; }
+        .hero { padding: 120px 20px 100px; text-align: center; position: relative; }
+        .hero::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at top, rgba(42, 91, 215, 0.18), transparent 55%); z-index: -1; }
         h1 { font-size: 64px; margin: 0; text-transform: lowercase; }
-        h2 { font-size: 24px; margin-bottom: 20px; text-transform: lowercase; }
-        p { max-width: 600px; margin: 20px auto; line-height: 1.6; }
-        .cta { display: inline-block; margin-top: 30px; padding: 12px 30px; border-radius: 24px; background: var(--accent); color: #fff; text-decoration: none; font-size: 14px; }
-        section { padding: 60px 20px; text-align: center; }
-        .features { display: flex; justify-content: center; gap: 40px; margin-top: 40px; }
-        .feature { max-width: 200px; color: var(--accent); border: 1px solid var(--accent); border-radius: 12px; padding: 10px; }
+        h2 { font-size: 32px; margin-bottom: 20px; text-transform: lowercase; }
+        p { max-width: 680px; margin: 20px auto; line-height: 1.7; }
+        .cta { display: inline-block; margin-top: 30px; padding: 14px 36px; border-radius: 999px; background: var(--accent); color: #fff; text-decoration: none; font-size: 16px; box-shadow: 0 15px 35px rgba(42, 91, 215, 0.25); transition: transform 0.2s ease, box-shadow 0.2s ease; }
+        .cta:hover { transform: translateY(-2px); box-shadow: 0 20px 45px rgba(42, 91, 215, 0.35); }
+        .value-tag { display: inline-block; margin-top: 16px; padding: 6px 16px; border-radius: 999px; background: rgba(42, 91, 215, 0.1); color: var(--accent); font-size: 14px; letter-spacing: 0.5px; text-transform: uppercase; }
+        .contact-note { margin-top: 32px; display: inline-block; }
+        .contact-note a { color: inherit; text-decoration: underline; }
+        section { padding: 80px 20px; text-align: center; }
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 24px; margin-top: 40px; max-width: 720px; margin-left: auto; margin-right: auto; }
+        .feature { padding: 24px; border-radius: 16px; background: #fff; border: 1px solid rgba(42, 91, 215, 0.15); box-shadow: 0 12px 30px rgba(21, 72, 170, 0.08); color: #1d3c8a; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; font-size: 13px; }
+        .feature span { display: block; margin-top: 12px; font-size: 14px; text-transform: none; color: #4a5d85; font-weight: 400; }
+        .report-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 30px; max-width: 960px; margin: 50px auto 0; }
+        .report-card { padding: 32px; border-radius: 20px; background: linear-gradient(160deg, rgba(42, 91, 215, 0.12), rgba(255, 255, 255, 0.7)); box-shadow: 0 18px 45px rgba(13, 57, 156, 0.08); text-align: left; }
+        .report-card h3 { margin-top: 0; font-size: 22px; text-transform: none; color: #1d3c8a; }
+        .report-card p { margin: 12px 0 0; font-size: 15px; color: #4a5d85; }
+        .report-icon { font-size: 32px; margin-bottom: 14px; }
+        .banner { max-width: 720px; margin: 0 auto; padding: 24px 32px; background: rgba(42, 91, 215, 0.08); border-radius: 18px; color: #1d3c8a; font-weight: 600; }
         footer { padding: 40px; text-align: center; font-size: 12px; color: #999; }
     </style>
 </head>
@@ -26,29 +38,53 @@
         <div>genie</div>
         <nav>
             <a href="#about">about</a>
+            <a href="#report">report</a>
             <a href="#contact">contact</a>
         </nav>
     </header>
     <div class="hero">
         <h1>genie</h1>
-        <p>Genie teams up with small businesses to find practical ways AI and everyday software tools can boost efficiency. Meet with us twice and we'll send a clear report with steps to save time, cut costs, and simplify operations.</p>
-        <a class="cta" href="#contact">get started</a>
+        <p>Genie partners with small business leaders to uncover the smart, simple systems that move the needle. In two short sessions we map out the tools, automations, and AI plays that save time, cut costs, simplify operations, and unlock your next wave of growth.</p>
+        <div class="value-tag">$750 strategy report · yours free</div>
+        <a class="cta" href="https://calendly.com/kavishpsucamp/30min" target="_blank" rel="noopener">get started</a>
     </div>
     <section id="about">
+        <div class="banner">two conversations. one tailored action plan to help your team work smarter this quarter.</div>
         <div class="features">
-            <div class="feature">save time</div>
-            <div class="feature">cut costs</div>
-            <div class="feature">simplify ops</div>
+            <div class="feature">save time<span>eliminate manual busywork with the right no-code stack</span></div>
+            <div class="feature">cut costs<span>automate repeatable workflows and trim subscription sprawl</span></div>
+            <div class="feature">simplify ops<span>connect your tools so data flows cleanly end-to-end</span></div>
+            <div class="feature">level up strategy<span>translate operational wins into sharper positioning and offers</span></div>
+            <div class="feature">amplify marketing<span>build smarter campaigns fueled by insights, not guesswork</span></div>
         </div>
     </section>
-    <section id="sample">
-        <h2>sample report</h2>
-        <p>Overview: Lorem ipsum dolor sit amet. Step 1: Ut enim ad minim veniam, quis nostrud. Step 2: Duis aute irure dolor in reprehenderit. Outcome: Excepteur sint occaecat cupidatat non proident.</p>
+    <section id="report">
+        <h2>what's inside your report</h2>
+        <div class="report-cards">
+            <div class="report-card">
+                <div class="report-icon">🧭</div>
+                <h3>Operational playbook</h3>
+                <p>Clear prioritised recommendations on the software and workflows that shave hours off recurring tasks, protect margins, and create the headroom to scale.</p>
+            </div>
+            <div class="report-card">
+                <div class="report-icon">🤖</div>
+                <h3>AI advantage roadmap</h3>
+                <p>Everyone’s talking about AI—your report makes it actionable. Discover automations, copilots, and prompts tailored to the way your team sells, supports, and delivers.</p>
+            </div>
+            <div class="report-card">
+                <div class="report-icon">📈</div>
+                <h3>Growth acceleration kit</h3>
+                <p>Insights that tie operational gains to sharper strategy, smarter marketing, and customer experiences that keep people coming back.</p>
+            </div>
+        </div>
     </section>
     <section id="contact">
-        <p>email: hello@genie.ai</p>
+        <h2>ready for your custom brief?</h2>
+        <p>Grab a slot and we’ll meet you where you are—whether you’re modernising operations, experimenting with AI, or planning your next growth sprint.</p>
+        <a class="cta" href="https://calendly.com/kavishpsucamp/30min" target="_blank" rel="noopener">book a 30-min intro</a>
+        <p class="value-tag contact-note">have a question? <a href="mailto:kavishs@sas.upenn.edu">kavishs@sas.upenn.edu</a></p>
     </section>
-    <footer>&copy; 2024 genie</footer>
+    <footer>&copy; 2025 genie</footer>
 </body>
 </html>
 

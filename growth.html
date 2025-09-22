@@ -212,7 +212,7 @@
 
               <aside class="rounded-3xl bg-white/10 p-8 backdrop-blur-sm space-y-5">
                 <div class="flex items-center justify-between">
-                  <h3 class="text-xl font-semibold">AI notes</h3>
+                  <h3 class="text-xl font-semibold">AI insights</h3>
                   <span class="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-1.5 text-sm text-white/75">
                     <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
                     Synced
@@ -351,15 +351,21 @@
       <p class="text-xs uppercase tracking-wide text-white/50">Genie focus</p>
       <p id="growth-menu-context" class="mt-1 text-sm font-semibold text-white"></p>
       <div class="mt-4 space-y-2">
-        <button class="growth-menu-option flex w-full items-center gap-2 rounded-xl bg-white/10 px-3 py-2 text-left text-white/80 hover:bg-white/20 transition" data-action="refresh">
+        <button class="growth-menu-option flex w-full items-center gap-2 rounded-xl bg-white/10 px-3 py-2 text-left text-white/80 hover:bg-white/20 transition" data-action="learn">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M4 7h16M4 12h16m-8 5h8" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M5 7h14M5 12h14M5 17h14" />
           </svg>
-          Refresh plan
+          Learn more
+        </button>
+        <button class="growth-menu-option flex w-full items-center gap-2 rounded-xl bg-white/10 px-3 py-2 text-left text-white/80 hover:bg-white/20 transition" data-action="add">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 5v14m7-7H5" />
+          </svg>
+          Add to strategy
         </button>
         <button class="growth-menu-option flex w-full items-center gap-2 rounded-xl bg-white/10 px-3 py-2 text-left text-white/80 hover:bg-white/20 transition" data-action="experiment">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 6v12m6-6H6" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M7 4h10m-8 0v5l-3 6h12l-3-6V4" />
           </svg>
           Draft experiment
         </button>
@@ -388,11 +394,43 @@
       const growthMenuContext = document.getElementById('growth-menu-context');
       const growthTriggers = document.querySelectorAll('.growth-ai-trigger');
       let growthActiveTrigger = null;
+      let growthLastCoords = null;
 
-      function positionGrowthMenu(trigger) {
-        const rect = trigger.getBoundingClientRect();
-        growthMenu.style.top = `${rect.bottom + window.scrollY + 8}px`;
-        growthMenu.style.left = `${Math.min(rect.left + window.scrollX, window.innerWidth - growthMenu.offsetWidth - 16)}px`;
+      function positionGrowthMenu(coords) {
+        const offset = 12;
+        requestAnimationFrame(() => {
+          const { innerWidth, innerHeight, scrollX, scrollY } = window;
+          const menuWidth = growthMenu.offsetWidth;
+          const menuHeight = growthMenu.offsetHeight;
+
+          let left = coords.x + scrollX - menuWidth / 2;
+          let top = coords.y + scrollY + offset;
+
+          const minLeft = scrollX + 16;
+          const maxLeft = scrollX + innerWidth - menuWidth - 16;
+          left = Math.min(Math.max(left, minLeft), maxLeft);
+
+          const minTop = scrollY + 16;
+          const maxTop = scrollY + innerHeight - menuHeight - 16;
+          top = Math.min(Math.max(top, minTop), maxTop);
+
+          growthMenu.style.left = `${left}px`;
+          growthMenu.style.top = `${top}px`;
+        });
+      }
+
+      function showGrowthMenu(coords) {
+        growthMenu.classList.remove('hidden');
+        growthMenu.style.display = 'block';
+        growthLastCoords = coords;
+        positionGrowthMenu(coords);
+      }
+
+      function hideGrowthMenu() {
+        growthMenu.classList.add('hidden');
+        growthMenu.style.display = 'none';
+        growthActiveTrigger = null;
+        growthLastCoords = null;
       }
 
       growthTriggers.forEach((trigger) => {
@@ -401,35 +439,33 @@
           const label = trigger.dataset.label || 'Strategy';
           growthMenuContext.textContent = label;
           growthActiveTrigger = trigger;
-          growthMenu.classList.remove('hidden');
-          growthMenu.style.display = 'block';
-          requestAnimationFrame(() => {
-            positionGrowthMenu(trigger);
-          });
+          showGrowthMenu({ x: event.clientX, y: event.clientY });
         });
       });
 
       document.addEventListener('click', (event) => {
         if (!growthMenu.contains(event.target)) {
-          growthMenu.classList.add('hidden');
-          growthMenu.style.display = 'none';
-          growthActiveTrigger = null;
+          hideGrowthMenu();
         }
       });
 
       const growthOptions = document.querySelectorAll('.growth-menu-option');
       growthOptions.forEach((option) => {
         option.addEventListener('click', () => {
-          growthMenu.classList.add('hidden');
-          growthMenu.style.display = 'none';
           const action = option.dataset.action;
-          alert(action === 'refresh' ? 'Genie is tuning the growth plan.' : 'Experiment card drafted in Experiments.');
+          const messages = {
+            learn: 'Genie is pulling more signal detail.',
+            add: 'Added to your growth strategy plan.',
+            experiment: 'Experiment card drafted in Experiments.',
+          };
+          alert(messages[action] || 'Genie is thinking...');
+          hideGrowthMenu();
         });
       });
 
       window.addEventListener('resize', () => {
-        if (!growthMenu.classList.contains('hidden') && growthActiveTrigger) {
-          positionGrowthMenu(growthActiveTrigger);
+        if (!growthMenu.classList.contains('hidden') && growthLastCoords) {
+          positionGrowthMenu(growthLastCoords);
         }
       });
     </script>

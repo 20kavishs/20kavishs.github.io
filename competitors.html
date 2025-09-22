@@ -181,7 +181,7 @@
 
             <div class="grid gap-6 lg:grid-cols-[1.1fr,0.9fr]">
               <div class="space-y-6">
-                <div class="grid gap-6 xl:grid-cols-[1.1fr,0.9fr]">
+                <div class="grid w-full gap-6 lg:grid-cols-2 xl:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
                   <div class="rounded-3xl bg-white/10 p-7 backdrop-blur-sm space-y-5">
                     <h3 class="text-xl font-semibold">Competitor watchlist</h3>
                     <div class="grid gap-4 sm:grid-cols-2 text-base text-white/80">
@@ -257,7 +257,7 @@
                   </div>
 
                   <div class="rounded-3xl bg-white/10 p-7 backdrop-blur-sm space-y-4">
-                    <h3 class="text-xl font-semibold">AI insights / thoughts</h3>
+                    <h3 class="text-xl font-semibold">AI insights</h3>
                     <ul class="space-y-3 text-base text-white/80">
                       <li class="flex gap-3">
                         <span class="mt-1 h-2.5 w-2.5 rounded-full bg-rose-400"></span>
@@ -377,15 +377,21 @@
       <p class="text-xs uppercase tracking-wide text-white/50">Genie focus</p>
       <p id="competitor-menu-context" class="mt-1 text-sm font-semibold text-white"></p>
       <div class="mt-4 space-y-2">
-        <button class="competitor-menu-option flex w-full items-center gap-2 rounded-xl bg-white/10 px-3 py-2 text-left text-white/80 hover:bg-white/20 transition" data-action="refresh">
+        <button class="competitor-menu-option flex w-full items-center gap-2 rounded-xl bg-white/10 px-3 py-2 text-left text-white/80 hover:bg-white/20 transition" data-action="learn">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M4 7h16M4 12h16m-8 5h8" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M5 7h14M5 12h14M5 17h14" />
           </svg>
-          Refresh plan
+          Learn more
+        </button>
+        <button class="competitor-menu-option flex w-full items-center gap-2 rounded-xl bg-white/10 px-3 py-2 text-left text-white/80 hover:bg-white/20 transition" data-action="add">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 5v14m7-7H5" />
+          </svg>
+          Add to strategy
         </button>
         <button class="competitor-menu-option flex w-full items-center gap-2 rounded-xl bg-white/10 px-3 py-2 text-left text-white/80 hover:bg-white/20 transition" data-action="experiment">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 6v12m6-6H6" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M7 4h10m-8 0v5l-3 6h12l-3-6V4" />
           </svg>
           Draft experiment
         </button>
@@ -414,11 +420,43 @@
       const competitorMenuContext = document.getElementById('competitor-menu-context');
       const competitorTriggers = document.querySelectorAll('.competitor-ai-trigger');
       let competitorActiveTrigger = null;
+      let competitorLastCoords = null;
 
-      function positionCompetitorMenu(trigger) {
-        const rect = trigger.getBoundingClientRect();
-        competitorMenu.style.top = `${rect.bottom + window.scrollY + 8}px`;
-        competitorMenu.style.left = `${Math.min(rect.left + window.scrollX, window.innerWidth - competitorMenu.offsetWidth - 16)}px`;
+      function positionCompetitorMenu(coords) {
+        const offset = 12;
+        requestAnimationFrame(() => {
+          const { innerWidth, innerHeight, scrollX, scrollY } = window;
+          const menuWidth = competitorMenu.offsetWidth;
+          const menuHeight = competitorMenu.offsetHeight;
+
+          let left = coords.x + scrollX - menuWidth / 2;
+          let top = coords.y + scrollY + offset;
+
+          const minLeft = scrollX + 16;
+          const maxLeft = scrollX + innerWidth - menuWidth - 16;
+          left = Math.min(Math.max(left, minLeft), maxLeft);
+
+          const minTop = scrollY + 16;
+          const maxTop = scrollY + innerHeight - menuHeight - 16;
+          top = Math.min(Math.max(top, minTop), maxTop);
+
+          competitorMenu.style.left = `${left}px`;
+          competitorMenu.style.top = `${top}px`;
+        });
+      }
+
+      function showCompetitorMenu(coords) {
+        competitorMenu.classList.remove('hidden');
+        competitorMenu.style.display = 'block';
+        competitorLastCoords = coords;
+        positionCompetitorMenu(coords);
+      }
+
+      function hideCompetitorMenu() {
+        competitorMenu.classList.add('hidden');
+        competitorMenu.style.display = 'none';
+        competitorActiveTrigger = null;
+        competitorLastCoords = null;
       }
 
       competitorTriggers.forEach((trigger) => {
@@ -427,35 +465,33 @@
           const label = trigger.dataset.label || 'Landscape';
           competitorMenuContext.textContent = label;
           competitorActiveTrigger = trigger;
-          competitorMenu.classList.remove('hidden');
-          competitorMenu.style.display = 'block';
-          requestAnimationFrame(() => {
-            positionCompetitorMenu(trigger);
-          });
+          showCompetitorMenu({ x: event.clientX, y: event.clientY });
         });
       });
 
       document.addEventListener('click', (event) => {
         if (!competitorMenu.contains(event.target)) {
-          competitorMenu.classList.add('hidden');
-          competitorMenu.style.display = 'none';
-          competitorActiveTrigger = null;
+          hideCompetitorMenu();
         }
       });
 
       const competitorOptions = document.querySelectorAll('.competitor-menu-option');
       competitorOptions.forEach((option) => {
         option.addEventListener('click', () => {
-          competitorMenu.classList.add('hidden');
-          competitorMenu.style.display = 'none';
           const action = option.dataset.action;
-          alert(action === 'refresh' ? 'Genie refreshed the competitive plan.' : 'Experiment idea saved to Experiments.');
+          const messages = {
+            learn: 'Genie is pulling a deeper read on that signal.',
+            add: 'Added to the competitive strategy board.',
+            experiment: 'Experiment idea saved to Experiments.',
+          };
+          alert(messages[action] || 'Genie is thinking...');
+          hideCompetitorMenu();
         });
       });
 
       window.addEventListener('resize', () => {
-        if (!competitorMenu.classList.contains('hidden') && competitorActiveTrigger) {
-          positionCompetitorMenu(competitorActiveTrigger);
+        if (!competitorMenu.classList.contains('hidden') && competitorLastCoords) {
+          positionCompetitorMenu(competitorLastCoords);
         }
       });
     </script>

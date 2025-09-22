@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Genie | Ambient Advisor</title>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              script: ['"Great Vibes"', 'cursive'],
+              sans: ['"Inter"', 'system-ui', 'sans-serif'],
+            },
+            colors: {
+              night: '#050505',
+              surface: 'rgba(255,255,255,0.04)',
+              accent: '#c084fc',
+            },
+          },
+        },
+      };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;500;600;700&display=swap"
+    />
+  </head>
+  <body class="min-h-screen bg-night text-white font-sans">
+    <div class="min-h-screen px-6 md:px-12 pb-16 flex flex-col">
+      <header class="py-8 flex items-start justify-between">
+        <div class="space-y-4">
+          <button
+            onclick="window.location.href='demo.html'"
+            class="inline-flex items-center justify-center w-11 h-11 rounded-full border border-white/20 text-white hover:border-white/60 transition"
+            aria-label="Back to apps"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <div class="text-4xl font-script tracking-wide">genie</div>
+        </div>
+        <div class="text-right">
+          <p class="uppercase tracking-[0.35em] text-xs text-white/50">Suit &amp; Thai Restaurant</p>
+          <p class="text-sm text-white/60">Ambient advisor</p>
+        </div>
+      </header>
+
+      <main class="flex-1 flex flex-col rounded-3xl border border-white/10 bg-surface overflow-hidden">
+        <div class="px-6 py-6 border-b border-white/10 flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <p class="text-xs uppercase tracking-widest text-white/40">Always-on</p>
+            <h1 class="text-3xl font-light">Ask Genie anything</h1>
+          </div>
+          <div class="flex items-center gap-2 text-xs text-white/60">
+            <span class="inline-flex items-center gap-2 rounded-full border border-white/20 px-3 py-1">
+              <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+              Online
+            </span>
+            <span class="inline-flex items-center gap-2 rounded-full border border-white/20 px-3 py-1">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4" />
+              </svg>
+              Insights synced
+            </span>
+          </div>
+        </div>
+
+        <div class="flex-1 overflow-y-auto px-6 py-8 space-y-6 text-sm text-white/70">
+          <div class="space-y-2">
+            <p class="text-xs uppercase tracking-widest text-white/40">Bakeree · 11:18</p>
+            <div class="max-w-xl rounded-3xl bg-white/10 px-5 py-4 text-white">
+              Genie, what do we need to prep for the Night Market to feel effortless for guests?
+            </div>
+          </div>
+          <div class="space-y-2">
+            <p class="text-xs uppercase tracking-widest text-white/40">Genie · 11:18</p>
+            <div class="max-w-2xl rounded-3xl bg-white/5 px-5 py-4 text-white/80">
+              <p class="text-white mb-2 font-medium">Night Market readout</p>
+              <ul class="list-disc pl-5 space-y-1">
+                <li>Create a "story wall" with family photos + dish origin blurbs (Ops can print via Canva template).</li>
+                <li>Stage grab-and-go queue with dual POS tablets to keep waits under 3 minutes.</li>
+                <li>Prep 180 tasting spoons, 120 compostable trays, 40 Singha Spritz cans on ice by 5pm.</li>
+                <li>Set up a selfie spot with lanterns; encourage guests to tag #SuitAndThai for a dessert raffle.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="space-y-2">
+            <p class="text-xs uppercase tracking-widest text-white/40">Bakeree · 11:22</p>
+            <div class="max-w-xl rounded-3xl bg-white/10 px-5 py-4 text-white">
+              We need a fresh TikTok concept for finals week that feels authentic. Ideas?
+            </div>
+          </div>
+          <div class="space-y-2">
+            <p class="text-xs uppercase tracking-widest text-white/40">Genie · 11:22</p>
+            <div class="max-w-2xl rounded-3xl bg-white/5 px-5 py-4 text-white/80">
+              <p class="text-white mb-2 font-medium">Concept: "Chef's Midnight Radio"</p>
+              <p>Film Chef Bee plating noodles while reading anonymous finals confessions submitted via Instagram sticker. Add lo-fi beats,
+                overlay real-time order count, and close with "Study break? We've got pad thai 'til midnight." Target post time 9:30pm.</p>
+            </div>
+          </div>
+          <div class="space-y-2">
+            <p class="text-xs uppercase tracking-widest text-white/40">Bakeree · 11:25</p>
+            <div class="max-w-xl rounded-3xl bg-white/10 px-5 py-4 text-white">
+              What's our current Google review velocity?
+            </div>
+          </div>
+          <div class="space-y-2">
+            <p class="text-xs uppercase tracking-widest text-white/40">Genie · 11:25</p>
+            <div class="max-w-2xl rounded-3xl bg-white/5 px-5 py-4 text-white/80">
+              <p>Past 30 days: 41 new reviews (avg 4.7★). Keyword frequency — "friendly" 18 hits, "pad kee mao" 12, "family" 8. Passport program
+                mentioned 17 times. Keep nudging guests post-dessert.</p>
+            </div>
+          </div>
+        </div>
+
+        <form class="border-t border-white/10 px-6 py-5 space-y-3">
+          <div class="flex items-center justify-between text-xs text-white/40">
+            <span>Genie drafts include marketing, growth, and sentiment data.</span>
+            <button type="button" class="inline-flex items-center gap-2 rounded-full border border-white/30 px-3 py-1 text-white/70 hover:border-white transition">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 16V4m0 0L3 8m4-4l4 4" />
+              </svg>
+              Pull latest data
+            </button>
+          </div>
+          <div class="flex items-end gap-3">
+            <textarea
+              rows="2"
+              placeholder="Ask Genie anything…"
+              class="flex-1 rounded-2xl border border-white/20 bg-transparent p-4 text-sm text-white placeholder:text-white/30 focus:border-white focus:outline-none focus:ring-0"
+            ></textarea>
+            <button
+              type="button"
+              class="inline-flex items-center justify-center rounded-full bg-white text-black px-6 py-3 text-sm font-medium hover:bg-white/80 transition"
+            >
+              Send
+              <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+        </form>
+      </main>
+    </div>
+  </body>
+</html>

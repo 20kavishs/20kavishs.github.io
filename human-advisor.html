@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Genie | Human Advisor</title>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              script: ['"Great Vibes"', 'cursive'],
+              sans: ['"Inter"', 'system-ui', 'sans-serif'],
+            },
+            colors: {
+              night: '#050505',
+              surface: 'rgba(255,255,255,0.04)',
+              accent: '#38bdf8',
+            },
+          },
+        },
+      };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;500;600;700&display=swap"
+    />
+  </head>
+  <body class="min-h-screen bg-night text-white font-sans">
+    <div class="min-h-screen px-6 md:px-12 pb-16">
+      <header class="py-8 flex items-start justify-between">
+        <div class="space-y-4">
+          <button
+            onclick="window.location.href='demo.html'"
+            class="inline-flex items-center justify-center w-11 h-11 rounded-full border border-white/20 text-white hover:border-white/60 transition"
+            aria-label="Back to apps"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <div class="text-4xl font-script tracking-wide">genie</div>
+        </div>
+        <div class="text-right">
+          <p class="uppercase tracking-[0.35em] text-xs text-white/50">Suit &amp; Thai Restaurant</p>
+          <p class="text-sm text-white/60">Advisor lounge</p>
+        </div>
+      </header>
+
+      <main class="grid gap-8 lg:grid-cols-[1.1fr,0.9fr] items-start">
+        <section class="rounded-3xl border border-white/10 bg-surface p-6 space-y-6">
+          <header class="flex flex-wrap items-center justify-between gap-4">
+            <div>
+              <p class="text-xs uppercase tracking-widest text-white/40">Live session</p>
+              <h1 class="text-3xl font-light">With Nia Patel · Service Design Strategist</h1>
+            </div>
+            <button
+              type="button"
+              class="inline-flex items-center gap-2 rounded-full border border-white/40 px-5 py-2 text-sm font-medium text-white hover:border-white transition"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.75 5.25L8.25 12l7.5 6.75" />
+              </svg>
+              Leave room
+            </button>
+          </header>
+
+          <div class="relative rounded-2xl border border-white/10 bg-white/5 p-4">
+            <div class="aspect-video w-full rounded-xl bg-gradient-to-br from-white/10 via-white/5 to-white/0 flex items-center justify-center">
+              <div class="text-center space-y-3">
+                <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white/20 text-white text-2xl font-semibold">NP</div>
+                <p class="text-white/70 text-sm">Video stream placeholder · 00:12:48 elapsed</p>
+              </div>
+            </div>
+            <div class="mt-4 grid gap-3 sm:grid-cols-3 text-xs text-white/70">
+              <button class="flex items-center justify-center gap-2 rounded-full bg-white text-black py-2 font-medium hover:bg-white/80 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 8l7-5 7 5v11a2 2 0 01-2 2H7a2 2 0 01-2-2V8z" />
+                </svg>
+                Mute
+              </button>
+              <button class="flex items-center justify-center gap-2 rounded-full border border-white/30 py-2 font-medium text-white hover:border-white transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14l9-5-9-5-9 5 9 5z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14v7" />
+                </svg>
+                Share deck
+              </button>
+              <button class="flex items-center justify-center gap-2 rounded-full border border-white/30 py-2 font-medium text-white hover:border-white transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 11c.5304 0 1.0391-.2107 1.4142-.5858C13.7893 10.0391 14 9.5304 14 9s-.2107-1.0391-.5858-1.4142C13.0391 7.2107 12.5304 7 12 7s-1.0391.2107-1.4142.5858C10.2107 7.9609 10 8.4696 10 9s.2107 1.0391.5858 1.4142C10.9609 10.7893 11.4696 11 12 11zm0 3c-.5304 0-1.0391.2107-1.4142.5858C10.2107 14.9609 10 15.4696 10 16s.2107 1.0391.5858 1.4142C10.9609 17.7893 11.4696 18 12 18s1.0391-.2107 1.4142-.5858C13.7893 16.9609 14 16.4696 14 16s-.2107-1.0391-.5858-1.4142C13.0391 14.2107 12.5304 14 12 14z" />
+                </svg>
+                Action items
+              </button>
+            </div>
+          </div>
+
+          <div class="rounded-2xl border border-white/10 bg-white/5 p-5 space-y-4">
+            <h2 class="text-xl font-light">Session goals</h2>
+            <ul class="space-y-2 text-sm text-white/70">
+              <li>Refine Night Market guest journey and staffing map.</li>
+              <li>Pressure-test finals week promotions with on-campus ambassadors.</li>
+              <li>Outline hospitality touches that reinforce Golden Singha's family roots.</li>
+            </ul>
+          </div>
+        </section>
+
+        <aside class="rounded-3xl border border-white/10 bg-surface p-6 flex flex-col h-full">
+          <header class="flex items-center justify-between">
+            <h2 class="text-2xl font-light">Chat notes</h2>
+            <button class="inline-flex items-center justify-center rounded-full border border-white/30 w-9 h-9 text-white/70 hover:border-white transition">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-4.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9H13a8 8 0 018 8z" />
+              </svg>
+            </button>
+          </header>
+
+          <div class="mt-6 flex-1 space-y-4 overflow-y-auto pr-2 text-sm text-white/70">
+            <div class="rounded-2xl bg-white/5 p-4 space-y-2">
+              <p class="text-xs uppercase tracking-widest text-white/40">Nia · 12:42</p>
+              <p>Finals push looks strong — consider bundling Thai tea growlers with a pre-order window to manage flow.</p>
+            </div>
+            <div class="rounded-2xl bg-white/5 p-4 space-y-2">
+              <p class="text-xs uppercase tracking-widest text-white/40">Bakeree · 12:44</p>
+              <p>Love that. Checking if we can prep 20 growlers without impacting dinner line. Inventory showing enough tea leaves.</p>
+            </div>
+            <div class="rounded-2xl bg-white/5 p-4 space-y-2">
+              <p class="text-xs uppercase tracking-widest text-white/40">Nia · 12:46</p>
+              <p>For Night Market, let's choreograph arrival so each guest hits the story wall first. I’ll drop a figma link.</p>
+            </div>
+            <div class="rounded-2xl bg-white/5 p-4 space-y-2">
+              <p class="text-xs uppercase tracking-widest text-white/40">Genie note</p>
+              <p>Action item added: draft signage copy for patio welcome desk.</p>
+            </div>
+          </div>
+
+          <form class="mt-6 space-y-3">
+            <label class="sr-only" for="message">Message</label>
+            <textarea
+              id="message"
+              rows="3"
+              placeholder="Type a note to Nia"
+              class="w-full rounded-2xl border border-white/20 bg-transparent p-4 text-sm text-white placeholder:text-white/30 focus:border-white focus:outline-none focus:ring-0"
+            ></textarea>
+            <div class="flex items-center justify-between text-xs text-white/40">
+              <span>Shift + Enter to add line</span>
+              <button
+                type="button"
+                class="inline-flex items-center gap-2 rounded-full bg-white text-black px-5 py-2 text-sm font-medium hover:bg-white/80 transition"
+              >
+                Send
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+          </form>
+        </aside>
+      </main>
+    </div>
+  </body>
+</html>

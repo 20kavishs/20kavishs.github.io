@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Genie | Growth Dashboard</title>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              script: ['"Great Vibes"', 'cursive'],
+              sans: ['"Inter"', 'system-ui', 'sans-serif'],
+            },
+            colors: {
+              night: '#050505',
+              surface: 'rgba(255,255,255,0.04)',
+              lime: '#bef264',
+              amber: '#fbbf24',
+            },
+          },
+        },
+      };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;500;600;700&display=swap"
+    />
+  </head>
+  <body class="min-h-screen bg-night text-white font-sans">
+    <div class="min-h-screen px-6 md:px-12 pb-16">
+      <header class="py-8 flex items-start justify-between">
+        <div class="space-y-4">
+          <button
+            onclick="window.location.href='demo.html'"
+            class="inline-flex items-center justify-center w-11 h-11 rounded-full border border-white/20 text-white hover:border-white/60 transition"
+            aria-label="Back to apps"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <div class="text-4xl font-script tracking-wide">genie</div>
+        </div>
+        <div class="text-right">
+          <p class="uppercase tracking-[0.35em] text-xs text-white/50">Suit &amp; Thai Restaurant</p>
+          <p class="text-sm text-white/60">Growth &amp; pipeline</p>
+        </div>
+      </header>
+
+      <main class="space-y-14">
+        <section class="max-w-5xl">
+          <p class="text-sm uppercase tracking-[0.4em] text-white/40">Growth Narrative</p>
+          <h1 class="mt-4 text-5xl font-light">Keeping the dining room and delivery lanes humming</h1>
+          <p class="mt-6 text-lg text-white/60 max-w-3xl leading-relaxed">
+            Genie stitches together reservations, foot traffic, delivery demand, and community events around Golden Singha Thai. The view below
+            looks at how Suit &amp; Thai is pacing toward its 22% YoY revenue growth target for summer 2024.
+          </p>
+        </section>
+
+        <section class="grid gap-6 lg:grid-cols-[1.1fr,0.9fr]">
+          <article class="rounded-3xl border border-white/10 bg-surface p-8 space-y-8">
+            <header class="flex items-center justify-between">
+              <div>
+                <h2 class="text-3xl font-light">Pipeline Watch</h2>
+                <p class="text-sm text-white/50">Weekly covers forecast vs target</p>
+              </div>
+              <span class="rounded-full border border-lime/40 text-lime px-3 py-1 text-xs uppercase tracking-widest">+6.4% ahead</span>
+            </header>
+            <div class="grid gap-5 md:grid-cols-2 text-sm text-white/70">
+              <div class="rounded-2xl bg-white/5 p-5 space-y-3">
+                <h3 class="text-white text-lg font-light">Dining Room</h3>
+                <p>Reservations pacing <span class="text-white">186</span> covers (goal 172). Spike driven by UW graduation weekend packages.</p>
+                <p class="text-white/60">Waitlist conversion 32% via Resy text nudges.</p>
+              </div>
+              <div class="rounded-2xl bg-white/5 p-5 space-y-3">
+                <h3 class="text-white text-lg font-light">Delivery</h3>
+                <p>DoorDash + Uber Eats projecting <span class="text-white">$14.8k</span> net sales this month, +11% MoM.</p>
+                <p class="text-white/60">Late-night bundle drives 2.3x baskets after 9pm.</p>
+              </div>
+              <div class="rounded-2xl bg-white/5 p-5 space-y-3">
+                <h3 class="text-white text-lg font-light">Catering</h3>
+                <p>Corporate leads in pipeline: <span class="text-white">7</span> (target 5). Microsoft SLU requests Songkran station for June.</p>
+                <p class="text-white/60">Avg quote $1.9k; close rate 43%.</p>
+              </div>
+              <div class="rounded-2xl bg-white/5 p-5 space-y-3">
+                <h3 class="text-white text-lg font-light">Events</h3>
+                <p>Community events locked: Night Market pop-up, U-District Art Walk tasting bar, UW Alumni mixer.</p>
+                <p class="text-white/60">Expect 540 incremental impressions across partner channels.</p>
+              </div>
+            </div>
+          </article>
+
+          <aside class="rounded-3xl border border-white/10 bg-surface p-8 space-y-6">
+            <h2 class="text-2xl font-light">Demand Map</h2>
+            <div class="space-y-4 text-sm text-white/70">
+              <div class="rounded-2xl bg-white/5 p-4">
+                <p class="text-xs uppercase tracking-widest text-white/40">Hotspot</p>
+                <p class="mt-2 text-white">University Way NE</p>
+                <p class="mt-1 text-white/60">Foot traffic +12% vs last month thanks to cherry blossom tourism.</p>
+              </div>
+              <div class="rounded-2xl bg-white/5 p-4">
+                <p class="text-xs uppercase tracking-widest text-white/40">Emerging</p>
+                <p class="mt-2 text-white">South Lake Union lunch</p>
+                <p class="mt-1 text-white/60">Office returns fueling catering demand; focus on express bento sets.</p>
+              </div>
+              <div class="rounded-2xl bg-white/5 p-4">
+                <p class="text-xs uppercase tracking-widest text-white/40">Watch</p>
+                <p class="mt-2 text-white">Capitol Hill late-night</p>
+                <p class="mt-1 text-white/60">Competitors increasing promo spend Fridays; monitor with marketing.</p>
+              </div>
+            </div>
+          </aside>
+        </section>
+
+        <section class="rounded-3xl border border-white/10 bg-surface p-8 space-y-8">
+          <header class="flex flex-wrap items-center justify-between gap-4">
+            <div>
+              <h2 class="text-3xl font-light">Move Board</h2>
+              <p class="text-sm text-white/50">Coordinated plays with Marketing, Experiments, and Operations</p>
+            </div>
+            <a
+              href="marketing.html#strategy"
+              class="rounded-full border border-white/40 px-4 py-2 text-sm font-medium text-white hover:border-white transition"
+            >
+              View marketing plan
+            </a>
+          </header>
+          <div class="grid gap-6 lg:grid-cols-3 text-sm text-white/70">
+            <div class="rounded-2xl bg-white/5 p-6 space-y-3">
+              <p class="text-xs uppercase tracking-widest text-white/40">This Week</p>
+              <h3 class="text-white text-xl font-light">Chef's Counter Livestream</h3>
+              <p>Coordinate with @seattlespoon live tasting on Thursday. Goal: 250 concurrent viewers; offer QR for 10% dine-in.</p>
+              <p class="text-white/60">Owner: Mila · Status: Locked</p>
+            </div>
+            <div class="rounded-2xl bg-white/5 p-6 space-y-3">
+              <p class="text-xs uppercase tracking-widest text-white/40">Next Week</p>
+              <h3 class="text-white text-xl font-light">UW Finals Comfort Tour</h3>
+              <p>Marketing pushing finals messaging; operations prepping family-size pad thai kits. Track conversion in Experiments.</p>
+              <p class="text-white/60">Owner: Genie · Status: Building</p>
+            </div>
+            <div class="rounded-2xl bg-white/5 p-6 space-y-3">
+              <p class="text-xs uppercase tracking-widest text-white/40">Later</p>
+              <h3 class="text-white text-xl font-light">Night Market Pop-up</h3>
+              <p>Secure permits and vendor alignments by May 30. Finance to model break-even at 320 tastings sold.</p>
+              <p class="text-white/60">Owner: Ops · Status: Planning</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="grid gap-6 lg:grid-cols-[1.2fr,0.8fr]">
+          <article class="rounded-3xl border border-white/10 bg-surface p-8 space-y-6">
+            <div class="flex items-center justify-between">
+              <h2 class="text-2xl font-light">Growth Signals</h2>
+              <span class="text-xs uppercase tracking-widest text-white/40">Refreshed hourly</span>
+            </div>
+            <div class="grid gap-5 md:grid-cols-2 text-sm text-white/70">
+              <div class="rounded-2xl bg-white/5 p-5 space-y-2">
+                <p class="text-white text-lg font-light">Table turns</p>
+                <p>Average 1.8 turns on weekdays; add counter seating to hit 2.1 target.</p>
+              </div>
+              <div class="rounded-2xl bg-white/5 p-5 space-y-2">
+                <p class="text-white text-lg font-light">New guests</p>
+                <p>38% of parties first-time visitors last week, boosted by Google Maps ads.</p>
+              </div>
+              <div class="rounded-2xl bg-white/5 p-5 space-y-2">
+                <p class="text-white text-lg font-light">Avg check</p>
+                <p>$27 dine-in (goal $28.50). Recommend dessert pairing prompts.</p>
+              </div>
+              <div class="rounded-2xl bg-white/5 p-5 space-y-2">
+                <p class="text-white text-lg font-light">Delivery satisfaction</p>
+                <p>4.8★ average on last 100 orders; packaging feedback positive after compostable switch.</p>
+              </div>
+            </div>
+          </article>
+
+          <aside class="rounded-3xl border border-white/10 bg-surface p-8 space-y-6">
+            <h2 class="text-2xl font-light">Alerts</h2>
+            <div class="space-y-4 text-sm text-white/70">
+              <div class="rounded-2xl bg-amber/10 border border-amber/30 text-amber-100 p-4 space-y-2">
+                <p class="text-xs uppercase tracking-widest">Watch</p>
+                <p>Competitor Jai Thai added late-night happy hour. Monitor impact on Friday takeout.</p>
+              </div>
+              <div class="rounded-2xl bg-white/5 p-4 space-y-2">
+                <p class="text-xs uppercase tracking-widest text-white/40">Win</p>
+                <p>Google "Thai catering Seattle" ranking moved to position 2 after schema refresh.</p>
+              </div>
+              <div class="rounded-2xl bg-white/5 p-4 space-y-2">
+                <p class="text-xs uppercase tracking-widest text-white/40">Heads-up</p>
+                <p>Weather models show rain on Saturday — prepare push notification for delivery comfort menu.</p>
+              </div>
+            </div>
+          </aside>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

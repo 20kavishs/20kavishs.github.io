@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Genie v2 Demo</title>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              script: ['"Great Vibes"', 'cursive'],
+              sans: ['"Inter"', 'system-ui', 'sans-serif'],
+            },
+            colors: {
+              night: '#060606',
+              muted: '#a0a0a0',
+            },
+          },
+        },
+      };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;500;600&display=swap"
+    />
+    <style>
+      body {
+        background: #030303;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen bg-night text-white font-sans">
+    <div class="min-h-screen flex flex-col">
+      <header class="px-6 md:px-12 pt-8 flex items-start justify-between">
+        <div>
+          <button
+            onclick="window.location.href='demo.html'"
+            class="mb-4 inline-flex items-center justify-center w-11 h-11 rounded-full border border-white/20 text-white hover:border-white/60 transition"
+            aria-label="Home"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              class="w-5 h-5"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+          <div class="text-4xl md:text-5xl font-script tracking-wide">genie</div>
+        </div>
+        <div class="text-right space-y-2">
+          <p class="uppercase tracking-[0.35em] text-xs text-muted">Suit &amp; Thai Restaurant</p>
+          <p class="text-sm text-white/70">your AI business advisor</p>
+        </div>
+      </header>
+
+      <main class="flex-1 px-6 md:px-12 py-16">
+        <section class="max-w-4xl">
+          <h1 class="text-5xl md:text-6xl font-light mb-6">Hi Bakeree!</h1>
+          <p class="text-lg text-white/60 max-w-xl">
+            Explore how Genie keeps Suit &amp; Thai Restaurant effortlessly on top of Seattle's dining scene.
+          </p>
+        </section>
+
+        <section class="mt-16">
+          <h2 class="sr-only">Apps</h2>
+          <div class="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+            <a
+              href="marketing.html"
+              class="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 transition hover:border-white/40 hover:bg-white/10"
+            >
+              <div class="flex items-center justify-between">
+                <span class="text-sm uppercase tracking-widest text-muted">Marketing</span>
+                <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/80">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v12m6-6H6" />
+                  </svg>
+                </span>
+              </div>
+              <p class="mt-8 text-2xl font-light">Performance storytelling for Seattle foodies.</p>
+              <div class="mt-6 flex items-center text-sm text-white/60">
+                <span>Tap to review Genie insights</span>
+                <svg class="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </a>
+
+            <a
+              href="growth.html"
+              class="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 transition hover:border-white/40 hover:bg-white/10"
+            >
+              <div class="flex items-center justify-between">
+                <span class="text-sm uppercase tracking-widest text-muted">Growth</span>
+                <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/80">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 17l6-6 4 4 8-8" />
+                  </svg>
+                </span>
+              </div>
+              <p class="mt-8 text-2xl font-light">Model weekly covers and campaign lift.</p>
+              <div class="mt-6 flex items-center text-sm text-white/60">
+                <span>Tap to see pipeline levers</span>
+                <svg class="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </a>
+
+            <a
+              href="competitors.html"
+              class="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 transition hover:border-white/40 hover:bg-white/10"
+            >
+              <div class="flex items-center justify-between">
+                <span class="text-sm uppercase tracking-widest text-muted">Competitors</span>
+                <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/80">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6l8 4-8 4-8-4 8-4z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 14l8 4 8-4" />
+                  </svg>
+                </span>
+              </div>
+              <p class="mt-8 text-2xl font-light">See how nearby Thai favorites are moving.</p>
+              <div class="mt-6 flex items-center text-sm text-white/60">
+                <span>Tap to compare local buzz</span>
+                <svg class="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </a>
+
+            <a
+              href="inventory.html"
+              class="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 transition hover:border-white/40 hover:bg-white/10"
+            >
+              <div class="flex items-center justify-between">
+                <span class="text-sm uppercase tracking-widest text-muted">Inventory</span>
+                <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/80">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 7h18M3 12h18M3 17h18" />
+                  </svg>
+                </span>
+              </div>
+              <p class="mt-8 text-2xl font-light">Stock intelligence coming soon.</p>
+              <div class="mt-6 text-sm text-white/60">Awaiting POS integration.</div>
+            </a>
+
+            <a
+              href="finances.html"
+              class="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 transition hover:border-white/40 hover:bg-white/10"
+            >
+              <div class="flex items-center justify-between">
+                <span class="text-sm uppercase tracking-widest text-muted">Finances</span>
+                <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/80">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.105 0 2 .672 2 1.5S13.105 11 12 11m0-3c-1.105 0-2-.672-2-1.5S10.895 5 12 5m0 14v-2m0-10V5" />
+                  </svg>
+                </span>
+              </div>
+              <p class="mt-8 text-2xl font-light">Margin tracking coming soon.</p>
+              <div class="mt-6 text-sm text-white/60">Hooking into Square + QuickBooks.</div>
+            </a>
+
+            <a
+              href="experiments.html"
+              class="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 transition hover:border-white/40 hover:bg-white/10"
+            >
+              <div class="flex items-center justify-between">
+                <span class="text-sm uppercase tracking-widest text-muted">Experiments</span>
+                <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/80">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.5 3.75h15m-12 0v6.878a2.25 2.25 0 01-.659 1.591l-1.885 1.885a2.25 2.25 0 001.591 3.841h10.866a2.25 2.25 0 001.591-3.841l-1.885-1.885a2.25 2.25 0 01-.659-1.591V3.75" />
+                  </svg>
+                </span>
+              </div>
+              <p class="mt-8 text-2xl font-light">Track live tests and outcomes.</p>
+              <div class="mt-6 flex items-center text-sm text-white/60">
+                <span>Tap to view experiment wall</span>
+                <svg class="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </a>
+
+            <a
+              href="human-advisor.html"
+              class="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 transition hover:border-white/40 hover:bg-white/10"
+            >
+              <div class="flex items-center justify-between">
+                <span class="text-sm uppercase tracking-widest text-muted">Human Advisor</span>
+                <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/80">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2" />
+                  </svg>
+                </span>
+              </div>
+              <p class="mt-8 text-2xl font-light">Drop into a live strategist session.</p>
+              <div class="mt-6 text-sm text-white/60">Chat, notes, and call in one place.</div>
+            </a>
+
+            <a
+              href="genie-advisor.html"
+              class="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 transition hover:border-white/40 hover:bg-white/10"
+            >
+              <div class="flex items-center justify-between">
+                <span class="text-sm uppercase tracking-widest text-muted">Genie Chat</span>
+                <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/80">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7.5 8.25h9m-9 3h5.25M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </span>
+              </div>
+              <p class="mt-8 text-2xl font-light">Ask anything, anytime.</p>
+              <div class="mt-6 text-sm text-white/60">Tap for the ambient advisor.</div>
+            </a>
+          </div>
+        </section>
+      </main>
+
+      <footer class="px-6 md:px-12 pb-10 text-xs text-white/40">
+        Built for demo purposes using fictionalized insights inspired by Golden Singha Thai Restaurant in Seattle.
+      </footer>
+    </div>
+  </body>
+</html>

@@ -9,7 +9,7 @@
         theme: {
           extend: {
             fontFamily: {
-              script: ['"Dancing Script"', 'cursive'],
+              script: ['"Pacifico"', '"Allura"', 'cursive'],
               sans: ['"Manrope"', 'system-ui', 'sans-serif'],
             },
             colors: {
@@ -24,7 +24,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600&family=Manrope:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Allura&family=Manrope:wght@400;500;600;700&family=Pacifico&display=swap"
     />
     <style>
       body {
@@ -46,7 +46,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19l-7-7 7-7" />
             </svg>
           </button>
-          <div class="text-4xl font-script leading-none text-white">genie</div>
+          <div class="text-4xl font-script leading-none text-white tracking-wide">genie</div>
         </div>
         <div class="text-right">
           <p class="text-sm text-white/70">Your AI business advisor</p>
@@ -56,221 +56,328 @@
       <main class="flex-1 py-10 flex flex-col gap-12">
         <section class="max-w-4xl">
           <h1 class="text-5xl md:text-6xl font-light">Marketing</h1>
-          <p class="mt-3 text-base text-white/70">Strategy cockpit for Suit and Thai.</p>
+          <p class="mt-3 text-base text-white/70">Optimisze your outreach.</p>
         </section>
 
-        <section class="rounded-[32px] border border-outline/60 bg-surface backdrop-blur-xl p-8 space-y-8">
+        <section class="space-y-12">
           <div class="flex flex-wrap items-center justify-between gap-4">
-            <div class="inline-flex rounded-full bg-white/10 p-1 text-sm">
+            <div class="inline-flex rounded-full bg-white/5 p-1 text-sm">
               <button class="tab-trigger rounded-full px-4 py-2 font-medium bg-white text-black" data-target="marketing-strategy">
                 Strategy
               </button>
-              <button class="tab-trigger rounded-full px-4 py-2 font-medium text-white/70 hover:text-white transition" data-target="marketing-stats">
-                Stats
+              <button class="tab-trigger rounded-full px-4 py-2 font-medium text-white/70 hover:text-white transition" data-target="marketing-dashboard">
+                Dashboard
               </button>
             </div>
             <span class="text-sm text-white/60">Last refreshed · 3 minutes ago</span>
           </div>
 
-          <div id="marketing-strategy" class="tab-panel space-y-8">
-            <div class="relative rounded-[28px] border border-outline bg-white/5 p-8">
-              <div class="flex items-start justify-between gap-6">
+          <div id="marketing-strategy" class="tab-panel space-y-12">
+            <div class="space-y-6">
+              <div class="flex flex-wrap items-start justify-between gap-6">
                 <div>
-                  <h2 class="text-2xl font-semibold">MECE growth stack</h2>
-                  <p class="mt-2 text-white/70 max-w-xl">
-                    A one-page breakdown of every lever we are pulling across awareness, experience, community, and revenue. Each lane is mutually exclusive and collectively exhaustive so nothing slips.
+                  <h2 class="text-2xl font-semibold">Strategy</h2>
+          <p class="mt-2 text-white/65 max-w-xl">
+                    Four focused lanes to keep Suit and Thai top of mind with the right guests every day.
                   </p>
                 </div>
-                <div class="relative">
-                  <button
-                    id="marketing-ai-button"
-                    class="inline-flex items-center gap-2 rounded-full bg-rose-500 px-4 py-2 text-sm font-semibold shadow-lg hover:bg-rose-400 transition"
-                    type="button"
-                  >
-                    <span class="inline-block h-2 w-2 rounded-full bg-white animate-pulse"></span>
-                    AI suggestion
-                  </button>
-                  <div
-                    id="marketing-ai-menu"
-                    class="absolute right-0 mt-3 hidden w-48 rounded-2xl border border-white/20 bg-night/95 p-3 text-sm shadow-2xl"
-                  >
-                    <button class="menu-option flex w-full items-center gap-2 rounded-xl px-3 py-2 text-left text-white/80 hover:bg-white/10" data-action="change">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M4 7h16M4 12h16M4 17h10" />
-                      </svg>
-                      Change strategy
-                    </button>
-                    <button class="menu-option flex w-full items-center gap-2 rounded-xl px-3 py-2 text-left text-white/80 hover:bg-white/10" data-action="experiment">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 6v12m6-6H6" />
-                      </svg>
-                      Add to experiment
-                    </button>
-                  </div>
-                </div>
+                <button
+                  type="button"
+                  class="ai-trigger inline-flex items-center gap-2 rounded-full bg-rose-500 px-4 py-2 text-sm font-semibold shadow-lg hover:bg-rose-400 transition"
+                  data-marketing-ai="overview"
+                  data-label="Strategy overview"
+                >
+                  <span class="inline-block h-2 w-2 rounded-full bg-white animate-pulse"></span>
+                  AI suggestion
+                </button>
               </div>
 
-              <div class="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-                <div class="rounded-3xl bg-gradient-to-br from-pink-500/35 via-pink-500/15 to-transparent p-6">
-                  <p class="text-sm font-semibold text-white/80">Awareness</p>
-                  <ul class="mt-4 space-y-3 text-sm text-white/70">
-                    <li>UW finals comfort tour reel cadence</li>
-                    <li>Paid TikTok lead-in to Chef Bee stories</li>
-                    <li>Local press seeding via Night Market angle</li>
+              <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+                <div class="relative rounded-3xl bg-gradient-to-br from-fuchsia-500/25 via-fuchsia-500/10 to-transparent p-6 space-y-4">
+                  <div class="flex items-start justify-between gap-3">
+                    <div>
+                      <p class="text-sm font-semibold text-white">Social media</p>
+                      <p class="text-xs uppercase tracking-wide text-white/50">Next 7 days</p>
+                    </div>
+                    <button
+                      type="button"
+                      class="ai-trigger inline-flex items-center gap-1 rounded-full bg-white/15 px-3 py-1 text-[11px] font-medium text-white/80 hover:bg-white/25 transition"
+                      data-marketing-ai="social"
+                      data-label="Social media"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v3m0 12v3m9-9h-3M6 12H3m15.364 6.364l-2.121-2.121M8.757 8.757 6.636 6.636m12.728 0-2.121 2.121M8.757 15.243l-2.121 2.121" />
+                      </svg>
+                      Genie tip
+                    </button>
+                  </div>
+                  <ul class="space-y-3 text-sm text-white/75">
+                    <li>Night Market teaser reel + duet reply to top comment.</li>
+                    <li>Campus study break poll layered with finals countdown sticker.</li>
                   </ul>
                 </div>
-                <div class="rounded-3xl bg-gradient-to-br from-indigo-500/35 via-indigo-500/15 to-transparent p-6">
-                  <p class="text-sm font-semibold text-white/80">Experience</p>
-                  <ul class="mt-4 space-y-3 text-sm text-white/70">
-                    <li>Host-led queue moments with instant QR order</li>
-                    <li>Prep "comfort kits" for take-home sharing</li>
-                    <li>Chef counter livestream twice a week</li>
+                <div class="relative rounded-3xl bg-gradient-to-br from-sky-400/25 via-sky-400/10 to-transparent p-6 space-y-4">
+                  <div class="flex items-start justify-between gap-3">
+                    <div>
+                      <p class="text-sm font-semibold text-white">Community</p>
+                      <p class="text-xs uppercase tracking-wide text-white/50">Superfans</p>
+                    </div>
+                    <button
+                      type="button"
+                      class="ai-trigger inline-flex items-center gap-1 rounded-full bg-white/15 px-3 py-1 text-[11px] font-medium text-white/80 hover:bg-white/25 transition"
+                      data-marketing-ai="community"
+                      data-label="Community"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v3m0 12v3m9-9h-3M6 12H3m15.364 6.364l-2.121-2.121M8.757 8.757 6.636 6.636m12.728 0-2.121 2.121M8.757 15.243l-2.121 2.121" />
+                      </svg>
+                      Genie tip
+                    </button>
+                  </div>
+                  <ul class="space-y-3 text-sm text-white/75">
+                    <li>Superfan text loop with "unlock a chef story" responses.</li>
+                    <li>Discord drop: finals survival kit with live Q&A slot poll.</li>
                   </ul>
                 </div>
-                <div class="rounded-3xl bg-gradient-to-br from-emerald-500/35 via-emerald-500/15 to-transparent p-6">
-                  <p class="text-sm font-semibold text-white/80">Community</p>
-                  <ul class="mt-4 space-y-3 text-sm text-white/70">
-                    <li>Discord check-ins with top 30 superfans</li>
-                    <li>Weekly text polls with instant appetizer codes</li>
-                    <li>Student ambassador table takeover nights</li>
+                <div class="relative rounded-3xl bg-gradient-to-br from-emerald-400/25 via-emerald-400/10 to-transparent p-6 space-y-4">
+                  <div class="flex items-start justify-between gap-3">
+                    <div>
+                      <p class="text-sm font-semibold text-white">Loyalty</p>
+                      <p class="text-xs uppercase tracking-wide text-white/50">Guests on file</p>
+                    </div>
+                    <button
+                      type="button"
+                      class="ai-trigger inline-flex items-center gap-1 rounded-full bg-white/15 px-3 py-1 text-[11px] font-medium text-white/80 hover:bg-white/25 transition"
+                      data-marketing-ai="loyalty"
+                      data-label="Loyalty"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v3m0 12v3m9-9h-3M6 12H3m15.364 6.364l-2.121-2.121M8.757 8.757 6.636 6.636m12.728 0-2.121 2.121M8.757 15.243l-2.121 2.121" />
+                      </svg>
+                      Genie tip
+                    </button>
+                  </div>
+                  <ul class="space-y-3 text-sm text-white/75">
+                    <li>72-hour bounceback SMS with auto-loaded dessert add-on.</li>
+                    <li>Segmented email spotlighting "study buddy" table bundles.</li>
                   </ul>
                 </div>
-                <div class="rounded-3xl bg-gradient-to-br from-amber-400/40 via-amber-400/15 to-transparent p-6">
-                  <p class="text-sm font-semibold text-white/80">Revenue</p>
-                  <ul class="mt-4 space-y-3 text-sm text-white/70">
-                    <li>Bundles with Thai iced tea upsell play</li>
-                    <li>Square loyalty push for late-night crowd</li>
-                    <li>Catering sampler drops to tech offices</li>
+                <div class="relative rounded-3xl bg-gradient-to-br from-amber-400/30 via-amber-400/10 to-transparent p-6 space-y-4">
+                  <div class="flex items-start justify-between gap-3">
+                    <div>
+                      <p class="text-sm font-semibold text-white">Partnerships</p>
+                      <p class="text-xs uppercase tracking-wide text-white/50">Local reach</p>
+                    </div>
+                    <button
+                      type="button"
+                      class="ai-trigger inline-flex items-center gap-1 rounded-full bg-white/15 px-3 py-1 text-[11px] font-medium text-white/80 hover:bg-white/25 transition"
+                      data-marketing-ai="partnerships"
+                      data-label="Partnerships"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v3m0 12v3m9-9h-3M6 12H3m15.364 6.364l-2.121-2.121M8.757 8.757 6.636 6.636m12.728 0-2.121 2.121M8.757 15.243l-2.121 2.121" />
+                      </svg>
+                      Genie tip
+                    </button>
+                  </div>
+                  <ul class="space-y-3 text-sm text-white/75">
+                    <li>Co-host late-night cram bar with Hugo House writing center.</li>
+                    <li>Table topper swaps with Night Market vendors for cross-plug.</li>
                   </ul>
                 </div>
               </div>
             </div>
 
-            <div class="grid gap-6 lg:grid-cols-[1.1fr,0.9fr]">
-              <div class="rounded-[28px] border border-outline bg-white/5 p-7 space-y-6">
-                <div class="flex items-center justify-between">
-                  <h3 class="text-xl font-semibold">Current storylines</h3>
-                  <span class="text-sm text-white/60">Auto-tracked</span>
+            <div class="grid gap-6 lg:grid-cols-[1.15fr,0.85fr]">
+              <div class="space-y-6">
+                <div class="rounded-3xl bg-white/10 p-6 backdrop-blur-sm">
+                  <div class="flex items-center justify-between">
+                    <h3 class="text-xl font-semibold">AI insights / thoughts</h3>
+                    <span class="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs text-white/70">
+                      <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+                      Synced 2m ago
+                    </span>
+                  </div>
+                  <ul class="mt-5 space-y-3 text-sm text-white/75">
+                    <li class="flex gap-3">
+                      <span class="mt-1 h-2.5 w-2.5 rounded-full bg-rose-400"></span>
+                      TikTok replies mentioning "study" correlate with +18% late-night orders — double down on finals framing this week.
+                    </li>
+                    <li class="flex gap-3">
+                      <span class="mt-1 h-2.5 w-2.5 rounded-full bg-sky-400"></span>
+                      Organic press pitches with "community kitchen" angle see 3× email opens compared to generic restaurant updates.
+                    </li>
+                    <li class="flex gap-3">
+                      <span class="mt-1 h-2.5 w-2.5 rounded-full bg-amber-400"></span>
+                      Guests redeeming QR queue offers are 42% more likely to join SMS — cue an extra bounceback for that segment.
+                    </li>
+                  </ul>
                 </div>
-                <div class="grid gap-4 sm:grid-cols-2 text-sm text-white/80">
-                  <div class="rounded-2xl bg-gradient-to-br from-fuchsia-500/25 via-fuchsia-500/10 to-transparent p-5">
-                    <p class="text-xs uppercase tracking-wide text-white/60">Now live</p>
-                    <p class="mt-3 text-lg font-semibold">Chef Bee midnight radio</p>
-                    <p class="mt-2 text-white/60">Organic reach +24% vs last week.</p>
+
+                <div class="rounded-3xl bg-white/10 p-6 backdrop-blur-sm">
+                  <div class="flex items-center justify-between">
+                    <h3 class="text-xl font-semibold">Channel board</h3>
+                    <span class="text-xs text-white/60">Week of May 13</span>
                   </div>
-                  <div class="rounded-2xl bg-gradient-to-br from-sky-400/30 via-sky-400/10 to-transparent p-5">
-                    <p class="text-xs uppercase tracking-wide text-white/60">Next</p>
-                    <p class="mt-3 text-lg font-semibold">Night Market comfort kits</p>
-                    <p class="mt-2 text-white/60">Influencer RSVPs: 11 confirmed.</p>
-                  </div>
-                  <div class="rounded-2xl bg-gradient-to-br from-emerald-400/30 via-emerald-400/10 to-transparent p-5">
-                    <p class="text-xs uppercase tracking-wide text-white/60">Testing</p>
-                    <p class="mt-3 text-lg font-semibold">TikTok duet challenge</p>
-                    <p class="mt-2 text-white/60">Goal: +15% student traffic.</p>
-                  </div>
-                  <div class="rounded-2xl bg-gradient-to-br from-amber-400/30 via-amber-400/10 to-transparent p-5">
-                    <p class="text-xs uppercase tracking-wide text-white/60">Warm up</p>
-                    <p class="mt-3 text-lg font-semibold">Chef table email series</p>
-                    <p class="mt-2 text-white/60">Segment: top 200 SMS members.</p>
+                  <div class="mt-5 grid gap-4 sm:grid-cols-2 text-sm text-white/80">
+                    <div class="rounded-2xl bg-white/10 p-5 space-y-2">
+                      <p class="text-xs uppercase tracking-wide text-white/50">Social</p>
+                      <p class="text-lg font-semibold">Midnight Market hype</p>
+                      <p class="text-white/60">Reel + duet chain, publish Wed 7p.</p>
+                    </div>
+                    <div class="rounded-2xl bg-white/10 p-5 space-y-2">
+                      <p class="text-xs uppercase tracking-wide text-white/50">Email</p>
+                      <p class="text-lg font-semibold">Study buddy bundles</p>
+                      <p class="text-white/60">Segment: loyalty tiers A/B.</p>
+                    </div>
+                    <div class="rounded-2xl bg-white/10 p-5 space-y-2">
+                      <p class="text-xs uppercase tracking-wide text-white/50">PR</p>
+                      <p class="text-lg font-semibold">Night Market preview</p>
+                      <p class="text-white/60">Media list locked · send Tue 9a.</p>
+                    </div>
+                    <div class="rounded-2xl bg-white/10 p-5 space-y-2">
+                      <p class="text-xs uppercase tracking-wide text-white/50">Community</p>
+                      <p class="text-lg font-semibold">Superfan check-in</p>
+                      <p class="text-white/60">Voice memo drop Friday noon.</p>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <aside class="rounded-[28px] border border-outline bg-white/5 p-7 space-y-5">
+              <aside class="rounded-3xl bg-white/10 p-6 space-y-5 backdrop-blur-sm">
                 <div class="flex items-center justify-between">
-                  <h3 class="text-xl font-semibold">Playbook notes</h3>
-                  <span class="inline-flex items-center gap-2 rounded-full border border-white/25 px-3 py-1 text-xs text-white/70">
-                    <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
-                    Synced
-                  </span>
+                  <h3 class="text-xl font-semibold">Collab tracker</h3>
+                  <span class="text-xs text-white/60">3 active threads</span>
                 </div>
-                <ul class="space-y-3 text-sm text-white/75">
-                  <li class="flex items-start gap-3">
-                    <span class="mt-1 h-2.5 w-2.5 rounded-full bg-fuchsia-400"></span>
-                    Shift two budget points from static IG posts to Spark ads for TikTok challenge kickoff.
+                <ul class="space-y-4 text-sm text-white/75">
+                  <li class="rounded-2xl bg-white/10 p-4">
+                    <div class="flex items-center justify-between">
+                      <p class="font-semibold text-white/85">UW Esports Lounge</p>
+                      <span class="rounded-full bg-emerald-400/20 px-3 py-1 text-xs text-emerald-200">Go</span>
+                    </div>
+                    <p class="mt-2 text-white/60">Joint finals watch party · promo assets approved.</p>
                   </li>
-                  <li class="flex items-start gap-3">
-                    <span class="mt-1 h-2.5 w-2.5 rounded-full bg-sky-400"></span>
-                    Prep Canva templates for finals-themed Stories; assign to Mila by Thursday.
+                  <li class="rounded-2xl bg-white/10 p-4">
+                    <div class="flex items-center justify-between">
+                      <p class="font-semibold text-white/85">Seattle Night Market</p>
+                      <span class="rounded-full bg-amber-400/20 px-3 py-1 text-xs text-amber-200">Prep</span>
+                    </div>
+                    <p class="mt-2 text-white/60">Menu finalized, signage proof due Wednesday.</p>
                   </li>
-                  <li class="flex items-start gap-3">
-                    <span class="mt-1 h-2.5 w-2.5 rounded-full bg-amber-400"></span>
-                    Bundle UGC from ambassadors into a 30-second "why we study here" montage.
+                  <li class="rounded-2xl bg-white/10 p-4">
+                    <div class="flex items-center justify-between">
+                      <p class="font-semibold text-white/85">Chef Bee podcast</p>
+                      <span class="rounded-full bg-rose-400/20 px-3 py-1 text-xs text-rose-200">Pitch</span>
+                    </div>
+                    <p class="mt-2 text-white/60">Episode outline in draft — waiting on producer feedback.</p>
                   </li>
                 </ul>
               </aside>
             </div>
           </div>
 
-          <div id="marketing-stats" class="tab-panel hidden space-y-8">
-            <div class="grid gap-6 md:grid-cols-4 text-center">
-              <div class="rounded-3xl border border-outline bg-white/5 p-6">
-                <p class="text-sm text-white/60">Followers</p>
-                <p class="mt-3 text-3xl font-semibold">2.4k</p>
-                <p class="mt-2 text-sm text-emerald-300">+18% in 14 days</p>
+          <div id="marketing-dashboard" class="tab-panel hidden space-y-10">
+            <div class="grid gap-6 md:grid-cols-4">
+              <div class="rounded-3xl bg-white/5 p-6 text-center shadow-[0_18px_30px_-25px_rgba(244,114,182,0.45)]">
+                <p class="text-sm text-white/60">Reach lift</p>
+                <p class="mt-3 text-3xl font-semibold">+18%</p>
+                <p class="mt-2 text-sm text-emerald-300">vs last 7 days</p>
               </div>
-              <div class="rounded-3xl border border-outline bg-white/5 p-6">
-                <p class="text-sm text-white/60">Email CTR</p>
-                <p class="mt-3 text-3xl font-semibold">11.8%</p>
-                <p class="mt-2 text-sm text-emerald-300">+2.1 pts</p>
+              <div class="rounded-3xl bg-white/5 p-6 text-center shadow-[0_18px_30px_-25px_rgba(56,189,248,0.4)]">
+                <p class="text-sm text-white/60">New subscribers</p>
+                <p class="mt-3 text-3xl font-semibold">312</p>
+                <p class="mt-2 text-sm text-emerald-300">SMS + email</p>
               </div>
-              <div class="rounded-3xl border border-outline bg-white/5 p-6">
-                <p class="text-sm text-white/60">Reviews</p>
-                <p class="mt-3 text-3xl font-semibold">4.7 ★</p>
-                <p class="mt-2 text-sm text-emerald-300">41 new this month</p>
+              <div class="rounded-3xl bg-white/5 p-6 text-center shadow-[0_18px_30px_-25px_rgba(16,185,129,0.35)]">
+                <p class="text-sm text-white/60">Press momentum</p>
+                <p class="mt-3 text-3xl font-semibold">6</p>
+                <p class="mt-2 text-sm text-emerald-300">Features in flight</p>
               </div>
-              <div class="rounded-3xl border border-outline bg-white/5 p-6">
-                <p class="text-sm text-white/60">ROI</p>
-                <p class="mt-3 text-3xl font-semibold">4.2×</p>
-                <p class="mt-2 text-sm text-emerald-300">Spend $620</p>
+              <div class="rounded-3xl bg-white/5 p-6 text-center shadow-[0_18px_30px_-25px_rgba(251,191,36,0.35)]">
+                <p class="text-sm text-white/60">Promo ROI</p>
+                <p class="mt-3 text-3xl font-semibold">3.4×</p>
+                <p class="mt-2 text-sm text-emerald-300">Trailing 14d</p>
               </div>
             </div>
 
             <div class="grid gap-6 lg:grid-cols-[1.1fr,0.9fr]">
-              <div class="rounded-[28px] border border-outline bg-white/5 p-7">
-                <h3 class="text-xl font-semibold">Channel pulse</h3>
-                <div class="mt-6 grid gap-4 sm:grid-cols-2 text-sm text-white/75">
-                  <div class="rounded-2xl bg-white/5 p-5">
-                    <p class="text-sm font-semibold text-white/80">Instagram</p>
-                    <p class="mt-2 text-2xl font-semibold">+26%</p>
-                    <p class="mt-1 text-xs text-white/60">Reels saves vs baseline</p>
+              <div class="rounded-3xl bg-white/5 p-7 space-y-6">
+                <div class="flex items-center justify-between">
+                  <h3 class="text-xl font-semibold">Dashboard view</h3>
+                  <span class="text-xs text-white/60">Auto-updated hourly</span>
+                </div>
+                <div class="space-y-4 text-sm text-white/75">
+                  <div class="flex items-center justify-between gap-4">
+                    <div>
+                      <p class="font-semibold text-white/85">Organic</p>
+                      <p class="text-xs text-white/50">Reach + saves</p>
+                    </div>
+                    <div class="flex-1 h-2 rounded-full bg-white/10">
+                      <div class="h-2 rounded-full bg-fuchsia-400" style="width: 74%"></div>
+                    </div>
+                    <span class="text-xs text-white/60">Goal 80%</span>
                   </div>
-                  <div class="rounded-2xl bg-white/5 p-5">
-                    <p class="text-sm font-semibold text-white/80">Email</p>
-                    <p class="mt-2 text-2xl font-semibold">31%</p>
-                    <p class="mt-1 text-xs text-white/60">Active open rate</p>
+                  <div class="flex items-center justify-between gap-4">
+                    <div>
+                      <p class="font-semibold text-white/85">Paid</p>
+                      <p class="text-xs text-white/50">Spend vs plan</p>
+                    </div>
+                    <div class="flex-1 h-2 rounded-full bg-white/10">
+                      <div class="h-2 rounded-full bg-sky-400" style="width: 61%"></div>
+                    </div>
+                    <span class="text-xs text-white/60">Goal 70%</span>
                   </div>
-                  <div class="rounded-2xl bg-white/5 p-5">
-                    <p class="text-sm font-semibold text-white/80">Google reviews</p>
-                    <p class="mt-2 text-2xl font-semibold">+17</p>
-                    <p class="mt-1 text-xs text-white/60">Mentions of "friendly"</p>
+                  <div class="flex items-center justify-between gap-4">
+                    <div>
+                      <p class="font-semibold text-white/85">Community</p>
+                      <p class="text-xs text-white/50">DMs + replies</p>
+                    </div>
+                    <div class="flex-1 h-2 rounded-full bg-white/10">
+                      <div class="h-2 rounded-full bg-emerald-400" style="width: 88%"></div>
+                    </div>
+                    <span class="text-xs text-white/60">Goal 90%</span>
                   </div>
-                  <div class="rounded-2xl bg-white/5 p-5">
-                    <p class="text-sm font-semibold text-white/80">Influencer buzz</p>
-                    <p class="mt-2 text-2xl font-semibold">8</p>
-                    <p class="mt-1 text-xs text-white/60">Live partnerships</p>
-                  </div>
+                </div>
+                <div class="rounded-2xl bg-white/10 p-5 text-sm text-white/75">
+                  <p class="font-semibold text-white">Upcoming checks</p>
+                  <ul class="mt-3 space-y-2">
+                    <li class="flex items-start gap-2">
+                      <span class="mt-1 h-2 w-2 rounded-full bg-sky-400"></span>
+                      Refresh influencer list with finals-specific voices.
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <span class="mt-1 h-2 w-2 rounded-full bg-rose-400"></span>
+                      Review CTA variants for Midnight Market landing page.
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <span class="mt-1 h-2 w-2 rounded-full bg-emerald-400"></span>
+                      Tag new SMS signups with "study" interest cluster.
+                    </li>
+                  </ul>
                 </div>
               </div>
 
-              <aside class="rounded-[28px] border border-outline bg-white/5 p-7 space-y-6">
-                <h3 class="text-xl font-semibold">Week-at-a-glance</h3>
+              <aside class="rounded-3xl bg-white/5 p-7 space-y-5">
+                <div class="flex items-center justify-between">
+                  <h3 class="text-xl font-semibold">Signals</h3>
+                  <span class="text-xs text-white/60">Latest ping · 9:12p</span>
+                </div>
                 <ul class="space-y-4 text-sm text-white/75">
-                  <li class="flex items-center justify-between">
-                    <span>Mon · Finals comfort drop</span>
-                    <span class="rounded-full bg-white/10 px-3 py-1 text-xs">Stories</span>
+                  <li class="flex items-center justify-between gap-4">
+                    <span>PR mentions</span>
+                    <span class="rounded-full bg-white/10 px-3 py-1 text-xs">3 live</span>
                   </li>
-                  <li class="flex items-center justify-between">
-                    <span>Tue · TikTok duet launch</span>
-                    <span class="rounded-full bg-white/10 px-3 py-1 text-xs">Organic</span>
+                  <li class="flex items-center justify-between gap-4">
+                    <span>Influencer posts</span>
+                    <span class="rounded-full bg-white/10 px-3 py-1 text-xs">7 scheduled</span>
                   </li>
-                  <li class="flex items-center justify-between">
-                    <span>Thu · Night Market teaser</span>
-                    <span class="rounded-full bg-white/10 px-3 py-1 text-xs">Press</span>
+                  <li class="flex items-center justify-between gap-4">
+                    <span>Email CTR</span>
+                    <span class="rounded-full bg-white/10 px-3 py-1 text-xs">5.4%</span>
                   </li>
-                  <li class="flex items-center justify-between">
-                    <span>Sat · Chef livestream</span>
-                    <span class="rounded-full bg-white/10 px-3 py-1 text-xs">Live</span>
+                  <li class="flex items-center justify-between gap-4">
+                    <span>Event RSVPs</span>
+                    <span class="rounded-full bg-white/10 px-3 py-1 text-xs">42</span>
                   </li>
                 </ul>
               </aside>
@@ -280,6 +387,25 @@
       </main>
     </div>
 
+    <div id="marketing-ai-menu" class="hidden fixed z-50 w-60 rounded-2xl border border-white/15 bg-[#080912] p-4 text-sm shadow-2xl">
+      <p class="text-xs uppercase tracking-wide text-white/50">Genie focus</p>
+      <p id="marketing-menu-context" class="mt-1 text-sm font-semibold text-white"></p>
+      <div class="mt-4 space-y-2">
+        <button class="menu-option flex w-full items-center gap-2 rounded-xl bg-white/10 px-3 py-2 text-left text-white/80 hover:bg-white/20 transition" data-action="change">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M4 7h16M4 12h16m-8 5h8" />
+          </svg>
+          Refresh plan
+        </button>
+        <button class="menu-option flex w-full items-center gap-2 rounded-xl bg-white/10 px-3 py-2 text-left text-white/80 hover:bg-white/20 transition" data-action="experiment">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 6v12m6-6H6" />
+          </svg>
+          Draft experiment
+        </button>
+      </div>
+    </div>
+
     <script>
       const tabButtons = document.querySelectorAll('.tab-trigger');
       const panels = document.querySelectorAll('.tab-panel');
@@ -287,8 +413,7 @@
         button.addEventListener('click', () => {
           tabButtons.forEach((btn) => btn.classList.remove('bg-white', 'text-black', 'text-white/70'));
           button.classList.add('bg-white', 'text-black');
-          tabButtons
-            .forEach((btn) => btn !== button && btn.classList.add('text-white/70'));
+          tabButtons.forEach((btn) => btn !== button && btn.classList.add('text-white/70'));
           panels.forEach((panel) => {
             if (panel.id === button.dataset.target) {
               panel.classList.remove('hidden');
@@ -299,25 +424,53 @@
         });
       });
 
-      const aiButton = document.getElementById('marketing-ai-button');
-      const aiMenu = document.getElementById('marketing-ai-menu');
-      aiButton?.addEventListener('click', (event) => {
-        event.stopPropagation();
-        aiMenu.classList.toggle('hidden');
+      const marketingMenu = document.getElementById('marketing-ai-menu');
+      const marketingContext = document.getElementById('marketing-menu-context');
+      const marketingTriggers = document.querySelectorAll('.ai-trigger');
+      let marketingActiveTrigger = null;
+
+      function positionMenu(trigger) {
+        const rect = trigger.getBoundingClientRect();
+        marketingMenu.style.top = `${rect.bottom + window.scrollY + 8}px`;
+        marketingMenu.style.left = `${Math.min(rect.left + window.scrollX, window.innerWidth - marketingMenu.offsetWidth - 16)}px`;
+      }
+
+      marketingTriggers.forEach((trigger) => {
+        trigger.addEventListener('click', (event) => {
+          event.stopPropagation();
+          const label = trigger.dataset.label || 'Strategy';
+          marketingContext.textContent = label;
+          marketingActiveTrigger = trigger;
+          marketingMenu.classList.remove('hidden');
+          marketingMenu.style.display = 'block';
+          requestAnimationFrame(() => {
+            positionMenu(trigger);
+          });
+        });
       });
+
       document.addEventListener('click', (event) => {
-        if (!aiMenu.contains(event.target) && !aiButton.contains(event.target)) {
-          aiMenu.classList.add('hidden');
+        if (!marketingMenu.contains(event.target)) {
+          marketingMenu.classList.add('hidden');
+          marketingMenu.style.display = 'none';
+          marketingActiveTrigger = null;
         }
       });
 
-      const menuOptions = document.querySelectorAll('#marketing-ai-menu .menu-option');
-      menuOptions.forEach((option) => {
+      const marketingOptions = document.querySelectorAll('#marketing-ai-menu .menu-option');
+      marketingOptions.forEach((option) => {
         option.addEventListener('click', () => {
-          aiMenu.classList.add('hidden');
+          marketingMenu.classList.add('hidden');
+          marketingMenu.style.display = 'none';
           const action = option.dataset.action;
-          alert(action === 'change' ? 'Genie queued a new strategy draft.' : 'Genie added this to Experiments.');
+          alert(action === 'change' ? 'Genie is tuning the outreach plan.' : 'Experiment idea saved to Experiments.');
         });
+      });
+
+      window.addEventListener('resize', () => {
+        if (!marketingMenu.classList.contains('hidden') && marketingActiveTrigger) {
+          positionMenu(marketingActiveTrigger);
+        }
       });
     </script>
   </body>

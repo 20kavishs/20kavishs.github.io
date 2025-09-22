@@ -9,11 +9,13 @@
         theme: {
           extend: {
             fontFamily: {
-              script: ['"Great Vibes"', 'cursive'],
-              sans: ['"Inter"', 'system-ui', 'sans-serif'],
+              script: ['"Dancing Script"', 'cursive'],
+              sans: ['"Manrope"', 'system-ui', 'sans-serif'],
             },
             colors: {
-              night: '#050505',
+              night: '#070711',
+              surface: 'rgba(16, 24, 40, 0.65)',
+              outline: 'rgba(255,255,255,0.12)',
             },
           },
         },
@@ -22,11 +24,12 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600&family=Manrope:wght@400;500;600;700&display=swap"
     />
     <style>
       body {
-        background: #030303;
+        background: radial-gradient(circle at top left, rgba(34, 211, 238, 0.16), transparent 45%),
+          radial-gradient(circle at top right, rgba(16, 185, 129, 0.18), transparent 50%), #050508;
       }
     </style>
   </head>
@@ -36,170 +39,292 @@
         <div class="space-y-4">
           <button
             onclick="window.location.href='demo.html'"
-            class="inline-flex items-center justify-center w-11 h-11 rounded-full border border-white/20 text-white hover:border-white/60 transition"
+            class="inline-flex items-center justify-center w-11 h-11 rounded-full border border-white/25 bg-white/5 text-white hover:border-white/60 transition"
             aria-label="Back to apps"
           >
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19l-7-7 7-7" />
             </svg>
           </button>
-          <div class="text-4xl font-script tracking-wide italic">genie</div>
+          <div class="text-4xl font-script leading-none text-white">genie</div>
         </div>
         <div class="text-right">
-          <p class="uppercase tracking-[0.4em] text-xs text-white/60">your AI business advisor</p>
+          <p class="text-sm text-white/70">Your AI business advisor</p>
         </div>
       </header>
 
       <main class="flex-1 py-10 flex flex-col gap-12">
         <section class="max-w-4xl">
           <h1 class="text-5xl md:text-6xl font-light">Growth</h1>
-          <p class="mt-3 text-sm uppercase tracking-[0.5em] text-white/40">momentum</p>
+          <p class="mt-3 text-base text-white/70">Momentum view of covers, delivery, and pipeline.</p>
         </section>
 
-        <section class="grid gap-6 md:grid-cols-3">
-          <div class="rounded-[28px] border border-white/10 bg-white/5 p-6 backdrop-blur flex flex-col">
-            <div class="flex items-center justify-between text-xs uppercase tracking-[0.35em] text-white/60">
-              <span>Dining</span>
-              <span class="inline-flex h-9 w-9 items-center justify-center rounded-2xl bg-white/15 text-white/80">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 17l6-6 4 4 8-8" />
-                </svg>
-              </span>
-            </div>
-            <div class="mt-6 text-4xl font-light">186 covers</div>
-            <div class="mt-auto flex items-end gap-1 h-20">
-              <div class="flex-1 rounded-full bg-white/15 h-4"></div>
-              <div class="flex-1 rounded-full bg-white/15 h-8"></div>
-              <div class="flex-1 rounded-full bg-white/15 h-12"></div>
-              <div class="flex-1 rounded-full bg-white/40 h-16"></div>
-            </div>
-          </div>
-
-          <div class="rounded-[28px] border border-white/10 bg-white/5 p-6 backdrop-blur flex flex-col">
-            <div class="flex items-center justify-between text-xs uppercase tracking-[0.35em] text-white/60">
-              <span>Delivery</span>
-              <span class="inline-flex h-9 w-9 items-center justify-center rounded-2xl bg-white/15 text-white/80">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16m-7 4h7m-7 4h7m-7 4h7" />
-                </svg>
-              </span>
-            </div>
-            <div class="mt-6 text-4xl font-light">$14.8k</div>
-            <div class="mt-auto grid grid-cols-3 gap-3 text-xs text-white/70">
-              <div class="rounded-2xl bg-white/10 px-3 py-2 text-center">Dinner</div>
-              <div class="rounded-2xl bg-white/10 px-3 py-2 text-center">Late</div>
-              <div class="rounded-2xl bg-white/10 px-3 py-2 text-center">Bundles</div>
-            </div>
-          </div>
-
-          <div class="rounded-[28px] border border-white/10 bg-white/5 p-6 backdrop-blur flex flex-col">
-            <div class="flex items-center justify-between text-xs uppercase tracking-[0.35em] text-white/60">
-              <span>Pipeline</span>
-              <span class="inline-flex h-9 w-9 items-center justify-center rounded-2xl bg-white/15 text-white/80">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 12h16m-8-8v16" />
-                </svg>
-              </span>
-            </div>
-            <div class="mt-6 text-4xl font-light">7 leads</div>
-            <div class="mt-auto space-y-2 text-xs text-white/60">
-              <div class="flex items-center justify-between">
-                <span class="rounded-full bg-white/10 px-3 py-1">Catering</span>
-                <span class="text-white/40">43% win</span>
-              </div>
-              <div class="flex items-center justify-between">
-                <span class="rounded-full bg-white/10 px-3 py-1">Events</span>
-                <span class="text-white/40">3 booked</span>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="grid gap-6 lg:grid-cols-[1.1fr,0.9fr]">
-          <div class="rounded-[32px] border border-white/10 bg-white/5 p-8 backdrop-blur space-y-6">
-            <div class="flex items-center justify-between">
-              <h2 class="text-2xl font-light">Plays in motion</h2>
-              <span class="text-xs uppercase tracking-[0.4em] text-white/40">now</span>
-            </div>
-            <div class="grid gap-4 md:grid-cols-2">
-              <div class="rounded-3xl bg-gradient-to-br from-emerald-500/30 via-emerald-500/10 to-white/10 p-5">
-                <p class="text-sm uppercase tracking-[0.35em] text-white/60">this week</p>
-                <p class="mt-5 text-xl font-light">Chef counter livestream</p>
-              </div>
-              <div class="rounded-3xl bg-gradient-to-br from-sky-500/30 via-sky-500/10 to-white/10 p-5">
-                <p class="text-sm uppercase tracking-[0.35em] text-white/60">next</p>
-                <p class="mt-5 text-xl font-light">UW finals comfort tour</p>
-              </div>
-              <div class="rounded-3xl bg-gradient-to-br from-amber-500/30 via-amber-500/10 to-white/10 p-5">
-                <p class="text-sm uppercase tracking-[0.35em] text-white/60">later</p>
-                <p class="mt-5 text-xl font-light">Night market pop-up</p>
-              </div>
-              <div class="rounded-3xl bg-gradient-to-br from-rose-500/30 via-rose-500/10 to-white/10 p-5">
-                <p class="text-sm uppercase tracking-[0.35em] text-white/60">watch</p>
-                <p class="mt-5 text-xl font-light">Capitol hill takeover</p>
-              </div>
-            </div>
-          </div>
-
-          <aside class="rounded-[32px] border border-white/10 bg-white/5 p-8 backdrop-blur space-y-6">
-            <h2 class="text-2xl font-light">Flow lane</h2>
-            <div class="space-y-5 text-sm text-white/70">
-              <div class="flex items-center gap-3">
-                <span class="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center">A</span>
-                <div>
-                  <p class="text-white/80">Awareness</p>
-                  <div class="mt-2 h-1.5 w-32 rounded-full bg-white/20">
-                    <div class="h-full w-3/4 rounded-full bg-white/60"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="flex items-center gap-3">
-                <span class="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center">B</span>
-                <div>
-                  <p class="text-white/80">Booking</p>
-                  <div class="mt-2 h-1.5 w-32 rounded-full bg-white/20">
-                    <div class="h-full w-2/3 rounded-full bg-white/60"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="flex items-center gap-3">
-                <span class="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center">R</span>
-                <div>
-                  <p class="text-white/80">Repeat</p>
-                  <div class="mt-2 h-1.5 w-32 rounded-full bg-white/20">
-                    <div class="h-full w-4/5 rounded-full bg-white/60"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </aside>
-        </section>
-
-        <section class="rounded-[32px] border border-white/10 bg-white/5 p-8 backdrop-blur">
+        <section class="rounded-[32px] border border-outline/60 bg-surface backdrop-blur-xl p-8 space-y-8">
           <div class="flex flex-wrap items-center justify-between gap-4">
-            <h2 class="text-2xl font-light">Signal tiles</h2>
-            <span class="text-xs uppercase tracking-[0.4em] text-white/40">snapshots</span>
+            <div class="inline-flex rounded-full bg-white/10 p-1 text-sm">
+              <button class="tab-trigger rounded-full px-4 py-2 font-medium bg-white text-black" data-target="growth-strategy">
+                Strategy
+              </button>
+              <button class="tab-trigger rounded-full px-4 py-2 font-medium text-white/70 hover:text-white transition" data-target="growth-stats">
+                Stats
+              </button>
+            </div>
+            <span class="text-sm text-white/60">Updated · moments ago</span>
           </div>
-          <div class="mt-8 grid gap-4 md:grid-cols-4 text-sm text-white/70">
-            <div class="rounded-3xl bg-white/10 p-5">
-              <p class="text-xs uppercase tracking-[0.35em] text-white/50">traffic</p>
-              <p class="mt-5 text-2xl font-light">+12%</p>
+
+          <div id="growth-strategy" class="tab-panel space-y-8">
+            <div class="relative rounded-[28px] border border-outline bg-white/5 p-8">
+              <div class="flex items-start justify-between gap-6">
+                <div>
+                  <h2 class="text-2xl font-semibold">MECE pipeline map</h2>
+                  <p class="mt-2 text-white/70 max-w-xl">
+                    Breaking growth into acquisition, conversion, retention, and expansion lets us spot gaps instantly. Genie keeps these lanes balanced with the latest signals.
+                  </p>
+                </div>
+                <div class="relative">
+                  <button
+                    id="growth-ai-button"
+                    class="inline-flex items-center gap-2 rounded-full bg-rose-500 px-4 py-2 text-sm font-semibold shadow-lg hover:bg-rose-400 transition"
+                    type="button"
+                  >
+                    <span class="inline-block h-2 w-2 rounded-full bg-white animate-pulse"></span>
+                    AI suggestion
+                  </button>
+                  <div
+                    id="growth-ai-menu"
+                    class="absolute right-0 mt-3 hidden w-48 rounded-2xl border border-white/20 bg-night/95 p-3 text-sm shadow-2xl"
+                  >
+                    <button class="menu-option flex w-full items-center gap-2 rounded-xl px-3 py-2 text-left text-white/80 hover:bg-white/10" data-action="change">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M4 7h16M4 12h12m-6 5h6" />
+                      </svg>
+                      Change plan
+                    </button>
+                    <button class="menu-option flex w-full items-center gap-2 rounded-xl px-3 py-2 text-left text-white/80 hover:bg-white/10" data-action="experiment">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 6v12m6-6H6" />
+                      </svg>
+                      Add to experiment
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+                <div class="rounded-3xl bg-gradient-to-br from-emerald-400/35 via-emerald-400/15 to-transparent p-6">
+                  <p class="text-sm font-semibold text-white/80">Acquisition</p>
+                  <ul class="mt-4 space-y-3 text-sm text-white/70">
+                    <li>Chef counter livestream draws 180 viewers</li>
+                    <li>DoorDash bundles promoted after 8pm</li>
+                    <li>Campus flyering with QR codes</li>
+                  </ul>
+                </div>
+                <div class="rounded-3xl bg-gradient-to-br from-cyan-400/35 via-cyan-400/15 to-transparent p-6">
+                  <p class="text-sm font-semibold text-white/80">Conversion</p>
+                  <ul class="mt-4 space-y-3 text-sm text-white/70">
+                    <li>Two-tap waitlist with upsell suggestions</li>
+                    <li>Tablets stationed at grab-and-go queue</li>
+                    <li>Chef stories displayed on in-store screens</li>
+                  </ul>
+                </div>
+                <div class="rounded-3xl bg-gradient-to-br from-violet-400/35 via-violet-400/15 to-transparent p-6">
+                  <p class="text-sm font-semibold text-white/80">Retention</p>
+                  <ul class="mt-4 space-y-3 text-sm text-white/70">
+                    <li>Loyalty SMS prompts 72-hour return visit</li>
+                    <li>Personalized "family meal" follow-ups</li>
+                    <li>Chef Bee check-in DM every Friday</li>
+                  </ul>
+                </div>
+                <div class="rounded-3xl bg-gradient-to-br from-amber-400/35 via-amber-400/15 to-transparent p-6">
+                  <p class="text-sm font-semibold text-white/80">Expansion</p>
+                  <ul class="mt-4 space-y-3 text-sm text-white/70">
+                    <li>Catering sampler runs to downtown offices</li>
+                    <li>Night market pop-up with merch booth</li>
+                    <li>Partnership pipeline with UW clubs</li>
+                  </ul>
+                </div>
+              </div>
             </div>
-            <div class="rounded-3xl bg-white/10 p-5">
-              <p class="text-xs uppercase tracking-[0.35em] text-white/50">covers</p>
-              <p class="mt-5 text-2xl font-light">164 forecast</p>
+
+            <div class="grid gap-6 lg:grid-cols-[1.1fr,0.9fr]">
+              <div class="rounded-[28px] border border-outline bg-white/5 p-7 space-y-6">
+                <div class="flex items-center justify-between">
+                  <h3 class="text-xl font-semibold">Plays in motion</h3>
+                  <span class="text-sm text-white/60">Live + scheduled</span>
+                </div>
+                <div class="grid gap-4 sm:grid-cols-2 text-sm text-white/80">
+                  <div class="rounded-2xl bg-gradient-to-br from-emerald-400/30 via-emerald-400/10 to-transparent p-5">
+                    <p class="text-xs uppercase tracking-wide text-white/60">This week</p>
+                    <p class="mt-3 text-lg font-semibold">Chef counter livestream</p>
+                    <p class="mt-2 text-white/60">Target: 25 bookings</p>
+                  </div>
+                  <div class="rounded-2xl bg-gradient-to-br from-cyan-400/30 via-cyan-400/10 to-transparent p-5">
+                    <p class="text-xs uppercase tracking-wide text-white/60">Next</p>
+                    <p class="mt-3 text-lg font-semibold">UW finals comfort tour</p>
+                    <p class="mt-2 text-white/60">Covers goal: 320</p>
+                  </div>
+                  <div class="rounded-2xl bg-gradient-to-br from-violet-400/30 via-violet-400/10 to-transparent p-5">
+                    <p class="text-xs uppercase tracking-wide text-white/60">Testing</p>
+                    <p class="mt-3 text-lg font-semibold">Night market pre-orders</p>
+                    <p class="mt-2 text-white/60">40 orders to greenlight</p>
+                  </div>
+                  <div class="rounded-2xl bg-gradient-to-br from-amber-400/30 via-amber-400/10 to-transparent p-5">
+                    <p class="text-xs uppercase tracking-wide text-white/60">Pipeline</p>
+                    <p class="mt-3 text-lg font-semibold">Tech catering pilots</p>
+                    <p class="mt-2 text-white/60">3 proposals pending</p>
+                  </div>
+                </div>
+              </div>
+
+              <aside class="rounded-[28px] border border-outline bg-white/5 p-7 space-y-5">
+                <div class="flex items-center justify-between">
+                  <h3 class="text-xl font-semibold">Growth notes</h3>
+                  <span class="inline-flex items-center gap-2 rounded-full border border-white/25 px-3 py-1 text-xs text-white/70">
+                    <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+                    Synced
+                  </span>
+                </div>
+                <ul class="space-y-3 text-sm text-white/75">
+                  <li class="flex items-start gap-3">
+                    <span class="mt-1 h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
+                    Add SMS bounceback for guests who order delivery twice in a week.
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="mt-1 h-2.5 w-2.5 rounded-full bg-cyan-400"></span>
+                    Model 24-hour prep plan for finals late-night service.
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="mt-1 h-2.5 w-2.5 rounded-full bg-violet-400"></span>
+                    Stand up referral tracker for student organizations.
+                  </li>
+                </ul>
+              </aside>
             </div>
-            <div class="rounded-3xl bg-white/10 p-5">
-              <p class="text-xs uppercase tracking-[0.35em] text-white/50">loyalty</p>
-              <p class="mt-5 text-2xl font-light">28% reorder</p>
+          </div>
+
+          <div id="growth-stats" class="tab-panel hidden space-y-8">
+            <div class="grid gap-6 md:grid-cols-4 text-center">
+              <div class="rounded-3xl border border-outline bg-white/5 p-6">
+                <p class="text-sm text-white/60">Dining covers</p>
+                <p class="mt-3 text-3xl font-semibold">186</p>
+                <p class="mt-2 text-sm text-emerald-300">+12 vs last week</p>
+              </div>
+              <div class="rounded-3xl border border-outline bg-white/5 p-6">
+                <p class="text-sm text-white/60">Delivery rev</p>
+                <p class="mt-3 text-3xl font-semibold">$14.8k</p>
+                <p class="mt-2 text-sm text-emerald-300">+9% trailing 7d</p>
+              </div>
+              <div class="rounded-3xl border border-outline bg-white/5 p-6">
+                <p class="text-sm text-white/60">Pipeline deals</p>
+                <p class="mt-3 text-3xl font-semibold">7</p>
+                <p class="mt-2 text-sm text-emerald-300">3 near close</p>
+              </div>
+              <div class="rounded-3xl border border-outline bg-white/5 p-6">
+                <p class="text-sm text-white/60">Repeat rate</p>
+                <p class="mt-3 text-3xl font-semibold">28%</p>
+                <p class="mt-2 text-sm text-emerald-300">+4 pts MOM</p>
+              </div>
             </div>
-            <div class="rounded-3xl bg-white/10 p-5">
-              <p class="text-xs uppercase tracking-[0.35em] text-white/50">reviews</p>
-              <p class="mt-5 text-2xl font-light">4.6 ★</p>
+
+            <div class="grid gap-6 lg:grid-cols-[1.1fr,0.9fr]">
+              <div class="rounded-[28px] border border-outline bg-white/5 p-7">
+                <h3 class="text-xl font-semibold">Flow lane</h3>
+                <div class="mt-6 space-y-5 text-sm text-white/75">
+                  <div class="flex items-center justify-between">
+                    <div>
+                      <p class="font-semibold text-white/80">Awareness</p>
+                      <p class="text-xs text-white/60">Paid + organic blend</p>
+                    </div>
+                    <div class="h-2 w-28 rounded-full bg-white/15">
+                      <div class="h-2 rounded-full bg-emerald-300" style="width: 76%"></div>
+                    </div>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <div>
+                      <p class="font-semibold text-white/80">Booking</p>
+                      <p class="text-xs text-white/60">Reservations + walk-ins</p>
+                    </div>
+                    <div class="h-2 w-28 rounded-full bg-white/15">
+                      <div class="h-2 rounded-full bg-emerald-300" style="width: 62%"></div>
+                    </div>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <div>
+                      <p class="font-semibold text-white/80">Repeat</p>
+                      <p class="text-xs text-white/60">Loyalty + SMS</p>
+                    </div>
+                    <div class="h-2 w-28 rounded-full bg-white/15">
+                      <div class="h-2 rounded-full bg-emerald-300" style="width: 81%"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <aside class="rounded-[28px] border border-outline bg-white/5 p-7 space-y-6">
+                <h3 class="text-xl font-semibold">Signals</h3>
+                <ul class="space-y-4 text-sm text-white/75">
+                  <li class="flex items-center justify-between">
+                    <span>Late night wait time</span>
+                    <span class="rounded-full bg-white/10 px-3 py-1 text-xs">7 min</span>
+                  </li>
+                  <li class="flex items-center justify-between">
+                    <span>Average check size</span>
+                    <span class="rounded-full bg-white/10 px-3 py-1 text-xs">$27.40</span>
+                  </li>
+                  <li class="flex items-center justify-between">
+                    <span>Delivery bundles sold</span>
+                    <span class="rounded-full bg-white/10 px-3 py-1 text-xs">64</span>
+                  </li>
+                  <li class="flex items-center justify-between">
+                    <span>Events pipeline</span>
+                    <span class="rounded-full bg-white/10 px-3 py-1 text-xs">5 warm</span>
+                  </li>
+                </ul>
+              </aside>
             </div>
           </div>
         </section>
       </main>
     </div>
+
+    <script>
+      const tabButtons = document.querySelectorAll('.tab-trigger');
+      const panels = document.querySelectorAll('.tab-panel');
+      tabButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          tabButtons.forEach((btn) => btn.classList.remove('bg-white', 'text-black', 'text-white/70'));
+          button.classList.add('bg-white', 'text-black');
+          tabButtons.forEach((btn) => btn !== button && btn.classList.add('text-white/70'));
+          panels.forEach((panel) => {
+            if (panel.id === button.dataset.target) {
+              panel.classList.remove('hidden');
+            } else {
+              panel.classList.add('hidden');
+            }
+          });
+        });
+      });
+
+      const aiButton = document.getElementById('growth-ai-button');
+      const aiMenu = document.getElementById('growth-ai-menu');
+      aiButton?.addEventListener('click', (event) => {
+        event.stopPropagation();
+        aiMenu.classList.toggle('hidden');
+      });
+      document.addEventListener('click', (event) => {
+        if (!aiMenu.contains(event.target) && !aiButton.contains(event.target)) {
+          aiMenu.classList.add('hidden');
+        }
+      });
+
+      const growthOptions = document.querySelectorAll('#growth-ai-menu .menu-option');
+      growthOptions.forEach((option) => {
+        option.addEventListener('click', () => {
+          aiMenu.classList.add('hidden');
+          const action = option.dataset.action;
+          alert(action === 'change' ? 'Genie is tuning the growth plan.' : 'Experiment card drafted in Experiments.');
+        });
+      });
+    </script>
   </body>
 </html>

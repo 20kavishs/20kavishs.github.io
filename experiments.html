@@ -14,9 +14,6 @@
             },
             colors: {
               night: '#050505',
-              surface: 'rgba(255,255,255,0.04)',
-              success: '#4ade80',
-              pending: '#facc15',
             },
           },
         },
@@ -27,10 +24,15 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;500;600;700&display=swap"
     />
+    <style>
+      body {
+        background: #030303;
+      }
+    </style>
   </head>
   <body class="min-h-screen bg-night text-white font-sans">
-    <div class="min-h-screen px-6 md:px-12 pb-16">
-      <header class="py-8 flex items-start justify-between">
+    <div class="min-h-screen flex flex-col px-6 md:px-12 py-10">
+      <header class="flex items-start justify-between">
         <div class="space-y-4">
           <button
             onclick="window.location.href='demo.html'"
@@ -41,152 +43,144 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19l-7-7 7-7" />
             </svg>
           </button>
-          <div class="text-4xl font-script tracking-wide">genie</div>
+          <div class="text-4xl font-script tracking-wide italic">genie</div>
         </div>
         <div class="text-right">
-          <p class="uppercase tracking-[0.35em] text-xs text-white/50">Suit &amp; Thai Restaurant</p>
-          <p class="text-sm text-white/60">Experiment wall</p>
+          <p class="uppercase tracking-[0.4em] text-xs text-white/60">your AI business advisor</p>
         </div>
       </header>
 
-      <main class="space-y-12">
+      <main class="flex-1 py-10 flex flex-col gap-12">
         <section class="max-w-4xl">
-          <p class="text-sm uppercase tracking-[0.4em] text-white/40">Overview</p>
-          <h1 class="mt-4 text-5xl font-light">Measure what Genie nudges</h1>
-          <p class="mt-6 text-lg text-white/60 leading-relaxed">
-            Every recommendation becomes an experiment with a clear hypothesis, metric, and result readout. Once an experiment graduates, its
-            learnings feed directly into Genie playbooks for Suit &amp; Thai.
-          </p>
+          <h1 class="text-5xl md:text-6xl font-light">Experiments</h1>
+          <p class="mt-3 text-sm uppercase tracking-[0.5em] text-white/40">playground</p>
         </section>
 
-        <section class="flex flex-wrap items-center justify-between gap-4">
-          <div class="flex items-center gap-3 text-sm text-white/60">
-            <span class="inline-flex h-3 w-3 rounded-full bg-success"></span>
-            <span>Winning</span>
-            <span class="inline-flex h-3 w-3 rounded-full bg-pending ml-4"></span>
-            <span>Running</span>
+        <section class="rounded-[32px] border border-white/10 bg-white/5 p-8 backdrop-blur">
+          <div class="flex flex-wrap items-center justify-between gap-4">
+            <h2 class="text-2xl font-light">Wall</h2>
+            <button
+              id="addExperiment"
+              class="inline-flex items-center gap-2 rounded-full border border-white/30 px-4 py-2 text-sm font-medium text-white hover:border-white/60 transition"
+              type="button"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v12m6-6H6" />
+              </svg>
+              Add experiment
+            </button>
           </div>
-          <button
-            type="button"
-            class="inline-flex items-center gap-2 rounded-full border border-white/40 px-5 py-2 text-sm font-medium text-white hover:border-white transition"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v12m6-6H6" />
-            </svg>
-            Add experiment
-          </button>
-        </section>
-
-        <section class="space-y-6">
-          <article id="uw-finals" class="rounded-3xl border border-white/10 bg-surface p-6">
-            <div class="flex flex-wrap items-center justify-between gap-4">
-              <div>
-                <p class="text-xs uppercase tracking-widest text-white/40">Marketing · Running</p>
-                <h2 class="text-3xl font-light">UW Finals Comfort Tour</h2>
-              </div>
-              <span class="inline-flex items-center gap-2 rounded-full border border-pending/40 bg-pending/10 px-4 py-1 text-xs font-medium text-pending-200">
-                <span class="h-2 w-2 rounded-full bg-pending"></span>
-                In flight
-              </span>
-            </div>
-            <div class="mt-6 grid gap-6 lg:grid-cols-[1.1fr,0.9fr]">
-              <div class="space-y-4 text-sm text-white/70">
-                <p><span class="text-white">Hypothesis:</span> Finals-week storytelling across TikTok and Instagram will lift late-night delivery orders by 14%.</p>
-                <p><span class="text-white">Play:</span> Two chef-led study snack videos, UW student testimonials, DoorDash late-night bundle with Thai iced tea.</p>
-                <p><span class="text-white">Owner:</span> Mila Chen · Launch date: May 20</p>
-              </div>
-              <div class="grid gap-4 sm:grid-cols-2">
-                <div class="rounded-2xl bg-white/5 p-4">
-                  <h3 class="text-xs uppercase tracking-widest text-white/40">Metric</h3>
-                  <p class="mt-2 text-lg font-light text-white">Late-night delivery orders</p>
-                  <p class="text-sm text-white/60">Goal: +14% vs prior 2-week baseline</p>
-                  <p class="mt-2 text-2xl font-light text-pending">+9.6%</p>
-                </div>
-                <div class="rounded-2xl bg-white/5 p-4">
-                  <h3 class="text-xs uppercase tracking-widest text-white/40">Results</h3>
-                  <ul class="mt-2 space-y-1 text-sm text-white/70">
-                    <li>Story completion rate 68%</li>
-                    <li>DoorDash bundle attach 1.7×</li>
-                    <li>UW subreddit mentions +5</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <article id="pad-thai-passport" class="rounded-3xl border border-white/10 bg-surface p-6">
-            <div class="flex flex-wrap items-center justify-between gap-4">
-              <div>
-                <p class="text-xs uppercase tracking-widest text-white/40">Loyalty · Winning</p>
-                <h2 class="text-3xl font-light">Pad Thai Passport</h2>
-              </div>
-              <span class="inline-flex items-center gap-2 rounded-full border border-success/40 bg-success/10 px-4 py-1 text-xs font-medium text-success-200">
-                <span class="h-2 w-2 rounded-full bg-success"></span>
-                Adopted
-              </span>
-            </div>
-            <div class="mt-6 grid gap-6 lg:grid-cols-[1.1fr,0.9fr]">
-              <div class="space-y-4 text-sm text-white/70">
-                <p><span class="text-white">Hypothesis:</span> A five-stamp dine-in passport will increase repeat visits and catalyze more Google reviews.</p>
-                <p><span class="text-white">Play:</span> Table talkers, QR sign-up, dessert reward, follow-up email after second visit.</p>
-                <p><span class="text-white">Owner:</span> Front-of-house team · Launch date: April 10</p>
-              </div>
-              <div class="grid gap-4 sm:grid-cols-2">
-                <div class="rounded-2xl bg-white/5 p-4">
-                  <h3 class="text-xs uppercase tracking-widest text-white/40">Metric</h3>
-                  <p class="mt-2 text-lg font-light text-white">Repeat visit rate</p>
-                  <p class="text-sm text-white/60">Goal: +9%</p>
-                  <p class="mt-2 text-2xl font-light text-success">+11.4%</p>
-                </div>
-                <div class="rounded-2xl bg-white/5 p-4">
-                  <h3 class="text-xs uppercase tracking-widest text-white/40">Results</h3>
-                  <ul class="mt-2 space-y-1 text-sm text-white/70">
-                    <li>321 passports issued</li>
-                    <li>Dessert COGS up $92 · margin offset by +$1.8k revenue</li>
-                    <li>Google reviews mentioning "passport": +17</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <article id="night-market" class="rounded-3xl border border-white/10 bg-surface p-6">
-            <div class="flex flex-wrap items-center justify-between gap-4">
-              <div>
-                <p class="text-xs uppercase tracking-widest text-white/40">PR · Preparing</p>
-                <h2 class="text-3xl font-light">Neighborhood Night Market</h2>
-              </div>
-              <span class="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1 text-xs font-medium text-white/70">
-                <span class="h-2 w-2 rounded-full bg-white/50"></span>
-                Drafting
-              </span>
-            </div>
-            <div class="mt-6 grid gap-6 lg:grid-cols-[1.1fr,0.9fr]">
-              <div class="space-y-4 text-sm text-white/70">
-                <p><span class="text-white">Hypothesis:</span> A collaborative night market will generate 540 high-intent impressions and 200 emails.</p>
-                <p><span class="text-white">Play:</span> Partner with four U-District vendors, co-create tasting passports, secure Eater Seattle preview.</p>
-                <p><span class="text-white">Owner:</span> Genie Ops Pod · Launch target: June 15</p>
-              </div>
-              <div class="grid gap-4 sm:grid-cols-2">
-                <div class="rounded-2xl bg-white/5 p-4">
-                  <h3 class="text-xs uppercase tracking-widest text-white/40">Metric</h3>
-                  <p class="mt-2 text-lg font-light text-white">Emails captured</p>
-                  <p class="text-sm text-white/60">Goal: 200</p>
-                  <p class="mt-2 text-2xl font-light text-white/50">Planning</p>
-                </div>
-                <div class="rounded-2xl bg-white/5 p-4">
-                  <h3 class="text-xs uppercase tracking-widest text-white/40">Results</h3>
-                  <ul class="mt-2 space-y-1 text-sm text-white/70">
-                    <li>Vendor commitments: 3/4 signed</li>
-                    <li>Press outreach: draft ready</li>
-                    <li>Budget hold: $600</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </article>
+          <div id="experiment-board" class="mt-8 grid gap-6 md:grid-cols-2"></div>
         </section>
       </main>
     </div>
+
+    <div
+      id="experiment-modal"
+      class="fixed inset-0 z-50 hidden items-center justify-center bg-black/70 px-6"
+      role="dialog"
+      aria-modal="true"
+    >
+      <div class="w-full max-w-sm rounded-3xl border border-white/10 bg-white/10 p-6 backdrop-blur">
+        <h2 class="text-xl font-light">Create experiment</h2>
+        <label class="mt-4 block text-sm text-white/70">Title</label>
+        <input
+          id="experiment-title-input"
+          type="text"
+          class="mt-2 w-full rounded-2xl border border-white/20 bg-black/40 px-4 py-3 text-sm text-white focus:outline-none focus:border-white/60"
+          placeholder="Give it a name"
+        />
+        <div class="mt-6 flex items-center justify-end gap-3 text-sm">
+          <button id="cancel-experiment" type="button" class="rounded-full border border-white/30 px-4 py-2 text-white hover:border-white/60 transition">
+            Cancel
+          </button>
+          <button id="create-experiment" type="button" class="rounded-full bg-white px-4 py-2 text-black hover:bg-white/80 transition">
+            Create
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <template id="experiment-template">
+      <div class="experiment-card rounded-[32px] border border-white/10 bg-white/5 p-6 backdrop-blur flex flex-col items-center gap-6">
+        <div
+          class="w-full rounded-3xl bg-gradient-to-r from-indigo-500/30 via-indigo-500/10 to-white/10 px-4 py-3 text-center text-lg font-light focus:outline-none"
+          contenteditable="true"
+        ></div>
+        <div class="flex w-full items-start justify-between gap-6">
+          <div class="flex-1 flex flex-col items-center gap-3">
+            <svg class="h-12 w-12 text-white/40" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M24 4v28" />
+              <path d="M24 32l-6-6" />
+              <path d="M24 32l6-6" />
+            </svg>
+            <div
+              class="w-full rounded-3xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-white/80"
+              contenteditable="true"
+              data-placeholder="Results"
+            >Results...</div>
+          </div>
+          <div class="flex-1 flex flex-col items-center gap-3">
+            <svg class="h-12 w-12 text-white/40" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M24 4v28" />
+              <path d="M24 32l-6-6" />
+              <path d="M24 32l6-6" />
+            </svg>
+            <div
+              class="w-full rounded-3xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-white/80"
+              contenteditable="true"
+              data-placeholder="Evidence"
+            >Evidence...</div>
+          </div>
+        </div>
+      </div>
+    </template>
+
+    <script>
+      const board = document.getElementById('experiment-board');
+      const modal = document.getElementById('experiment-modal');
+      const titleInput = document.getElementById('experiment-title-input');
+      const addButton = document.getElementById('addExperiment');
+      const createButton = document.getElementById('create-experiment');
+      const cancelButton = document.getElementById('cancel-experiment');
+      const template = document.getElementById('experiment-template');
+
+      function openModal() {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        titleInput.value = '';
+        setTimeout(() => titleInput.focus(), 50);
+      }
+
+      function closeModal() {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+
+      function createExperimentCard(title) {
+        const clone = template.content.firstElementChild.cloneNode(true);
+        const titleBox = clone.querySelector('[contenteditable="true"]');
+        titleBox.textContent = title;
+        board.appendChild(clone);
+      }
+
+      addButton.addEventListener('click', openModal);
+      cancelButton.addEventListener('click', closeModal);
+
+      createButton.addEventListener('click', () => {
+        const title = titleInput.value.trim() || 'Untitled experiment';
+        createExperimentCard(title);
+        closeModal();
+      });
+
+      modal.addEventListener('click', (event) => {
+        if (event.target === modal) {
+          closeModal();
+        }
+      });
+
+      // Seed a couple of cards for context
+      ['UW finals comfort tour', 'Pad thai passport'].forEach(createExperimentCard);
+    </script>
   </body>
 </html>

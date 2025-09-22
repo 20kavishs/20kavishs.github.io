@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Genie | Competitor Radar</title>
+    <title>Genie | Competitors</title>
     <script>
       tailwind.config = {
         theme: {
@@ -14,7 +14,6 @@
             },
             colors: {
               night: '#050505',
-              surface: 'rgba(255,255,255,0.04)',
             },
           },
         },
@@ -25,10 +24,15 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;500;600;700&display=swap"
     />
+    <style>
+      body {
+        background: #030303;
+      }
+    </style>
   </head>
   <body class="min-h-screen bg-night text-white font-sans">
-    <div class="min-h-screen px-6 md:px-12 pb-16">
-      <header class="py-8 flex items-start justify-between">
+    <div class="min-h-screen flex flex-col px-6 md:px-12 py-10">
+      <header class="flex items-start justify-between">
         <div class="space-y-4">
           <button
             onclick="window.location.href='demo.html'"
@@ -39,135 +43,127 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19l-7-7 7-7" />
             </svg>
           </button>
-          <div class="text-4xl font-script tracking-wide">genie</div>
+          <div class="text-4xl font-script tracking-wide italic">genie</div>
         </div>
         <div class="text-right">
-          <p class="uppercase tracking-[0.35em] text-xs text-white/50">Suit &amp; Thai Restaurant</p>
-          <p class="text-sm text-white/60">Competitor radar</p>
+          <p class="uppercase tracking-[0.4em] text-xs text-white/60">your AI business advisor</p>
         </div>
       </header>
 
-      <main class="space-y-12">
+      <main class="flex-1 py-10 flex flex-col gap-12">
         <section class="max-w-4xl">
-          <p class="text-sm uppercase tracking-[0.4em] text-white/40">Context</p>
-          <h1 class="mt-4 text-5xl font-light">Seattle Thai dining landscape</h1>
-          <p class="mt-6 text-lg text-white/60 leading-relaxed">
-            Genie benchmarks Suit &amp; Thai against neighborhood favorites. Signals pull from Google reviews, social chatter, delivery platforms,
-            and reservation data. The goal is awareness — we track but don't overreact.
-          </p>
+          <h1 class="text-5xl md:text-6xl font-light">Competitors</h1>
+          <p class="mt-3 text-sm uppercase tracking-[0.5em] text-white/40">spotlight</p>
         </section>
 
-        <section class="grid gap-6 xl:grid-cols-3">
-          <article class="rounded-3xl border border-white/10 bg-surface p-6 space-y-4">
-            <header class="flex items-center justify-between">
-              <div>
-                <p class="text-xs uppercase tracking-widest text-white/40">Wallingford</p>
-                <h2 class="text-2xl font-light text-white">Jai Thai</h2>
-              </div>
-              <span class="rounded-full border border-white/20 px-3 py-1 text-xs text-white/70">Watch</span>
-            </header>
-            <p class="text-sm text-white/70 leading-relaxed">
-              Launching late-night happy hour with live DJs. Google rating 4.2 ★ (1.1k reviews). Paid social spend estimated $900 this month.
-            </p>
-            <ul class="space-y-2 text-xs uppercase tracking-widest text-white/40">
-              <li class="flex justify-between text-white/70">
-                <span>Menu highlight</span>
-                <span class="text-white">Khao soi w/ tofu</span>
-              </li>
-              <li class="flex justify-between text-white/70">
-                <span>Delivery ETA</span>
-                <span class="text-white">32 min avg</span>
-              </li>
-              <li class="flex justify-between text-white/70">
-                <span>Social growth</span>
-                <span class="text-white">+7% followers 30d</span>
-              </li>
-            </ul>
-            <p class="text-xs text-white/50">Action: monitor crossover on Capitol Hill late-night orders.</p>
-          </article>
-
-          <article class="rounded-3xl border border-white/10 bg-surface p-6 space-y-4">
-            <header class="flex items-center justify-between">
-              <div>
-                <p class="text-xs uppercase tracking-widest text-white/40">University District</p>
-                <h2 class="text-2xl font-light text-white">Thai Tom</h2>
-              </div>
-              <span class="rounded-full border border-white/20 px-3 py-1 text-xs text-white/70">Benchmark</span>
-            </header>
-            <p class="text-sm text-white/70 leading-relaxed">
-              Lines out the door most evenings. Google rating 4.6 ★ (2.7k reviews). Earned 15 local press mentions in past 12 months.
-            </p>
-            <ul class="space-y-2 text-xs uppercase tracking-widest text-white/40">
-              <li class="flex justify-between text-white/70">
-                <span>Menu highlight</span>
-                <span class="text-white">Spicy pad thai</span>
-              </li>
-              <li class="flex justify-between text-white/70">
-                <span>Delivery ETA</span>
-                <span class="text-white">Pickup only</span>
-              </li>
-              <li class="flex justify-between text-white/70">
-                <span>Social growth</span>
-                <span class="text-white">Stable</span>
-              </li>
-            </ul>
-            <p class="text-xs text-white/50">Action: emphasize comfortable dine-in experience and reservations.</p>
-          </article>
-
-          <article class="rounded-3xl border border-white/10 bg-surface p-6 space-y-4">
-            <header class="flex items-center justify-between">
-              <div>
-                <p class="text-xs uppercase tracking-widest text-white/40">Capitol Hill</p>
-                <h2 class="text-2xl font-light text-white">Pinto Bistro</h2>
-              </div>
-              <span class="rounded-full border border-white/20 px-3 py-1 text-xs text-white/70">Note</span>
-            </header>
-            <p class="text-sm text-white/70 leading-relaxed">
-              Recently refreshed interiors and added craft cocktail program. Google rating 4.5 ★ (680 reviews). TikTok impressions up 22% WoW.
-            </p>
-            <ul class="space-y-2 text-xs uppercase tracking-widest text-white/40">
-              <li class="flex justify-between text-white/70">
-                <span>Menu highlight</span>
-                <span class="text-white">Crispy garlic chicken</span>
-              </li>
-              <li class="flex justify-between text-white/70">
-                <span>Delivery ETA</span>
-                <span class="text-white">38 min avg</span>
-              </li>
-              <li class="flex justify-between text-white/70">
-                <span>Social growth</span>
-                <span class="text-white">+3 pop-ups scheduled</span>
-              </li>
-            </ul>
-            <p class="text-xs text-white/50">Action: highlight Suit &amp; Thai's patio and cocktails in upcoming content.</p>
-          </article>
-        </section>
-
-        <section class="rounded-3xl border border-white/10 bg-surface p-8 space-y-6">
-          <header class="flex flex-wrap items-center justify-between gap-4">
-            <div>
-              <h2 class="text-3xl font-light">Share of Voice</h2>
-              <p class="text-sm text-white/50">Rolling 30 days across Google, Instagram, TikTok, and Yelp</p>
+        <section class="grid gap-6 md:grid-cols-3">
+          <div class="rounded-[28px] border border-white/10 bg-white/5 p-6 backdrop-blur flex flex-col">
+            <div class="flex items-center justify-between text-xs uppercase tracking-[0.35em] text-white/60">
+              <span>Thai Tom</span>
+              <span class="inline-flex h-9 w-9 items-center justify-center rounded-2xl bg-white/15 text-white/80">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6l8 4-8 4-8-4 8-4z" />
+                </svg>
+              </span>
             </div>
-            <span class="rounded-full border border-white/30 px-4 py-2 text-sm text-white/70">Suit &amp; Thai: 24% (+3)</span>
-          </header>
-          <div class="grid gap-4 md:grid-cols-2 text-sm text-white/70">
-            <div class="rounded-2xl bg-white/5 p-5 space-y-2">
-              <p class="text-white text-lg font-light">Sentiment</p>
-              <p>Suit &amp; Thai trending 92% positive; key words: "friendly", "comfort", "pineapple curry".</p>
-            </div>
-            <div class="rounded-2xl bg-white/5 p-5 space-y-2">
-              <p class="text-white text-lg font-light">Velocity</p>
-              <p>Mentions up 11% WoW; spike from @seattlespoon and Seattle Met newsletter feature.</p>
+            <div class="mt-6 text-4xl font-light">4.6 ★</div>
+            <div class="mt-auto flex items-center justify-between text-xs text-white/60">
+              <span class="rounded-full bg-white/10 px-3 py-1">30 min wait</span>
+              <span class="text-white/40">+9% buzz</span>
             </div>
           </div>
-          <div class="rounded-2xl bg-white/5 p-5 space-y-3 text-sm text-white/70">
-            <p class="text-xs uppercase tracking-widest text-white/40">Opportunities</p>
-            <ul class="space-y-2">
-              <li>Own "late-night Thai near UW" query with dedicated landing page.</li>
-              <li>Boost TikTok cadence to match Pinto Bistro (3 posts/week).</li>
-              <li>Pitch KING 5 "Evening" for a summer patio segment.</li>
-            </ul>
+
+          <div class="rounded-[28px] border border-white/10 bg-white/5 p-6 backdrop-blur flex flex-col">
+            <div class="flex items-center justify-between text-xs uppercase tracking-[0.35em] text-white/60">
+              <span>Pinto Bistro</span>
+              <span class="inline-flex h-9 w-9 items-center justify-center rounded-2xl bg-white/15 text-white/80">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12h18" />
+                </svg>
+              </span>
+            </div>
+            <div class="mt-6 text-4xl font-light">4.4 ★</div>
+            <div class="mt-auto flex items-center justify-between text-xs text-white/60">
+              <span class="rounded-full bg-white/10 px-3 py-1">Paid ads +6%</span>
+              <span class="text-white/40">watch</span>
+            </div>
+          </div>
+
+          <div class="rounded-[28px] border border-white/10 bg-white/5 p-6 backdrop-blur flex flex-col">
+            <div class="flex items-center justify-between text-xs uppercase tracking-[0.35em] text-white/60">
+              <span>Lanna House</span>
+              <span class="inline-flex h-9 w-9 items-center justify-center rounded-2xl bg-white/15 text-white/80">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 12l5 5L20 7" />
+                </svg>
+              </span>
+            </div>
+            <div class="mt-6 text-4xl font-light">4.7 ★</div>
+            <div class="mt-auto flex items-center justify-between text-xs text-white/60">
+              <span class="rounded-full bg-white/10 px-3 py-1">New patio</span>
+              <span class="text-white/40">opening</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="grid gap-6 lg:grid-cols-[1.2fr,0.8fr]">
+          <div class="rounded-[32px] border border-white/10 bg-white/5 p-8 backdrop-blur space-y-6">
+            <div class="flex items-center justify-between">
+              <h2 class="text-2xl font-light">Share of voice</h2>
+              <span class="text-xs uppercase tracking-[0.4em] text-white/40">30d</span>
+            </div>
+            <div class="grid gap-4 sm:grid-cols-3 text-sm text-white/70">
+              <div class="rounded-3xl bg-gradient-to-br from-blue-500/30 via-blue-500/10 to-white/10 p-5">
+                <p class="text-xs uppercase tracking-[0.35em] text-white/60">Search</p>
+                <p class="mt-5 text-2xl font-light">42%</p>
+              </div>
+              <div class="rounded-3xl bg-gradient-to-br from-emerald-500/30 via-emerald-500/10 to-white/10 p-5">
+                <p class="text-xs uppercase tracking-[0.35em] text-white/60">Social</p>
+                <p class="mt-5 text-2xl font-light">33%</p>
+              </div>
+              <div class="rounded-3xl bg-gradient-to-br from-amber-500/30 via-amber-500/10 to-white/10 p-5">
+                <p class="text-xs uppercase tracking-[0.35em] text-white/60">Press</p>
+                <p class="mt-5 text-2xl font-light">25%</p>
+              </div>
+            </div>
+          </div>
+
+          <aside class="rounded-[32px] border border-white/10 bg-white/5 p-8 backdrop-blur space-y-6">
+            <h2 class="text-2xl font-light">Moves to watch</h2>
+            <div class="space-y-4 text-sm text-white/70">
+              <div class="flex items-center justify-between">
+                <span class="rounded-full bg-white/15 px-3 py-1 text-xs uppercase tracking-[0.35em]">Thai Tom</span>
+                <span class="text-white/60">Late-night menu drop</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="rounded-full bg-white/15 px-3 py-1 text-xs uppercase tracking-[0.35em]">Pinto</span>
+                <span class="text-white/60">SEM bid hike</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="rounded-full bg-white/15 px-3 py-1 text-xs uppercase tracking-[0.35em]">Lanna</span>
+                <span class="text-white/60">Influencer dinners</span>
+              </div>
+            </div>
+          </aside>
+        </section>
+
+        <section class="rounded-[32px] border border-white/10 bg-white/5 p-8 backdrop-blur">
+          <div class="flex flex-wrap items-center justify-between gap-4">
+            <h2 class="text-2xl font-light">Positioning map</h2>
+            <span class="text-xs uppercase tracking-[0.4em] text-white/40">live</span>
+          </div>
+          <div class="mt-8 h-64 rounded-3xl border border-white/15 bg-white/5 relative overflow-hidden">
+            <div class="absolute inset-6 grid grid-cols-3 grid-rows-3 gap-4">
+              <div class="rounded-2xl border border-white/15"></div>
+              <div class="rounded-2xl border border-white/15"></div>
+              <div class="rounded-2xl border border-white/15"></div>
+              <div class="rounded-2xl border border-white/15"></div>
+              <div class="rounded-2xl border border-white/15 bg-gradient-to-br from-fuchsia-500/40 via-fuchsia-500/20 to-white/10 flex items-center justify-center text-sm uppercase tracking-[0.35em]">Suit &amp; Tie</div>
+              <div class="rounded-2xl border border-white/15"></div>
+              <div class="rounded-2xl border border-white/15"></div>
+              <div class="rounded-2xl border border-white/15"></div>
+              <div class="rounded-2xl border border-white/15"></div>
+            </div>
           </div>
         </section>
       </main>

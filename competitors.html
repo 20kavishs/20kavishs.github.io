@@ -31,6 +31,10 @@
         background: radial-gradient(circle at top left, rgba(59, 130, 246, 0.18), transparent 45%),
           radial-gradient(circle at top right, rgba(147, 51, 234, 0.16), transparent 50%), #050508;
       }
+
+      .font-script {
+        font-family: 'Pacifico', 'Allura', cursive !important;
+      }
     </style>
   </head>
   <body class="min-h-screen bg-night text-white font-sans">
@@ -77,8 +81,8 @@
                   <span class="rounded-full bg-white/10 px-3 py-1 text-sm">$19</span>
                 </li>
                 <li class="flex items-center justify-between">
-                  <span>Signature play</span>
-                  <span class="rounded-full bg-white/10 px-3 py-1 text-sm">Late-night wok show</span>
+                  <span>Menu spotlight</span>
+                  <span class="rounded-full bg-white/10 px-3 py-1 text-sm">Wok fire tasting</span>
                 </li>
               </ul>
             </article>
@@ -98,8 +102,8 @@
                   <span class="rounded-full bg-white/10 px-3 py-1 text-sm">$24</span>
                 </li>
                 <li class="flex items-center justify-between">
-                  <span>Signature play</span>
-                  <span class="rounded-full bg-white/10 px-3 py-1 text-sm">Chef tasting nights</span>
+                  <span>Menu spotlight</span>
+                  <span class="rounded-full bg-white/10 px-3 py-1 text-sm">Chef tasting flight</span>
                 </li>
               </ul>
             </article>
@@ -119,8 +123,8 @@
                   <span class="rounded-full bg-white/10 px-3 py-1 text-sm">$32</span>
                 </li>
                 <li class="flex items-center justify-between">
-                  <span>Signature play</span>
-                  <span class="rounded-full bg-white/10 px-3 py-1 text-sm">Garden patio parties</span>
+                  <span>Menu spotlight</span>
+                  <span class="rounded-full bg-white/10 px-3 py-1 text-sm">Lantern supper club</span>
                 </li>
               </ul>
             </article>
@@ -140,8 +144,8 @@
                   <span class="rounded-full bg-white/10 px-3 py-1 text-sm">$27</span>
                 </li>
                 <li class="flex items-center justify-between">
-                  <span>Signature play</span>
-                  <span class="rounded-full bg-white/10 px-3 py-1 text-sm">Family heat kits</span>
+                  <span>Menu spotlight</span>
+                  <span class="rounded-full bg-white/10 px-3 py-1 text-sm">Heat-kit bundles</span>
                 </li>
               </ul>
             </article>
@@ -152,7 +156,7 @@
               <button class="tab-trigger rounded-full px-5 py-2 font-semibold bg-white text-black" data-target="competitors-strategy">
                 Strategy
               </button>
-              <button class="tab-trigger rounded-full px-5 py-2 font-semibold text-white/75 hover:text-white transition" data-target="competitors-dashboard">
+              <button class="tab-trigger rounded-full px-5 py-2 font-semibold text-white/70 hover:text-white transition" data-target="competitors-dashboard">
                 Dashboard
               </button>
             </div>
@@ -167,7 +171,7 @@
               </div>
               <button
                 type="button"
-                class="competitor-ai-trigger inline-flex items-center gap-2 rounded-full bg-emerald-400 px-5 py-2.5 text-base font-semibold text-night shadow-lg hover:bg-emerald-300 transition"
+                class="competitor-ai-trigger inline-flex items-center gap-2 rounded-full bg-emerald-500 px-5 py-2.5 text-base font-semibold text-night shadow-lg hover:bg-emerald-400 transition"
                 data-label="Landscape overview"
               >
                 <span class="inline-block h-2 w-2 rounded-full bg-white animate-pulse"></span>
@@ -177,96 +181,98 @@
 
             <div class="grid gap-6 lg:grid-cols-[1.1fr,0.9fr]">
               <div class="space-y-6">
-                <div class="rounded-3xl bg-white/10 p-7 backdrop-blur-sm space-y-5">
-                  <h3 class="text-xl font-semibold">Competitor watchlist</h3>
-                  <div class="grid gap-4 sm:grid-cols-2 text-base text-white/80">
-                    <div class="rounded-2xl bg-white/10 p-4 space-y-2">
-                      <div class="flex items-center justify-between">
-                        <p class="font-semibold text-white">Thai Tom</p>
-                        <span class="rounded-full bg-emerald-400/20 px-3 py-1 text-sm text-emerald-200">Hot</span>
+                <div class="grid gap-6 xl:grid-cols-[1.1fr,0.9fr]">
+                  <div class="rounded-3xl bg-white/10 p-7 backdrop-blur-sm space-y-5">
+                    <h3 class="text-xl font-semibold">Competitor watchlist</h3>
+                    <div class="grid gap-4 sm:grid-cols-2 text-base text-white/80">
+                      <div class="rounded-2xl bg-white/10 p-4 space-y-2">
+                        <div class="flex items-center justify-between">
+                          <p class="font-semibold text-white">Thai Tom</p>
+                          <span class="rounded-full bg-emerald-400/20 px-3 py-1 text-sm text-emerald-200">Hot</span>
+                        </div>
+                        <p class="text-white/65">Night wok show content spiking 32% shares.</p>
+                        <button
+                          type="button"
+                          class="competitor-ai-trigger inline-flex items-center gap-2 rounded-full bg-emerald-500/90 px-3.5 py-1.5 text-xs font-semibold text-night shadow-sm hover:bg-emerald-400 transition"
+                          data-label="Thai Tom"
+                        >
+                          <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v3m0 12v3m9-9h-3M6 12H3m15.364 6.364-2.121-2.121M8.757 8.757 6.636 6.636m12.728 0-2.121 2.121M8.757 15.243l-2.121 2.121" />
+                          </svg>
+                          Genie tip
+                        </button>
                       </div>
-                      <p class="text-white/65">Night wok show content spiking 32% shares.</p>
-                      <button
-                        type="button"
-                        class="competitor-ai-trigger inline-flex items-center gap-2 rounded-full bg-emerald-400/90 px-3.5 py-1.5 text-xs font-semibold text-night shadow-sm hover:bg-emerald-300 transition"
-                        data-label="Thai Tom"
-                      >
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v3m0 12v3m9-9h-3M6 12H3m15.364 6.364-2.121-2.121M8.757 8.757 6.636 6.636m12.728 0-2.121 2.121M8.757 15.243l-2.121 2.121" />
-                        </svg>
-                        Genie tip
-                      </button>
-                    </div>
-                    <div class="rounded-2xl bg-white/10 p-4 space-y-2">
-                      <div class="flex items-center justify-between">
-                        <p class="font-semibold text-white">Pinto Bistro</p>
-                        <span class="rounded-full bg-sky-400/20 px-3 py-1 text-sm text-sky-200">Watch</span>
+                      <div class="rounded-2xl bg-white/10 p-4 space-y-2">
+                        <div class="flex items-center justify-between">
+                          <p class="font-semibold text-white">Pinto Bistro</p>
+                          <span class="rounded-full bg-sky-400/20 px-3 py-1 text-sm text-sky-200">Watch</span>
+                        </div>
+                        <p class="text-white/65">Weekend brunch PR adds 11 earned hits in 14 days.</p>
+                        <button
+                          type="button"
+                          class="competitor-ai-trigger inline-flex items-center gap-2 rounded-full bg-emerald-500/90 px-3.5 py-1.5 text-xs font-semibold text-night shadow-sm hover:bg-emerald-400 transition"
+                          data-label="Pinto Bistro"
+                        >
+                          <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v3m0 12v3m9-9h-3M6 12H3m15.364 6.364-2.121-2.121M8.757 8.757 6.636 6.636m12.728 0-2.121 2.121M8.757 15.243l-2.121 2.121" />
+                          </svg>
+                          Genie tip
+                        </button>
                       </div>
-                      <p class="text-white/65">Weekend brunch PR adds 11 earned hits in 14 days.</p>
-                      <button
-                        type="button"
-                        class="competitor-ai-trigger inline-flex items-center gap-2 rounded-full bg-emerald-400/90 px-3.5 py-1.5 text-xs font-semibold text-night shadow-sm hover:bg-emerald-300 transition"
-                        data-label="Pinto Bistro"
-                      >
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v3m0 12v3m9-9h-3M6 12H3m15.364 6.364-2.121-2.121M8.757 8.757 6.636 6.636m12.728 0-2.121 2.121M8.757 15.243l-2.121 2.121" />
-                        </svg>
-                        Genie tip
-                      </button>
-                    </div>
-                    <div class="rounded-2xl bg-white/10 p-4 space-y-2">
-                      <div class="flex items-center justify-between">
-                        <p class="font-semibold text-white">Lanna House</p>
-                        <span class="rounded-full bg-violet-400/20 px-3 py-1 text-xs text-violet-200">Emerging</span>
+                      <div class="rounded-2xl bg-white/10 p-4 space-y-2">
+                        <div class="flex items-center justify-between">
+                          <p class="font-semibold text-white">Lanna House</p>
+                          <span class="rounded-full bg-violet-400/20 px-3 py-1 text-xs text-violet-200">Emerging</span>
+                        </div>
+                        <p class="text-white/65">Patio expansion event series starts in 3 weeks.</p>
+                        <button
+                          type="button"
+                          class="competitor-ai-trigger inline-flex items-center gap-2 rounded-full bg-emerald-500/90 px-3.5 py-1.5 text-xs font-semibold text-night shadow-sm hover:bg-emerald-400 transition"
+                          data-label="Lanna House"
+                        >
+                          <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v3m0 12v3m9-9h-3M6 12H3m15.364 6.364-2.121-2.121M8.757 8.757 6.636 6.636m12.728 0-2.121 2.121M8.757 15.243l-2.121 2.121" />
+                          </svg>
+                          Genie tip
+                        </button>
                       </div>
-                      <p class="text-white/65">Patio expansion event series starts in 3 weeks.</p>
-                      <button
-                        type="button"
-                        class="competitor-ai-trigger inline-flex items-center gap-2 rounded-full bg-emerald-400/90 px-3.5 py-1.5 text-xs font-semibold text-night shadow-sm hover:bg-emerald-300 transition"
-                        data-label="Lanna House"
-                      >
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v3m0 12v3m9-9h-3M6 12H3m15.364 6.364-2.121-2.121M8.757 8.757 6.636 6.636m12.728 0-2.121 2.121M8.757 15.243l-2.121 2.121" />
-                        </svg>
-                        Genie tip
-                      </button>
-                    </div>
-                    <div class="rounded-2xl bg-white/10 p-4 space-y-2">
-                      <div class="flex items-center justify-between">
-                        <p class="font-semibold text-white">Kin Khao Express</p>
-                        <span class="rounded-full bg-indigo-400/20 px-3 py-1 text-xs text-indigo-200">Steady</span>
+                      <div class="rounded-2xl bg-white/10 p-4 space-y-2">
+                        <div class="flex items-center justify-between">
+                          <p class="font-semibold text-white">Kin Khao Express</p>
+                          <span class="rounded-full bg-indigo-400/20 px-3 py-1 text-xs text-indigo-200">Steady</span>
+                        </div>
+                        <p class="text-white/65">Heat-and-serve kits testing family bundle upsell.</p>
+                        <button
+                          type="button"
+                          class="competitor-ai-trigger inline-flex items-center gap-2 rounded-full bg-emerald-500/90 px-3.5 py-1.5 text-xs font-semibold text-night shadow-sm hover:bg-emerald-400 transition"
+                          data-label="Kin Khao Express"
+                        >
+                          <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v3m0 12v3m9-9h-3M6 12H3m15.364 6.364-2.121-2.121M8.757 8.757 6.636 6.636m12.728 0-2.121 2.121M8.757 15.243l-2.121 2.121" />
+                          </svg>
+                          Genie tip
+                        </button>
                       </div>
-                      <p class="text-white/65">Heat-and-serve kits testing family bundle upsell.</p>
-                      <button
-                        type="button"
-                        class="competitor-ai-trigger inline-flex items-center gap-2 rounded-full bg-emerald-400/90 px-3.5 py-1.5 text-xs font-semibold text-night shadow-sm hover:bg-emerald-300 transition"
-                        data-label="Kin Khao Express"
-                      >
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v3m0 12v3m9-9h-3M6 12H3m15.364 6.364-2.121-2.121M8.757 8.757 6.636 6.636m12.728 0-2.121 2.121M8.757 15.243l-2.121 2.121" />
-                        </svg>
-                        Genie tip
-                      </button>
                     </div>
                   </div>
-                </div>
 
-                <div class="rounded-3xl bg-white/10 p-7 backdrop-blur-sm space-y-4">
-                  <h3 class="text-xl font-semibold">AI insights / thoughts</h3>
-                  <ul class="space-y-3 text-base text-white/80">
-                    <li class="flex gap-3">
-                      <span class="mt-1 h-2.5 w-2.5 rounded-full bg-rose-400"></span>
-                      Thai Tom's late-night content spikes align with our own midnight orders — stack counter-programming around chef storytelling.
-                    </li>
-                    <li class="flex gap-3">
-                      <span class="mt-1 h-2.5 w-2.5 rounded-full bg-sky-400"></span>
-                      Pinto Bistro is winning brunch press; pivot our narrative to "study sanctuary" to avoid overlap.
-                    </li>
-                    <li class="flex gap-3">
-                      <span class="mt-1 h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
-                      Kin Khao Express heat kits earn 4.8★ — offer our own finals bundle with dine-in pickup to intercept loyalty.
-                    </li>
-                  </ul>
+                  <div class="rounded-3xl bg-white/10 p-7 backdrop-blur-sm space-y-4">
+                    <h3 class="text-xl font-semibold">AI insights / thoughts</h3>
+                    <ul class="space-y-3 text-base text-white/80">
+                      <li class="flex gap-3">
+                        <span class="mt-1 h-2.5 w-2.5 rounded-full bg-rose-400"></span>
+                        Thai Tom's late-night content spikes align with our own midnight orders — stack counter-programming around chef storytelling.
+                      </li>
+                      <li class="flex gap-3">
+                        <span class="mt-1 h-2.5 w-2.5 rounded-full bg-sky-400"></span>
+                        Pinto Bistro is winning brunch press; pivot our narrative to "study sanctuary" to avoid overlap.
+                      </li>
+                      <li class="flex gap-3">
+                        <span class="mt-1 h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
+                        Kin Khao Express heat kits earn 4.8★ — offer our own finals bundle with dine-in pickup to intercept loyalty.
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
 
@@ -371,17 +377,17 @@
       <p class="text-xs uppercase tracking-wide text-white/50">Genie focus</p>
       <p id="competitor-menu-context" class="mt-1 text-sm font-semibold text-white"></p>
       <div class="mt-4 space-y-2">
-        <button class="competitor-menu-option flex w-full items-center gap-2 rounded-xl bg-white/10 px-3 py-2 text-left text-white/80 hover:bg-white/20 transition" data-action="positioning">
+        <button class="competitor-menu-option flex w-full items-center gap-2 rounded-xl bg-white/10 px-3 py-2 text-left text-white/80 hover:bg-white/20 transition" data-action="refresh">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M4 7h16M4 12h16m-8 5h8" />
           </svg>
-          Refresh positioning
+          Refresh plan
         </button>
         <button class="competitor-menu-option flex w-full items-center gap-2 rounded-xl bg-white/10 px-3 py-2 text-left text-white/80 hover:bg-white/20 transition" data-action="experiment">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 6v12m6-6H6" />
           </svg>
-          Draft counter play
+          Draft experiment
         </button>
       </div>
     </div>
@@ -443,7 +449,7 @@
           competitorMenu.classList.add('hidden');
           competitorMenu.style.display = 'none';
           const action = option.dataset.action;
-          alert(action === 'positioning' ? 'Genie drafted a repositioning outline.' : 'Counter play saved to Experiments.');
+          alert(action === 'refresh' ? 'Genie refreshed the competitive plan.' : 'Experiment idea saved to Experiments.');
         });
       });
 

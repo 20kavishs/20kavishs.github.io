@@ -31,6 +31,10 @@
         background: radial-gradient(circle at top left, rgba(34, 211, 238, 0.16), transparent 45%),
           radial-gradient(circle at top right, rgba(16, 185, 129, 0.18), transparent 50%), #050508;
       }
+
+      .font-script {
+        font-family: 'Pacifico', 'Allura', cursive !important;
+      }
     </style>
   </head>
   <body class="min-h-screen bg-night text-white font-sans">
@@ -65,7 +69,7 @@
               <button class="tab-trigger rounded-full px-5 py-2 font-semibold bg-white text-black" data-target="growth-strategy">
                 Strategy
               </button>
-              <button class="tab-trigger rounded-full px-5 py-2 font-semibold text-white/75 hover:text-white transition" data-target="growth-dashboard">
+              <button class="tab-trigger rounded-full px-5 py-2 font-semibold text-white/70 hover:text-white transition" data-target="growth-dashboard">
                 Dashboard
               </button>
             </div>
@@ -80,7 +84,7 @@
                 </div>
                 <button
                   type="button"
-                  class="growth-ai-trigger inline-flex items-center gap-2 rounded-full bg-emerald-400 px-5 py-2.5 text-base font-semibold text-night shadow-lg hover:bg-emerald-300 transition"
+                  class="growth-ai-trigger inline-flex items-center gap-2 rounded-full bg-emerald-500 px-5 py-2.5 text-base font-semibold text-night shadow-lg hover:bg-emerald-400 transition"
                   data-label="Strategy overview"
                 >
                   <span class="inline-block h-2 w-2 rounded-full bg-white animate-pulse"></span>
@@ -96,7 +100,7 @@
                     </div>
                     <button
                       type="button"
-                      class="growth-ai-trigger inline-flex items-center gap-2 rounded-full bg-emerald-400/90 px-3.5 py-1.5 text-xs font-semibold text-night shadow-sm hover:bg-emerald-300 transition"
+                      class="growth-ai-trigger inline-flex items-center gap-2 rounded-full bg-emerald-500/90 px-3.5 py-1.5 text-xs font-semibold text-night shadow-sm hover:bg-emerald-400 transition"
                       data-label="Acquisition"
                     >
                       <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -117,7 +121,7 @@
                     </div>
                     <button
                       type="button"
-                      class="growth-ai-trigger inline-flex items-center gap-2 rounded-full bg-emerald-400/90 px-3.5 py-1.5 text-xs font-semibold text-night shadow-sm hover:bg-emerald-300 transition"
+                      class="growth-ai-trigger inline-flex items-center gap-2 rounded-full bg-emerald-500/90 px-3.5 py-1.5 text-xs font-semibold text-night shadow-sm hover:bg-emerald-400 transition"
                       data-label="Conversion"
                     >
                       <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -138,7 +142,7 @@
                     </div>
                     <button
                       type="button"
-                      class="growth-ai-trigger inline-flex items-center gap-2 rounded-full bg-emerald-400/90 px-3.5 py-1.5 text-xs font-semibold text-night shadow-sm hover:bg-emerald-300 transition"
+                      class="growth-ai-trigger inline-flex items-center gap-2 rounded-full bg-emerald-500/90 px-3.5 py-1.5 text-xs font-semibold text-night shadow-sm hover:bg-emerald-400 transition"
                       data-label="Retention"
                     >
                       <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -159,7 +163,7 @@
                     </div>
                     <button
                       type="button"
-                      class="growth-ai-trigger inline-flex items-center gap-2 rounded-full bg-emerald-400/90 px-3.5 py-1.5 text-xs font-semibold text-night shadow-sm hover:bg-emerald-300 transition"
+                      class="growth-ai-trigger inline-flex items-center gap-2 rounded-full bg-emerald-500/90 px-3.5 py-1.5 text-xs font-semibold text-night shadow-sm hover:bg-emerald-400 transition"
                       data-label="Expansion"
                     >
                       <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -347,11 +351,11 @@
       <p class="text-xs uppercase tracking-wide text-white/50">Genie focus</p>
       <p id="growth-menu-context" class="mt-1 text-sm font-semibold text-white"></p>
       <div class="mt-4 space-y-2">
-        <button class="growth-menu-option flex w-full items-center gap-2 rounded-xl bg-white/10 px-3 py-2 text-left text-white/80 hover:bg-white/20 transition" data-action="tune">
+        <button class="growth-menu-option flex w-full items-center gap-2 rounded-xl bg-white/10 px-3 py-2 text-left text-white/80 hover:bg-white/20 transition" data-action="refresh">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M4 7h16M4 12h12m-6 5h6" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M4 7h16M4 12h16m-8 5h8" />
           </svg>
-          Tune plan
+          Refresh plan
         </button>
         <button class="growth-menu-option flex w-full items-center gap-2 rounded-xl bg-white/10 px-3 py-2 text-left text-white/80 hover:bg-white/20 transition" data-action="experiment">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -419,7 +423,7 @@
           growthMenu.classList.add('hidden');
           growthMenu.style.display = 'none';
           const action = option.dataset.action;
-          alert(action === 'tune' ? 'Genie is tuning the growth plan.' : 'Experiment card drafted in Experiments.');
+          alert(action === 'refresh' ? 'Genie is tuning the growth plan.' : 'Experiment card drafted in Experiments.');
         });
       });
 

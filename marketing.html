@@ -189,7 +189,7 @@
               <div class="space-y-6">
                 <div class="rounded-3xl bg-white/10 p-7 backdrop-blur-sm">
                   <div class="flex items-center justify-between">
-                    <h3 class="text-xl font-semibold">AI insights / thoughts</h3>
+                    <h3 class="text-xl font-semibold">AI insights</h3>
                     <span class="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-1.5 text-sm text-white/75">
                       <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
                       Synced 2m ago
@@ -388,15 +388,21 @@
       <p class="text-xs uppercase tracking-wide text-white/50">Genie focus</p>
       <p id="marketing-menu-context" class="mt-1 text-sm font-semibold text-white"></p>
       <div class="mt-4 space-y-2">
-        <button class="menu-option flex w-full items-center gap-2 rounded-xl bg-white/10 px-3 py-2 text-left text-white/80 hover:bg-white/20 transition" data-action="refresh">
+        <button class="menu-option flex w-full items-center gap-2 rounded-xl bg-white/10 px-3 py-2 text-left text-white/80 hover:bg-white/20 transition" data-action="learn">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M4 7h16M4 12h16m-8 5h8" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M5 7h14M5 12h14M5 17h14" />
           </svg>
-          Refresh plan
+          Learn more
+        </button>
+        <button class="menu-option flex w-full items-center gap-2 rounded-xl bg-white/10 px-3 py-2 text-left text-white/80 hover:bg-white/20 transition" data-action="add">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 5v14m7-7H5" />
+          </svg>
+          Add to strategy
         </button>
         <button class="menu-option flex w-full items-center gap-2 rounded-xl bg-white/10 px-3 py-2 text-left text-white/80 hover:bg-white/20 transition" data-action="experiment">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 6v12m6-6H6" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M7 4h10m-8 0v5l-3 6h12l-3-6V4" />
           </svg>
           Draft experiment
         </button>
@@ -425,11 +431,43 @@
       const marketingContext = document.getElementById('marketing-menu-context');
       const marketingTriggers = document.querySelectorAll('.ai-trigger');
       let marketingActiveTrigger = null;
+      let marketingLastCoords = null;
 
-      function positionMenu(trigger) {
-        const rect = trigger.getBoundingClientRect();
-        marketingMenu.style.top = `${rect.bottom + window.scrollY + 8}px`;
-        marketingMenu.style.left = `${Math.min(rect.left + window.scrollX, window.innerWidth - marketingMenu.offsetWidth - 16)}px`;
+      function positionMenuAtCursor(menu, coords) {
+        const offset = 12;
+        requestAnimationFrame(() => {
+          const { innerWidth, innerHeight, scrollX, scrollY } = window;
+          const menuWidth = menu.offsetWidth;
+          const menuHeight = menu.offsetHeight;
+
+          let left = coords.x + scrollX - menuWidth / 2;
+          let top = coords.y + scrollY + offset;
+
+          const minLeft = scrollX + 16;
+          const maxLeft = scrollX + innerWidth - menuWidth - 16;
+          left = Math.min(Math.max(left, minLeft), maxLeft);
+
+          const minTop = scrollY + 16;
+          const maxTop = scrollY + innerHeight - menuHeight - 16;
+          top = Math.min(Math.max(top, minTop), maxTop);
+
+          menu.style.left = `${left}px`;
+          menu.style.top = `${top}px`;
+        });
+      }
+
+      function showMarketingMenu(coords) {
+        marketingMenu.classList.remove('hidden');
+        marketingMenu.style.display = 'block';
+        marketingLastCoords = coords;
+        positionMenuAtCursor(marketingMenu, coords);
+      }
+
+      function hideMarketingMenu() {
+        marketingMenu.classList.add('hidden');
+        marketingMenu.style.display = 'none';
+        marketingActiveTrigger = null;
+        marketingLastCoords = null;
       }
 
       marketingTriggers.forEach((trigger) => {
@@ -438,35 +476,33 @@
           const label = trigger.dataset.label || 'Strategy';
           marketingContext.textContent = label;
           marketingActiveTrigger = trigger;
-          marketingMenu.classList.remove('hidden');
-          marketingMenu.style.display = 'block';
-          requestAnimationFrame(() => {
-            positionMenu(trigger);
-          });
+          showMarketingMenu({ x: event.clientX, y: event.clientY });
         });
       });
 
       document.addEventListener('click', (event) => {
         if (!marketingMenu.contains(event.target)) {
-          marketingMenu.classList.add('hidden');
-          marketingMenu.style.display = 'none';
-          marketingActiveTrigger = null;
+          hideMarketingMenu();
         }
       });
 
       const marketingOptions = document.querySelectorAll('#marketing-ai-menu .menu-option');
       marketingOptions.forEach((option) => {
         option.addEventListener('click', () => {
-          marketingMenu.classList.add('hidden');
-          marketingMenu.style.display = 'none';
           const action = option.dataset.action;
-          alert(action === 'refresh' ? 'Genie is tuning the outreach plan.' : 'Experiment idea saved to Experiments.');
+          const messages = {
+            learn: 'Genie is pulling more context for you.',
+            add: 'Added to your strategy queue.',
+            experiment: 'Experiment idea saved to Experiments.',
+          };
+          alert(messages[action] || 'Genie is thinking...');
+          hideMarketingMenu();
         });
       });
 
       window.addEventListener('resize', () => {
-        if (!marketingMenu.classList.contains('hidden') && marketingActiveTrigger) {
-          positionMenu(marketingActiveTrigger);
+        if (!marketingMenu.classList.contains('hidden') && marketingLastCoords) {
+          positionMenuAtCursor(marketingMenu, marketingLastCoords);
         }
       });
     </script>

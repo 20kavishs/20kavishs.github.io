@@ -4,107 +4,128 @@
 		<title>AI Experiments</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<style>
-			body {
-				background-color: #ffffff;
-				margin: 0;
-				padding: 0;
-				font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
-			}
-			
-			.container {
-				max-width: 1200px;
-				margin: 0 auto;
-				padding: 40px 20px;
-			}
-			
-			h1 {
-				font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-				font-weight: 300;
-				font-size: 48px;
-				color: #333;
-				margin: 0 0 40px 0;
-				letter-spacing: -1px;
-			}
-			
-			.back-link {
-				display: inline-block;
-				text-decoration: none;
-				color: #0066cc;
-				font-size: 16px;
-				margin-bottom: 30px;
-				transition: color 0.3s ease;
-			}
-			
-			.back-link:hover {
-				color: #0052a3;
-				text-decoration: underline;
-			}
-			
-			.back-link::before {
-				content: "← ";
-				margin-right: 5px;
-			}
-			
-			.experiments-list {
-				margin-top: 60px;
-			}
-			
-			.experiment-item {
-				background: #f8f8f8;
-				padding: 30px;
-				margin-bottom: 20px;
-				border-radius: 8px;
-				transition: transform 0.3s ease, box-shadow 0.3s ease;
-				cursor: pointer;
-				text-decoration: none;
-				display: block;
-				color: inherit;
-			}
-			
-			.experiment-item:hover {
-				transform: translateY(-3px);
-				box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-			}
-			
-			.experiment-number {
-				color: #0066cc;
-				font-size: 14px;
-				font-weight: 500;
-				margin-bottom: 10px;
-			}
-			
-			.experiment-title {
-				font-size: 24px;
-				font-weight: 400;
-				color: #333;
-				margin-bottom: 10px;
-			}
-			
-			.experiment-description {
-				color: #666;
-				font-size: 16px;
-				line-height: 1.6;
-			}
-			
-			.coming-soon {
-				opacity: 0.5;
-				cursor: default;
-			}
-			
-			.coming-soon:hover {
-				transform: none;
-				box-shadow: none;
-			}
-		</style>
+                <style>
+                        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+                        :root {
+                                --background: #f5f7fb;
+                                --surface: #ffffff;
+                                --text: #0f172a;
+                                --muted: #4b5563;
+                                --accent: #2563eb;
+                                --border: #e5e7eb;
+                        }
+
+                        body {
+                                background-color: var(--background);
+                                color: var(--text);
+                                margin: 0;
+                                padding: 0;
+                                font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+                                line-height: 1.7;
+                        }
+
+                        .container {
+                                max-width: 960px;
+                                margin: 0 auto;
+                                padding: 48px 20px 60px;
+                        }
+
+                        h1 {
+                                font-weight: 600;
+                                font-size: 44px;
+                                color: var(--text);
+                                margin: 0 0 32px 0;
+                                letter-spacing: -0.04em;
+                        }
+
+                        p {
+                                color: var(--muted);
+                                margin: 0;
+                        }
+
+                        .back-link {
+                                display: inline-flex;
+                                align-items: center;
+                                gap: 8px;
+                                text-decoration: none;
+                                color: var(--accent);
+                                font-size: 16px;
+                                margin-bottom: 28px;
+                                padding: 8px 0;
+                                border-bottom: 1px solid transparent;
+                        }
+
+                        .back-link:hover {
+                                border-bottom-color: var(--accent);
+                        }
+
+                        .back-link::before {
+                                content: "←";
+                                display: inline-block;
+                                font-weight: 600;
+                        }
+
+                        .experiments-list {
+                                margin-top: 48px;
+                                display: grid;
+                                grid-template-columns: 1fr;
+                                gap: 16px;
+                        }
+
+                        .experiment-item {
+                                background: var(--surface);
+                                padding: 20px;
+                                border-radius: 12px;
+                                border: 1px solid var(--border);
+                                text-decoration: none;
+                                display: block;
+                                color: inherit;
+                                transition: box-shadow 0.2s ease, transform 0.2s ease;
+                        }
+
+                        .experiment-item:hover {
+                                transform: translateY(-2px);
+                                box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+                        }
+
+                        .experiment-number {
+                                color: var(--accent);
+                                font-size: 13px;
+                                font-weight: 600;
+                                letter-spacing: 0.08em;
+                        }
+
+                        .experiment-title {
+                                font-size: 22px;
+                                font-weight: 600;
+                                color: var(--text);
+                                margin: 8px 0 6px;
+                        }
+
+                        .experiment-description {
+                                color: var(--muted);
+                                font-size: 16px;
+                        }
+
+                        .coming-soon {
+                                opacity: 0.65;
+                                cursor: default;
+                        }
+
+                        .coming-soon:hover {
+                                transform: none;
+                                box-shadow: none;
+                        }
+                </style>
 	</head>
 	<body>
 		<div class="container">
 			<a href="index.html" class="back-link">Back to Home</a>
 			<h1>AI Experiments</h1>
-			<p style="text-align: center; color: #666; margin-bottom: 40px; font-style: italic;">
-				Experiments below were vibe-coded 😊
-			</p>
+                        <p style="text-align: center; color: var(--muted); margin-bottom: 40px;">
+                                A collection of lightweight, vibe-coded experiments.
+                        </p>
 			
 			<div class="experiments-list">
 				<a href="seattle-food-map.html" class="experiment-item">
@@ -139,32 +160,6 @@
                                         <div class="experiment-title">Evolve</div>
                                         <div class="experiment-description">
                                                 A minimalist space for contemplation.
-                                        </div>
-                                </a>
-
-                                <a href="genie.html" class="experiment-item">
-                                        <div class="experiment-number">EXPERIMENT 005</div>
-                                        <div class="experiment-title">Genie v1</div>
-                                        <div class="experiment-description">
-                                                Test of using Codex — not fully vibe-coded.
-                                        </div>
-                                </a>
-
-                                <a href="demo.html" class="experiment-item">
-                                        <div class="experiment-number">EXPERIMENT 006</div>
-                                        <div class="experiment-title">Genie v2</div>
-                                        <div class="experiment-description">
-                                                A high-fidelity product demo exploring how Genie could advise Suit &amp; Thai Restaurant across
-                                                marketing, growth, and operations.
-                                        </div>
-                                </a>
-
-                                <a href="genie-v3.html" class="experiment-item">
-                                        <div class="experiment-number">EXPERIMENT 007</div>
-                                        <div class="experiment-title">Genie v3</div>
-                                        <div class="experiment-description">
-                                                A high-fidelity product demo exploring how Genie could advise Suit &amp; Thai Restaurant across
-                                                marketing, growth, and operations.
                                         </div>
                                 </a>
                         </div>

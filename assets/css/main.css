@@ -3321,14 +3321,19 @@ input, select, textarea {
 			text-align: left;
 			padding-bottom: 0.4em;
 			margin: -0.5em;
-			font-size: 1.2em;
+			font-size: 0.95em;
 		}
 
 		#jobs ul {
 			text-align: left;
 			padding-bottom: 1.2em;
 			padding-left: 7em;
+			padding-right: 3em;
 			margin: -0.5em;
+		}
+
+		#first h1, #second h1, .main.special h1 {
+			font-size: 2em;
 		}
 
 		#rcorners1 {

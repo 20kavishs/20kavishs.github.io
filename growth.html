@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Genie | Growth</title>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              script: ['"Pacifico"', '"Allura"', 'cursive'],
+              sans: ['"Manrope"', 'system-ui', 'sans-serif'],
+            },
+            colors: {
+              night: '#070711',
+              surface: 'rgba(16, 24, 40, 0.65)',
+              outline: 'rgba(255,255,255,0.12)',
+            },
+          },
+        },
+      };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Allura&family=Manrope:wght@400;500;600;700&family=Pacifico&display=swap"
+    />
+    <style>
+      body {
+        background: radial-gradient(circle at top left, rgba(34, 211, 238, 0.16), transparent 45%),
+          radial-gradient(circle at top right, rgba(16, 185, 129, 0.18), transparent 50%), #050508;
+      }
+
+      .font-script {
+        font-family: 'Pacifico', 'Allura', cursive !important;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen bg-night text-white font-sans">
+    <div class="min-h-screen flex flex-col px-6 md:px-12 py-10">
+      <header class="flex items-start justify-between">
+        <div class="space-y-4">
+          <button
+            onclick="window.location.href='demo.html'"
+            class="inline-flex items-center justify-center w-11 h-11 rounded-full border border-white/25 bg-white/5 text-white hover:border-white/60 transition"
+            aria-label="Back to apps"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <div class="text-5xl md:text-6xl font-script leading-none text-white tracking-wide">genie</div>
+        </div>
+        <div class="text-right">
+          <p class="text-lg md:text-xl font-medium text-white/80">Your AI business advisor</p>
+        </div>
+      </header>
+
+      <main class="flex-1 py-10 flex flex-col gap-12">
+        <section class="max-w-4xl">
+          <h1 class="text-5xl md:text-6xl font-light">Growth</h1>
+          <p class="mt-3 text-lg text-white/70">Momentum across acquisition, conversion, and retention.</p>
+        </section>
+
+        <section class="space-y-12">
+          <div class="flex flex-wrap items-center justify-between gap-4">
+            <div class="inline-flex rounded-full bg-white/5 p-1 text-base">
+              <button class="tab-trigger rounded-full px-5 py-2 font-semibold bg-white text-black" data-target="growth-strategy">
+                Strategy
+              </button>
+              <button class="tab-trigger rounded-full px-5 py-2 font-semibold text-white/70 hover:text-white transition" data-target="growth-dashboard">
+                Dashboard
+              </button>
+            </div>
+            <span class="text-base text-white/70">Updated · moments ago</span>
+          </div>
+
+          <div id="growth-strategy" class="tab-panel space-y-12">
+            <div class="space-y-6">
+              <div class="flex flex-wrap items-start justify-between gap-6">
+                <div>
+                  <h2 class="text-2xl font-semibold">Strategy</h2>
+                </div>
+                <button
+                  type="button"
+                  class="growth-ai-trigger inline-flex items-center gap-2 rounded-full bg-emerald-500 px-5 py-2.5 text-base font-semibold text-night shadow-lg hover:bg-emerald-400 transition"
+                  data-label="Strategy overview"
+                >
+                  <span class="inline-block h-2 w-2 rounded-full bg-white animate-pulse"></span>
+                  Genie tip
+                </button>
+              </div>
+
+              <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+                <div class="relative rounded-3xl bg-gradient-to-br from-emerald-400/30 via-emerald-400/10 to-transparent p-6 space-y-4">
+                  <div class="flex items-start justify-between gap-3">
+                    <div>
+                      <p class="text-lg font-semibold text-white">Acquisition</p>
+                    </div>
+                    <button
+                      type="button"
+                      class="growth-ai-trigger inline-flex items-center gap-2 rounded-full bg-emerald-500/90 px-3.5 py-1.5 text-xs font-semibold text-night shadow-sm hover:bg-emerald-400 transition"
+                      data-label="Acquisition"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v3m0 12v3m9-9h-3M6 12H3m15.364 6.364-2.121-2.121M8.757 8.757 6.636 6.636m12.728 0-2.121 2.121M8.757 15.243l-2.121 2.121" />
+                      </svg>
+                      Genie tip
+                    </button>
+                  </div>
+                  <ul class="space-y-3 text-base text-white/80">
+                    <li>Chef counter livestream retargeting pushes 180 warm viewers into SMS.</li>
+                    <li>DoorDash bundles feature "study break" upsell after 8:30p.</li>
+                  </ul>
+                </div>
+                <div class="relative rounded-3xl bg-gradient-to-br from-cyan-400/30 via-cyan-400/10 to-transparent p-6 space-y-4">
+                  <div class="flex items-start justify-between gap-3">
+                    <div>
+                      <p class="text-lg font-semibold text-white">Conversion</p>
+                    </div>
+                    <button
+                      type="button"
+                      class="growth-ai-trigger inline-flex items-center gap-2 rounded-full bg-emerald-500/90 px-3.5 py-1.5 text-xs font-semibold text-night shadow-sm hover:bg-emerald-400 transition"
+                      data-label="Conversion"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v3m0 12v3m9-9h-3M6 12H3m15.364 6.364-2.121-2.121M8.757 8.757 6.636 6.636m12.728 0-2.121 2.121M8.757 15.243l-2.121 2.121" />
+                      </svg>
+                      Genie tip
+                    </button>
+                  </div>
+                  <ul class="space-y-3 text-base text-white/80">
+                    <li>Two-tap waitlist upsell shows chef specials when queue > 20 minutes.</li>
+                    <li>Tablets prompt add-ons when guests scan QR for midnight dessert.</li>
+                  </ul>
+                </div>
+                <div class="relative rounded-3xl bg-gradient-to-br from-violet-400/30 via-violet-400/10 to-transparent p-6 space-y-4">
+                  <div class="flex items-start justify-between gap-3">
+                    <div>
+                      <p class="text-lg font-semibold text-white">Retention</p>
+                    </div>
+                    <button
+                      type="button"
+                      class="growth-ai-trigger inline-flex items-center gap-2 rounded-full bg-emerald-500/90 px-3.5 py-1.5 text-xs font-semibold text-night shadow-sm hover:bg-emerald-400 transition"
+                      data-label="Retention"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v3m0 12v3m9-9h-3M6 12H3m15.364 6.364-2.121-2.121M8.757 8.757 6.636 6.636m12.728 0-2.121 2.121M8.757 15.243l-2.121 2.121" />
+                      </svg>
+                      Genie tip
+                    </button>
+                  </div>
+                  <ul class="space-y-3 text-base text-white/80">
+                    <li>Loyalty SMS triggers 72-hour bounceback with "bring a friend" reward.</li>
+                    <li>Personalized DM check-ins from Chef Bee every Friday afternoon.</li>
+                  </ul>
+                </div>
+                <div class="relative rounded-3xl bg-gradient-to-br from-amber-400/30 via-amber-400/10 to-transparent p-6 space-y-4">
+                  <div class="flex items-start justify-between gap-3">
+                    <div>
+                      <p class="text-lg font-semibold text-white">Expansion</p>
+                    </div>
+                    <button
+                      type="button"
+                      class="growth-ai-trigger inline-flex items-center gap-2 rounded-full bg-emerald-500/90 px-3.5 py-1.5 text-xs font-semibold text-night shadow-sm hover:bg-emerald-400 transition"
+                      data-label="Expansion"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v3m0 12v3m9-9h-3M6 12H3m15.364 6.364-2.121-2.121M8.757 8.757 6.636 6.636m12.728 0-2.121 2.121M8.757 15.243l-2.121 2.121" />
+                      </svg>
+                      Genie tip
+                    </button>
+                  </div>
+                  <ul class="space-y-3 text-base text-white/80">
+                    <li>Night Market pop-up queue with live ordering kiosk test.</li>
+                    <li>Corporate catering sampler drops to tech offices on Tuesdays.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid gap-6 lg:grid-cols-[1.1fr,0.9fr]">
+              <div class="rounded-3xl bg-white/10 p-8 backdrop-blur-sm space-y-6">
+                <div class="flex items-center justify-between">
+                  <h3 class="text-xl font-semibold">Plays in motion</h3>
+                  <span class="text-base text-white/70">Live + scheduled</span>
+                </div>
+                <div class="grid gap-4 sm:grid-cols-2 text-base text-white/80">
+                  <div class="rounded-2xl bg-emerald-400/15 p-5">
+                    <p class="text-sm uppercase tracking-wide text-white/65">This week</p>
+                    <p class="mt-3 text-lg font-semibold">Chef counter livestream</p>
+                    <p class="mt-2 text-white/60">Target: 25 bookings</p>
+                  </div>
+                  <div class="rounded-2xl bg-cyan-400/15 p-5">
+                    <p class="text-sm uppercase tracking-wide text-white/65">Next</p>
+                    <p class="mt-3 text-lg font-semibold">UW finals comfort tour</p>
+                    <p class="mt-2 text-white/60">Covers goal: 320</p>
+                  </div>
+                  <div class="rounded-2xl bg-violet-400/15 p-5">
+                    <p class="text-sm uppercase tracking-wide text-white/65">Testing</p>
+                    <p class="mt-3 text-lg font-semibold">Night market pre-orders</p>
+                    <p class="mt-2 text-white/60">40 orders to greenlight</p>
+                  </div>
+                  <div class="rounded-2xl bg-amber-400/20 p-5">
+                    <p class="text-sm uppercase tracking-wide text-white/65">Pipeline</p>
+                    <p class="mt-3 text-lg font-semibold">Tech catering pilots</p>
+                    <p class="mt-2 text-white/60">3 proposals pending</p>
+                  </div>
+                </div>
+              </div>
+
+              <aside class="rounded-3xl bg-white/10 p-8 backdrop-blur-sm space-y-5">
+                <div class="flex items-center justify-between">
+                  <h3 class="text-xl font-semibold">AI insights</h3>
+                  <span class="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-1.5 text-sm text-white/75">
+                    <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+                    Synced
+                  </span>
+                </div>
+                <ul class="space-y-3 text-base text-white/80">
+                  <li class="flex items-start gap-3">
+                    <span class="mt-1 h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
+                    Add SMS bounceback for guests who order delivery twice in a week.
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="mt-1 h-2.5 w-2.5 rounded-full bg-cyan-400"></span>
+                    Model 24-hour prep plan for finals late-night service.
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="mt-1 h-2.5 w-2.5 rounded-full bg-violet-400"></span>
+                    Stand up referral tracker for student organizations.
+                  </li>
+                </ul>
+              </aside>
+            </div>
+          </div>
+
+          <div id="growth-dashboard" class="tab-panel hidden space-y-10">
+            <div class="grid gap-6 md:grid-cols-4">
+              <div class="rounded-3xl bg-white/5 p-7 text-center shadow-[0_18px_30px_-25px_rgba(16,185,129,0.4)]">
+                <p class="text-base text-white/70">Dining covers</p>
+                <p class="mt-3 text-3xl font-semibold">186</p>
+                <p class="mt-2 text-base text-emerald-300">+12 vs last week</p>
+              </div>
+              <div class="rounded-3xl bg-white/5 p-7 text-center shadow-[0_18px_30px_-25px_rgba(6,182,212,0.35)]">
+                <p class="text-base text-white/70">Delivery rev</p>
+                <p class="mt-3 text-3xl font-semibold">$14.8k</p>
+                <p class="mt-2 text-base text-emerald-300">+9% trailing 7d</p>
+              </div>
+              <div class="rounded-3xl bg-white/5 p-7 text-center shadow-[0_18px_30px_-25px_rgba(129,140,248,0.35)]">
+                <p class="text-base text-white/70">Pipeline deals</p>
+                <p class="mt-3 text-3xl font-semibold">7</p>
+                <p class="mt-2 text-base text-emerald-300">3 near close</p>
+              </div>
+              <div class="rounded-3xl bg-white/5 p-7 text-center shadow-[0_18px_30px_-25px_rgba(245,158,11,0.35)]">
+                <p class="text-base text-white/70">Repeat rate</p>
+                <p class="mt-3 text-3xl font-semibold">28%</p>
+                <p class="mt-2 text-base text-emerald-300">+4 pts MOM</p>
+              </div>
+            </div>
+
+            <div class="grid gap-6 lg:grid-cols-[1.05fr,0.95fr]">
+              <div class="rounded-3xl bg-white/10 p-8 backdrop-blur-sm space-y-6">
+                <div class="flex items-center justify-between">
+                  <h3 class="text-xl font-semibold">Flow lane</h3>
+                  <span class="text-sm text-white/70">Goal track</span>
+                </div>
+                <div class="space-y-5 text-base text-white/80">
+                  <div class="flex items-center justify-between gap-4">
+                    <div>
+                      <p class="font-semibold text-white/85">Awareness</p>
+                      <p class="text-sm text-white/60">Paid + organic blend</p>
+                    </div>
+                    <div class="flex-1 h-2 rounded-full bg-white/10">
+                      <div class="h-2 rounded-full bg-emerald-300" style="width: 76%"></div>
+                    </div>
+                    <span class="text-sm text-white/70">Target 80%</span>
+                  </div>
+                  <div class="flex items-center justify-between gap-4">
+                    <div>
+                      <p class="font-semibold text-white/85">Booking</p>
+                      <p class="text-sm text-white/60">Reservations + walk-ins</p>
+                    </div>
+                    <div class="flex-1 h-2 rounded-full bg-white/10">
+                      <div class="h-2 rounded-full bg-emerald-300" style="width: 62%"></div>
+                    </div>
+                    <span class="text-sm text-white/70">Target 75%</span>
+                  </div>
+                  <div class="flex items-center justify-between gap-4">
+                    <div>
+                      <p class="font-semibold text-white/85">Repeat</p>
+                      <p class="text-sm text-white/60">Loyalty + SMS</p>
+                    </div>
+                    <div class="flex-1 h-2 rounded-full bg-white/10">
+                      <div class="h-2 rounded-full bg-emerald-300" style="width: 81%"></div>
+                    </div>
+                    <span class="text-sm text-white/70">Target 85%</span>
+                  </div>
+                </div>
+                <div class="rounded-2xl bg-white/10 p-5 text-base text-white/80">
+                  <p class="font-semibold text-white">Next actions</p>
+                  <ul class="mt-3 space-y-2">
+                    <li class="flex items-start gap-2">
+                      <span class="mt-1 h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
+                      Launch waitlist upsell test for 10pm rush on Thursday.
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <span class="mt-1 h-2.5 w-2.5 rounded-full bg-cyan-400"></span>
+                      Nudge catering prospects with chef tasting invite follow-up.
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <span class="mt-1 h-2.5 w-2.5 rounded-full bg-violet-400"></span>
+                      Pull loyalty churn list for personal outreach cadence.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <aside class="rounded-3xl bg-white/10 p-8 backdrop-blur-sm space-y-6">
+                <div class="flex items-center justify-between">
+                  <h3 class="text-xl font-semibold">Dashboard signals</h3>
+                  <span class="text-sm text-white/70">Ping · 5m ago</span>
+                </div>
+                <ul class="space-y-4 text-base text-white/80">
+                  <li class="flex items-center justify-between gap-4">
+                    <span>Late night wait time</span>
+                    <span class="rounded-full bg-white/10 px-3 py-1 text-sm">7 min</span>
+                  </li>
+                  <li class="flex items-center justify-between gap-4">
+                    <span>Average check size</span>
+                    <span class="rounded-full bg-white/10 px-3 py-1 text-sm">$27.40</span>
+                  </li>
+                  <li class="flex items-center justify-between gap-4">
+                    <span>Delivery bundles sold</span>
+                    <span class="rounded-full bg-white/10 px-3 py-1 text-sm">64</span>
+                  </li>
+                  <li class="flex items-center justify-between gap-4">
+                    <span>Events pipeline</span>
+                    <span class="rounded-full bg-white/10 px-3 py-1 text-sm">5 warm</span>
+                  </li>
+                </ul>
+              </aside>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div id="growth-ai-menu" class="hidden fixed z-50 w-60 rounded-2xl border border-white/15 bg-[#06101a] p-4 text-sm shadow-2xl">
+      <p class="text-xs uppercase tracking-wide text-white/50">Genie focus</p>
+      <p id="growth-menu-context" class="mt-1 text-sm font-semibold text-white"></p>
+      <div class="mt-4 space-y-2">
+        <button class="growth-menu-option flex w-full items-center gap-2 rounded-xl bg-white/10 px-3 py-2 text-left text-white/80 hover:bg-white/20 transition" data-action="learn">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M5 7h14M5 12h14M5 17h14" />
+          </svg>
+          Learn more
+        </button>
+        <button class="growth-menu-option flex w-full items-center gap-2 rounded-xl bg-white/10 px-3 py-2 text-left text-white/80 hover:bg-white/20 transition" data-action="add">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 5v14m7-7H5" />
+          </svg>
+          Add to strategy
+        </button>
+        <button class="growth-menu-option flex w-full items-center gap-2 rounded-xl bg-white/10 px-3 py-2 text-left text-white/80 hover:bg-white/20 transition" data-action="experiment">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M7 4h10m-8 0v5l-3 6h12l-3-6V4" />
+          </svg>
+          Draft experiment
+        </button>
+      </div>
+    </div>
+
+    <script>
+      const growthTabs = document.querySelectorAll('.tab-trigger');
+      const growthPanels = document.querySelectorAll('.tab-panel');
+      growthTabs.forEach((button) => {
+        button.addEventListener('click', () => {
+          growthTabs.forEach((btn) => btn.classList.remove('bg-white', 'text-black', 'text-white/70'));
+          button.classList.add('bg-white', 'text-black');
+          growthTabs.forEach((btn) => btn !== button && btn.classList.add('text-white/70'));
+          growthPanels.forEach((panel) => {
+            if (panel.id === button.dataset.target) {
+              panel.classList.remove('hidden');
+            } else {
+              panel.classList.add('hidden');
+            }
+          });
+        });
+      });
+
+      const growthMenu = document.getElementById('growth-ai-menu');
+      const growthMenuContext = document.getElementById('growth-menu-context');
+      const growthTriggers = document.querySelectorAll('.growth-ai-trigger');
+      let growthActiveTrigger = null;
+      let growthLastCoords = null;
+
+      function positionGrowthMenu(coords) {
+        const offset = 12;
+        requestAnimationFrame(() => {
+          const { innerWidth, innerHeight, scrollX, scrollY } = window;
+          const menuWidth = growthMenu.offsetWidth;
+          const menuHeight = growthMenu.offsetHeight;
+
+          let left = coords.x + scrollX - menuWidth / 2;
+          let top = coords.y + scrollY + offset;
+
+          const minLeft = scrollX + 16;
+          const maxLeft = scrollX + innerWidth - menuWidth - 16;
+          left = Math.min(Math.max(left, minLeft), maxLeft);
+
+          const minTop = scrollY + 16;
+          const maxTop = scrollY + innerHeight - menuHeight - 16;
+          top = Math.min(Math.max(top, minTop), maxTop);
+
+          growthMenu.style.left = `${left}px`;
+          growthMenu.style.top = `${top}px`;
+        });
+      }
+
+      function showGrowthMenu(coords) {
+        growthMenu.classList.remove('hidden');
+        growthMenu.style.display = 'block';
+        growthLastCoords = coords;
+        positionGrowthMenu(coords);
+      }
+
+      function hideGrowthMenu() {
+        growthMenu.classList.add('hidden');
+        growthMenu.style.display = 'none';
+        growthActiveTrigger = null;
+        growthLastCoords = null;
+      }
+
+      growthTriggers.forEach((trigger) => {
+        trigger.addEventListener('click', (event) => {
+          event.stopPropagation();
+          const label = trigger.dataset.label || 'Strategy';
+          growthMenuContext.textContent = label;
+          growthActiveTrigger = trigger;
+          showGrowthMenu({ x: event.clientX, y: event.clientY });
+        });
+      });
+
+      document.addEventListener('click', (event) => {
+        if (!growthMenu.contains(event.target)) {
+          hideGrowthMenu();
+        }
+      });
+
+      const growthOptions = document.querySelectorAll('.growth-menu-option');
+      growthOptions.forEach((option) => {
+        option.addEventListener('click', () => {
+          const action = option.dataset.action;
+          const messages = {
+            learn: 'Genie is pulling more signal detail.',
+            add: 'Added to your growth strategy plan.',
+            experiment: 'Experiment card drafted in Experiments.',
+          };
+          alert(messages[action] || 'Genie is thinking...');
+          hideGrowthMenu();
+        });
+      });
+
+      window.addEventListener('resize', () => {
+        if (!growthMenu.classList.contains('hidden') && growthLastCoords) {
+          positionGrowthMenu(growthLastCoords);
+        }
+      });
+    </script>
+  </body>
+</html>

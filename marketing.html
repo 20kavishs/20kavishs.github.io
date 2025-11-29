@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Genie | Marketing</title>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              script: ['"Pacifico"', '"Allura"', 'cursive'],
+              sans: ['"Manrope"', 'system-ui', 'sans-serif'],
+            },
+            colors: {
+              night: '#070711',
+              surface: 'rgba(18, 21, 36, 0.65)',
+              outline: 'rgba(255,255,255,0.12)',
+            },
+          },
+        },
+      };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Allura&family=Manrope:wght@400;500;600;700&family=Pacifico&display=swap"
+    />
+    <style>
+      body {
+        background: radial-gradient(circle at top left, rgba(244, 114, 182, 0.18), transparent 45%),
+          radial-gradient(circle at top right, rgba(56, 189, 248, 0.14), transparent 50%), #050508;
+      }
+
+      .font-script {
+        font-family: 'Pacifico', 'Allura', cursive !important;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen bg-night text-white font-sans">
+    <div class="min-h-screen flex flex-col px-6 md:px-12 py-10">
+      <header class="flex items-start justify-between">
+        <div class="space-y-4">
+          <button
+            onclick="window.location.href='demo.html'"
+            class="inline-flex items-center justify-center w-11 h-11 rounded-full border border-white/25 bg-white/5 text-white hover:border-white/60 transition"
+            aria-label="Back to apps"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <div class="text-5xl md:text-6xl font-script leading-none text-white tracking-wide">genie</div>
+        </div>
+        <div class="text-right">
+          <p class="text-lg md:text-xl font-medium text-white/80">Your AI business advisor</p>
+        </div>
+      </header>
+
+      <main class="flex-1 py-10 flex flex-col gap-12">
+        <section class="max-w-4xl">
+          <h1 class="text-5xl md:text-6xl font-light">Marketing</h1>
+          <p class="mt-3 text-lg text-white/70">Optimize your outreach.</p>
+        </section>
+
+        <section class="space-y-12">
+          <div class="flex flex-wrap items-center justify-between gap-4">
+            <div class="inline-flex rounded-full bg-white/5 p-1 text-base">
+              <button class="tab-trigger rounded-full px-5 py-2 font-semibold bg-white text-black" data-target="marketing-strategy">
+                Strategy
+              </button>
+              <button class="tab-trigger rounded-full px-5 py-2 font-semibold text-white/70 hover:text-white transition" data-target="marketing-dashboard">
+                Dashboard
+              </button>
+            </div>
+            <span class="text-base text-white/70">Last refreshed · 3 minutes ago</span>
+          </div>
+
+          <div id="marketing-strategy" class="tab-panel space-y-12">
+            <div class="space-y-6">
+              <div class="flex flex-wrap items-start justify-between gap-6">
+                <div>
+                  <h2 class="text-2xl font-semibold">Strategy</h2>
+                </div>
+                <button
+                  type="button"
+                  class="ai-trigger inline-flex items-center gap-2 rounded-full bg-emerald-500 px-5 py-2.5 text-base font-semibold text-night shadow-lg hover:bg-emerald-400 transition"
+                  data-marketing-ai="overview"
+                  data-label="Strategy overview"
+                >
+                  <span class="inline-block h-2 w-2 rounded-full bg-white animate-pulse"></span>
+                  Genie tip
+                </button>
+              </div>
+
+              <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+                <div class="relative rounded-3xl bg-gradient-to-br from-fuchsia-500/25 via-fuchsia-500/10 to-transparent p-6 space-y-4">
+                  <div class="flex items-start justify-between gap-3">
+                    <div>
+                      <p class="text-lg font-semibold text-white">Social Media</p>
+                    </div>
+                    <button
+                      type="button"
+                      class="ai-trigger inline-flex items-center gap-2 rounded-full bg-emerald-500/90 px-3.5 py-1.5 text-xs font-semibold text-night shadow-sm hover:bg-emerald-400 transition"
+                      data-marketing-ai="social"
+                      data-label="Social media"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v3m0 12v3m9-9h-3M6 12H3m15.364 6.364l-2.121-2.121M8.757 8.757 6.636 6.636m12.728 0-2.121 2.121M8.757 15.243l-2.121 2.121" />
+                      </svg>
+                      Genie tip
+                    </button>
+                  </div>
+                  <ul class="space-y-3 text-base text-white/80">
+                    <li>Night Market teaser reel + duet reply to top comment.</li>
+                    <li>Campus study break poll layered with finals countdown sticker.</li>
+                  </ul>
+                </div>
+                <div class="relative rounded-3xl bg-gradient-to-br from-sky-400/25 via-sky-400/10 to-transparent p-6 space-y-4">
+                  <div class="flex items-start justify-between gap-3">
+                    <div>
+                      <p class="text-lg font-semibold text-white">Community</p>
+                    </div>
+                    <button
+                      type="button"
+                      class="ai-trigger inline-flex items-center gap-2 rounded-full bg-emerald-500/90 px-3.5 py-1.5 text-xs font-semibold text-night shadow-sm hover:bg-emerald-400 transition"
+                      data-marketing-ai="community"
+                      data-label="Community"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v3m0 12v3m9-9h-3M6 12H3m15.364 6.364l-2.121-2.121M8.757 8.757 6.636 6.636m12.728 0-2.121 2.121M8.757 15.243l-2.121 2.121" />
+                      </svg>
+                      Genie tip
+                    </button>
+                  </div>
+                  <ul class="space-y-3 text-base text-white/80">
+                    <li>Superfan text loop with "unlock a chef story" responses.</li>
+                    <li>Discord drop: finals survival kit with live Q&A slot poll.</li>
+                  </ul>
+                </div>
+                <div class="relative rounded-3xl bg-gradient-to-br from-emerald-400/25 via-emerald-400/10 to-transparent p-6 space-y-4">
+                  <div class="flex items-start justify-between gap-3">
+                    <div>
+                      <p class="text-lg font-semibold text-white">Loyalty</p>
+                    </div>
+                    <button
+                      type="button"
+                      class="ai-trigger inline-flex items-center gap-2 rounded-full bg-emerald-500/90 px-3.5 py-1.5 text-xs font-semibold text-night shadow-sm hover:bg-emerald-400 transition"
+                      data-marketing-ai="loyalty"
+                      data-label="Loyalty"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v3m0 12v3m9-9h-3M6 12H3m15.364 6.364l-2.121-2.121M8.757 8.757 6.636 6.636m12.728 0-2.121 2.121M8.757 15.243l-2.121 2.121" />
+                      </svg>
+                      Genie tip
+                    </button>
+                  </div>
+                  <ul class="space-y-3 text-base text-white/80">
+                    <li>72-hour bounceback SMS with auto-loaded dessert add-on.</li>
+                    <li>Segmented email spotlighting "study buddy" table bundles.</li>
+                  </ul>
+                </div>
+                <div class="relative rounded-3xl bg-gradient-to-br from-amber-400/30 via-amber-400/10 to-transparent p-6 space-y-4">
+                  <div class="flex items-start justify-between gap-3">
+                    <div>
+                      <p class="text-lg font-semibold text-white">Partnerships</p>
+                    </div>
+                    <button
+                      type="button"
+                      class="ai-trigger inline-flex items-center gap-2 rounded-full bg-emerald-500/90 px-3.5 py-1.5 text-xs font-semibold text-night shadow-sm hover:bg-emerald-400 transition"
+                      data-marketing-ai="partnerships"
+                      data-label="Partnerships"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v3m0 12v3m9-9h-3M6 12H3m15.364 6.364l-2.121-2.121M8.757 8.757 6.636 6.636m12.728 0-2.121 2.121M8.757 15.243l-2.121 2.121" />
+                      </svg>
+                      Genie tip
+                    </button>
+                  </div>
+                  <ul class="space-y-3 text-base text-white/80">
+                    <li>Co-host late-night cram bar with Hugo House writing center.</li>
+                    <li>Table topper swaps with Night Market vendors for cross-plug.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid gap-6 lg:grid-cols-[1.15fr,0.85fr]">
+              <div class="space-y-6">
+                <div class="rounded-3xl bg-white/10 p-7 backdrop-blur-sm">
+                  <div class="flex items-center justify-between">
+                    <h3 class="text-xl font-semibold">AI insights</h3>
+                    <span class="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-1.5 text-sm text-white/75">
+                      <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+                      Synced 2m ago
+                    </span>
+                  </div>
+                  <ul class="mt-5 space-y-3 text-base text-white/80">
+                    <li class="flex gap-3">
+                      <span class="mt-1 h-2.5 w-2.5 rounded-full bg-rose-400"></span>
+                      TikTok replies mentioning "study" correlate with +18% late-night orders — double down on finals framing this week.
+                    </li>
+                    <li class="flex gap-3">
+                      <span class="mt-1 h-2.5 w-2.5 rounded-full bg-sky-400"></span>
+                      Organic press pitches with "community kitchen" angle see 3× email opens compared to generic restaurant updates.
+                    </li>
+                    <li class="flex gap-3">
+                      <span class="mt-1 h-2.5 w-2.5 rounded-full bg-amber-400"></span>
+                      Guests redeeming QR queue offers are 42% more likely to join SMS — cue an extra bounceback for that segment.
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="rounded-3xl bg-white/10 p-7 backdrop-blur-sm">
+                  <div class="flex items-center justify-between">
+                    <h3 class="text-xl font-semibold">Channel board</h3>
+                    <span class="text-sm text-white/70">Week of May 13</span>
+                  </div>
+                  <div class="mt-5 grid gap-4 sm:grid-cols-2 text-base text-white/80">
+                    <div class="rounded-2xl bg-white/10 p-5 space-y-2">
+                      <p class="text-sm uppercase tracking-wide text-white/60">Social</p>
+                      <p class="text-lg font-semibold">Midnight Market hype</p>
+                      <p class="text-white/60">Reel + duet chain, publish Wed 7p.</p>
+                    </div>
+                    <div class="rounded-2xl bg-white/10 p-5 space-y-2">
+                      <p class="text-sm uppercase tracking-wide text-white/60">Email</p>
+                      <p class="text-lg font-semibold">Study buddy bundles</p>
+                      <p class="text-white/60">Segment: loyalty tiers A/B.</p>
+                    </div>
+                    <div class="rounded-2xl bg-white/10 p-5 space-y-2">
+                      <p class="text-sm uppercase tracking-wide text-white/60">PR</p>
+                      <p class="text-lg font-semibold">Night Market preview</p>
+                      <p class="text-white/60">Media list locked · send Tue 9a.</p>
+                    </div>
+                    <div class="rounded-2xl bg-white/10 p-5 space-y-2">
+                      <p class="text-sm uppercase tracking-wide text-white/60">Community</p>
+                      <p class="text-lg font-semibold">Superfan check-in</p>
+                      <p class="text-white/60">Voice memo drop Friday noon.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <aside class="rounded-3xl bg-white/10 p-7 space-y-5 backdrop-blur-sm">
+                <div class="flex items-center justify-between">
+                  <h3 class="text-xl font-semibold">Collab tracker</h3>
+                  <span class="text-sm text-white/70">3 active threads</span>
+                </div>
+                <ul class="space-y-4 text-base text-white/80">
+                  <li class="rounded-2xl bg-white/10 p-4">
+                    <div class="flex items-center justify-between">
+                      <p class="font-semibold text-white/85">UW Esports Lounge</p>
+                      <span class="rounded-full bg-emerald-400/20 px-3 py-1 text-sm text-emerald-200">Go</span>
+                    </div>
+                    <p class="mt-2 text-white/65">Finals watch party locked; promo kit queued.</p>
+                  </li>
+                  <li class="rounded-2xl bg-white/10 p-4">
+                    <div class="flex items-center justify-between">
+                      <p class="font-semibold text-white/85">Seattle Night Market</p>
+                      <span class="rounded-full bg-amber-400/20 px-3 py-1 text-sm text-amber-200">Prep</span>
+                    </div>
+                    <p class="mt-2 text-white/65">Menu signed off; signage proof arrives Wednesday.</p>
+                  </li>
+                  <li class="rounded-2xl bg-white/10 p-4">
+                    <div class="flex items-center justify-between">
+                      <p class="font-semibold text-white/85">Chef Bee podcast</p>
+                      <span class="rounded-full bg-rose-400/20 px-3 py-1 text-sm text-rose-200">Pitch</span>
+                    </div>
+                    <p class="mt-2 text-white/65">Outline drafted; awaiting producer notes.</p>
+                  </li>
+                </ul>
+              </aside>
+            </div>
+          </div>
+
+          <div id="marketing-dashboard" class="tab-panel hidden space-y-10">
+            <div class="grid gap-6 md:grid-cols-4">
+              <div class="rounded-3xl bg-white/5 p-7 text-center shadow-[0_18px_30px_-25px_rgba(244,114,182,0.45)]">
+                <p class="text-base text-white/70">Reach lift</p>
+                <p class="mt-3 text-3xl font-semibold">+18%</p>
+                <p class="mt-2 text-base text-emerald-300">vs last 7 days</p>
+              </div>
+              <div class="rounded-3xl bg-white/5 p-7 text-center shadow-[0_18px_30px_-25px_rgba(56,189,248,0.4)]">
+                <p class="text-base text-white/70">New subscribers</p>
+                <p class="mt-3 text-3xl font-semibold">312</p>
+                <p class="mt-2 text-base text-emerald-300">SMS + email</p>
+              </div>
+              <div class="rounded-3xl bg-white/5 p-7 text-center shadow-[0_18px_30px_-25px_rgba(16,185,129,0.35)]">
+                <p class="text-base text-white/70">Press momentum</p>
+                <p class="mt-3 text-3xl font-semibold">6</p>
+                <p class="mt-2 text-base text-emerald-300">Features in flight</p>
+              </div>
+              <div class="rounded-3xl bg-white/5 p-7 text-center shadow-[0_18px_30px_-25px_rgba(251,191,36,0.35)]">
+                <p class="text-base text-white/70">Promo ROI</p>
+                <p class="mt-3 text-3xl font-semibold">3.4×</p>
+                <p class="mt-2 text-base text-emerald-300">Trailing 14d</p>
+              </div>
+            </div>
+
+            <div class="grid gap-6 lg:grid-cols-[1.1fr,0.9fr]">
+              <div class="rounded-3xl bg-white/5 p-8 space-y-6">
+                <div class="flex items-center justify-between">
+                  <h3 class="text-xl font-semibold">Dashboard view</h3>
+                  <span class="text-sm text-white/70">Auto-updated hourly</span>
+                </div>
+                <div class="space-y-4 text-base text-white/80">
+                  <div class="flex items-center justify-between gap-4">
+                    <div>
+                      <p class="font-semibold text-white/85">Organic</p>
+                      <p class="text-sm text-white/60">Reach + saves</p>
+                    </div>
+                    <div class="flex-1 h-2 rounded-full bg-white/10">
+                      <div class="h-2 rounded-full bg-fuchsia-400" style="width: 74%"></div>
+                    </div>
+                    <span class="text-sm text-white/70">Goal 80%</span>
+                  </div>
+                  <div class="flex items-center justify-between gap-4">
+                    <div>
+                      <p class="font-semibold text-white/85">Paid</p>
+                      <p class="text-sm text-white/60">Spend vs plan</p>
+                    </div>
+                    <div class="flex-1 h-2 rounded-full bg-white/10">
+                      <div class="h-2 rounded-full bg-sky-400" style="width: 61%"></div>
+                    </div>
+                    <span class="text-sm text-white/70">Goal 70%</span>
+                  </div>
+                  <div class="flex items-center justify-between gap-4">
+                    <div>
+                      <p class="font-semibold text-white/85">Community</p>
+                      <p class="text-sm text-white/60">DMs + replies</p>
+                    </div>
+                    <div class="flex-1 h-2 rounded-full bg-white/10">
+                      <div class="h-2 rounded-full bg-emerald-400" style="width: 88%"></div>
+                    </div>
+                    <span class="text-sm text-white/70">Goal 90%</span>
+                  </div>
+                </div>
+                <div class="rounded-2xl bg-white/10 p-5 text-base text-white/80">
+                  <p class="font-semibold text-white">Upcoming checks</p>
+                  <ul class="mt-3 space-y-2">
+                    <li class="flex items-start gap-2">
+                      <span class="mt-1 h-2.5 w-2.5 rounded-full bg-sky-400"></span>
+                      Refresh influencer list with finals-specific voices.
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <span class="mt-1 h-2.5 w-2.5 rounded-full bg-rose-400"></span>
+                      Review CTA variants for Midnight Market landing page.
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <span class="mt-1 h-2 w-2 rounded-full bg-emerald-400"></span>
+                      Tag new SMS signups with "study" interest cluster.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <aside class="rounded-3xl bg-white/5 p-7 space-y-5">
+                <div class="flex items-center justify-between">
+                  <h3 class="text-xl font-semibold">Signals</h3>
+                  <span class="text-xs text-white/60">Latest ping · 9:12p</span>
+                </div>
+                <ul class="space-y-4 text-base text-white/80">
+                  <li class="flex items-center justify-between gap-4">
+                    <span>PR mentions</span>
+                    <span class="rounded-full bg-white/10 px-3 py-1 text-xs">3 live</span>
+                  </li>
+                  <li class="flex items-center justify-between gap-4">
+                    <span>Influencer posts</span>
+                    <span class="rounded-full bg-white/10 px-3 py-1 text-xs">7 scheduled</span>
+                  </li>
+                  <li class="flex items-center justify-between gap-4">
+                    <span>Email CTR</span>
+                    <span class="rounded-full bg-white/10 px-3 py-1 text-xs">5.4%</span>
+                  </li>
+                  <li class="flex items-center justify-between gap-4">
+                    <span>Event RSVPs</span>
+                    <span class="rounded-full bg-white/10 px-3 py-1 text-xs">42</span>
+                  </li>
+                </ul>
+              </aside>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div id="marketing-ai-menu" class="hidden fixed z-50 w-60 rounded-2xl border border-white/15 bg-[#080912] p-4 text-sm shadow-2xl">
+      <p class="text-xs uppercase tracking-wide text-white/50">Genie focus</p>
+      <p id="marketing-menu-context" class="mt-1 text-sm font-semibold text-white"></p>
+      <div class="mt-4 space-y-2">
+        <button class="menu-option flex w-full items-center gap-2 rounded-xl bg-white/10 px-3 py-2 text-left text-white/80 hover:bg-white/20 transition" data-action="learn">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M5 7h14M5 12h14M5 17h14" />
+          </svg>
+          Learn more
+        </button>
+        <button class="menu-option flex w-full items-center gap-2 rounded-xl bg-white/10 px-3 py-2 text-left text-white/80 hover:bg-white/20 transition" data-action="add">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 5v14m7-7H5" />
+          </svg>
+          Add to strategy
+        </button>
+        <button class="menu-option flex w-full items-center gap-2 rounded-xl bg-white/10 px-3 py-2 text-left text-white/80 hover:bg-white/20 transition" data-action="experiment">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M7 4h10m-8 0v5l-3 6h12l-3-6V4" />
+          </svg>
+          Draft experiment
+        </button>
+      </div>
+    </div>
+
+    <script>
+      const tabButtons = document.querySelectorAll('.tab-trigger');
+      const panels = document.querySelectorAll('.tab-panel');
+      tabButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          tabButtons.forEach((btn) => btn.classList.remove('bg-white', 'text-black', 'text-white/70'));
+          button.classList.add('bg-white', 'text-black');
+          tabButtons.forEach((btn) => btn !== button && btn.classList.add('text-white/70'));
+          panels.forEach((panel) => {
+            if (panel.id === button.dataset.target) {
+              panel.classList.remove('hidden');
+            } else {
+              panel.classList.add('hidden');
+            }
+          });
+        });
+      });
+
+      const marketingMenu = document.getElementById('marketing-ai-menu');
+      const marketingContext = document.getElementById('marketing-menu-context');
+      const marketingTriggers = document.querySelectorAll('.ai-trigger');
+      let marketingActiveTrigger = null;
+      let marketingLastCoords = null;
+
+      function positionMenuAtCursor(menu, coords) {
+        const offset = 12;
+        requestAnimationFrame(() => {
+          const { innerWidth, innerHeight, scrollX, scrollY } = window;
+          const menuWidth = menu.offsetWidth;
+          const menuHeight = menu.offsetHeight;
+
+          let left = coords.x + scrollX - menuWidth / 2;
+          let top = coords.y + scrollY + offset;
+
+          const minLeft = scrollX + 16;
+          const maxLeft = scrollX + innerWidth - menuWidth - 16;
+          left = Math.min(Math.max(left, minLeft), maxLeft);
+
+          const minTop = scrollY + 16;
+          const maxTop = scrollY + innerHeight - menuHeight - 16;
+          top = Math.min(Math.max(top, minTop), maxTop);
+
+          menu.style.left = `${left}px`;
+          menu.style.top = `${top}px`;
+        });
+      }
+
+      function showMarketingMenu(coords) {
+        marketingMenu.classList.remove('hidden');
+        marketingMenu.style.display = 'block';
+        marketingLastCoords = coords;
+        positionMenuAtCursor(marketingMenu, coords);
+      }
+
+      function hideMarketingMenu() {
+        marketingMenu.classList.add('hidden');
+        marketingMenu.style.display = 'none';
+        marketingActiveTrigger = null;
+        marketingLastCoords = null;
+      }
+
+      marketingTriggers.forEach((trigger) => {
+        trigger.addEventListener('click', (event) => {
+          event.stopPropagation();
+          const label = trigger.dataset.label || 'Strategy';
+          marketingContext.textContent = label;
+          marketingActiveTrigger = trigger;
+          showMarketingMenu({ x: event.clientX, y: event.clientY });
+        });
+      });
+
+      document.addEventListener('click', (event) => {
+        if (!marketingMenu.contains(event.target)) {
+          hideMarketingMenu();
+        }
+      });
+
+      const marketingOptions = document.querySelectorAll('#marketing-ai-menu .menu-option');
+      marketingOptions.forEach((option) => {
+        option.addEventListener('click', () => {
+          const action = option.dataset.action;
+          const messages = {
+            learn: 'Genie is pulling more context for you.',
+            add: 'Added to your strategy queue.',
+            experiment: 'Experiment idea saved to Experiments.',
+          };
+          alert(messages[action] || 'Genie is thinking...');
+          hideMarketingMenu();
+        });
+      });
+
+      window.addEventListener('resize', () => {
+        if (!marketingMenu.classList.contains('hidden') && marketingLastCoords) {
+          positionMenuAtCursor(marketingMenu, marketingLastCoords);
+        }
+      });
+    </script>
+  </body>
+</html>
